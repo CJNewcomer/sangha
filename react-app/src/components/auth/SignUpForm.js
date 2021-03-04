@@ -95,9 +95,9 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         <label>Student</label>
         <input
           type="radio"
-          value="no"
+          value="false"
           name="is_teacher"
-          checked={isTeacher === false}
+          checked={isTeacher === "false"}
           onChange={updateIsTeacher}
           ></input>
       </div>
@@ -105,9 +105,9 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         <label>Teacher</label>
         <input
           type="radio"
-          value="yes"
+          value="true"
           name="is_teacher"
-          checked={isTeacher === true}
+          checked={isTeacher === "true"}
           onChange={updateIsTeacher}
         ></input>
       </div>
