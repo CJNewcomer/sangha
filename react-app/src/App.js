@@ -12,21 +12,21 @@ import SplashPage from "./components/SplashPage";
 
 // import redux
 import { authenticate } from "./services/auth";
-// import { setUser } from "./store/session";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
+
   useEffect(() => {
     (async() => {
       const user = await authenticate();
       if (!user.errors) {
-        setAuthenticated(true);
+        setAuthenticated(true)
       }
       setLoaded(true);
     })();
-  }, [setAuthenticated]);
+  }, []);
 
   if (!loaded) {
     return null;
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+      <NavBar authenticated={authenticated} setAuthenticated={setAuthenticated} />
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm
@@ -51,7 +51,7 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+        <ProtectedRoute path="/" exact={true} authenticated={authenticated} >
           <SplashPage />
         </ProtectedRoute>
       </Switch>
