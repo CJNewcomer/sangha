@@ -92,7 +92,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Teacher</label>
+        <label>Student</label>
         <input
           type="radio"
           value="no"
@@ -102,7 +102,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           ></input>
       </div>
       <div>
-        <label>Student</label>
+        <label>Teacher</label>
         <input
           type="radio"
           value="yes"
