@@ -8,6 +8,7 @@ def seed_users():
                 first_name='Demo',
                 last_name='McDemo',
                 email='demo@aa.io',
+                is_teacher=False,
                 password='password')
 
     db.session.add(demo)

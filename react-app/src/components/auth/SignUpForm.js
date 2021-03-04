@@ -7,7 +7,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [isTeacher, setIsTeacher] = useState("no");
+  const [isTeacher, setIsTeacher] = useState("false");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -97,7 +97,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           type="radio"
           value="no"
           name="is_teacher"
-          checked={isTeacher === "no"}
+          checked={isTeacher === false}
           onChange={updateIsTeacher}
           ></input>
       </div>
@@ -107,7 +107,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           type="radio"
           value="yes"
           name="is_teacher"
-          checked={isTeacher === "yes"}
+          checked={isTeacher === true}
           onChange={updateIsTeacher}
         ></input>
       </div>
