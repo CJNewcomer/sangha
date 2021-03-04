@@ -4,7 +4,10 @@ import { signUp } from '../../services/auth';
 
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [isTeacher, setIsTeacher] = useState("no");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -18,12 +21,24 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     }
   };
 
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
   const updateUsername = (e) => {
     setUsername(e.target.value);
   };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateIsTeacher = (e) => {
+    setIsTeacher(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -41,6 +56,24 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   return (
     <form onSubmit={onSignUp}>
       <div>
+        <label>First Name</label>
+        <input
+          type="text"
+          name="first_name"
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="last_name"
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
         <label>User Name</label>
         <input
           type="text"
@@ -56,6 +89,26 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           name="email"
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>Teacher</label>
+        <input
+          type="radio"
+          value="no"
+          name="is_teacher"
+          checked={isTeacher === "no"}
+          onChange={updateIsTeacher}
+          ></input>
+      </div>
+      <div>
+        <label>Student</label>
+        <input
+          type="radio"
+          value="yes"
+          name="is_teacher"
+          checked={isTeacher === "yes"}
+          onChange={updateIsTeacher}
         ></input>
       </div>
       <div>
