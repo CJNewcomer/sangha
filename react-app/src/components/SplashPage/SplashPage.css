@@ -1,0 +1,67 @@
+.background__container {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    vertical-align: bottom;
+    opacity: 85%;
+    margin: 0 auto;
+    background: center;
+}
+
+.background__container img {
+    position: absolute;
+    left: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes backgroundcontainerFadeInOut {
+    0% {
+        opacity: 1;
+    }
+    45% {
+        opacity: 1;
+    }
+    55% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.background__container img.top {
+    animation-name: backgroundcontainerFadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-direction: alternate;
+}
+
+.main__intro-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.splash__title {
+    text-align: center;
+    color: #EF476F;
+}
+
+.sanskrit__title {
+    text-align: center;
+    color: #EF476F;
+}
+
+.welcome__title {
+    text-align: center;
+    color: #EF476F;
+}
+
+/* .main__intro-container {
+
+} */

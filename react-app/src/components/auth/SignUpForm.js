@@ -73,7 +73,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           type="password"
           name="repeat_password"
           onChange={updateRepeatPassword}
-          value={repeatPassword}
+          value={confirmPassword}
           required={true}
         ></input>
       </div>
