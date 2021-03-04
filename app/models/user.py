@@ -23,7 +23,10 @@ class User(db.Model, UserMixin):
   received_messages = db.relationship("Message",
                                       foreign_keys="Message.receiver_id",
                                       back_populates="receiver")
-  follow = db.relationship("Follow", back_populates="user")
+  follow1 = db.relationship("Follow", foreign_keys="Follow.follower_id",
+                                      back_populates="follower")
+  follow2 = db.relationship("Follow", foreign_keys="Follow.followed_id",
+                                      back_populates="followee")
 
   @property
   def password(self):

@@ -3,7 +3,7 @@ from .db import db
 
 
 class Follow(db.Model):
-    __table__ = "follows"
+    __tablename__ = "follows"
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     followed_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
@@ -15,5 +15,6 @@ class Follow(db.Model):
                            nullable=False,
                            default=datetime.datetime.utcnow)
 
-    user = db.relationship("User", back_populates="follow")
+    follower = db.relationship("User", foreign_keys=[follower_id], back_populates="follow1")
+    followee = db.relationship("User", foreign_keys=[followed_id], back_populates="follow2")
 
