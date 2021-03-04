@@ -30,7 +30,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setPassword(e.target.value);
   };
 
-  const updateRepeatPassword = (e) => {
+  const updateConfirmPassword = (e) => {
     setConfirmPassword(e.target.value);
   };
 
@@ -68,11 +68,11 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Confirm Password</label>
         <input
           type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
+          name="confirm_password"
+          onChange={updateConfirmPassword}
           value={confirmPassword}
           required={true}
         ></input>
