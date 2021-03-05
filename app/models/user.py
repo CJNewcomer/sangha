@@ -11,7 +11,8 @@ class User(db.Model, UserMixin):
   first_name = db.Column(db.String(40), nullable=False)
   last_name = db.Column(db.String(40), nullable=False)
   email = db.Column(db.String(100), nullable=False, unique=True)
-  profile_image = db.Column(db.String(100), nullable=True, unique=True)
+  is_teacher = db.Column(db.Boolean, default=False)
+  profile_image = db.Column(db.String(100), nullable=True)
   hashed_password = db.Column(db.String(255), nullable=False)
 
   classes = db.relationship("Class", back_populates="user")
@@ -42,6 +43,7 @@ class User(db.Model, UserMixin):
     return check_password_hash(self.password, password)
 
 
+
   def to_dict(self):
     return {
       "id": self.id,
@@ -49,5 +51,6 @@ class User(db.Model, UserMixin):
       "first_name": self.first_name,
       "last_name": self.last_name,
       "email": self.email,
+      "is_teacher": self.is_teacher,
       "profile_image": self.profile_image
     }

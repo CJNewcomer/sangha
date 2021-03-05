@@ -1,13 +1,24 @@
 .background__container {
     position: relative;
-    height: 100vh;
+    height: 50rem;
+    width: 85rem;
     background-size: cover;
-    min-height: 100vh;
-    width: 100%;
     vertical-align: bottom;
-    opacity: 85%;
-    margin: 0 auto;
-    background: center;
+    opacity: 75%;
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+img.bottom {
+    height: 50rem;
+    width: 85rem;
+    overflow: hidden;
+}
+
+img.top {
+    height: 50rem;
+    width: 85rem;
+    overflow: hidden;
 }
 
 .background__container img {
@@ -42,26 +53,53 @@
     animation-direction: alternate;
 }
 
-.main__intro-title {
-    display: flex;
-    flex-direction: column;
-}
-
 .splash__title {
+    position: absolute;
+    bottom: 32rem;
+    right: 20rem;
     text-align: center;
     color: #EF476F;
 }
 
 .sanskrit__title {
+    position: absolute;
+    bottom: 28rem;
+    right: 21.7rem;
     text-align: center;
     color: #EF476F;
 }
 
-.welcome__title {
+.welcome__title-a {
+    position: absolute;
+    bottom: 25rem;
+    right: 18.3rem;
     text-align: center;
     color: #EF476F;
 }
 
-/* .main__intro-container {
+.welcome__title-b {
+    position: absolute;
+    bottom: 22rem;
+    right: 18rem;
+    text-align: center;
+    color: #EF476F;
+}
+
+.main__intro-container {
+    position: absolute;
+    bottom: 18rem;
+    right: 16.5rem;
+    display: flex;
+    margin: 0.5rem;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    padding: 1rem;
+}
+
+/* @media (max-width: 800px) {
 
 } */

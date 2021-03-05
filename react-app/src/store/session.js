@@ -14,6 +14,71 @@ export const removeUser = () => {
     }
 }
 
+export const authenticate = () => async(dispatch) => {
+  const response = await fetch('/api/auth/',{
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  const user = await response.json();
+  if (!user.errors) {
+      dispatch(setUser(user));
+  }
+  return user;
+}
+
+export const login = (email, password) => async (dispatch) => {
+    const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email,
+            password
+        })
+    });
+    const user = await response.json();
+    if (!user.errors) {
+        dispatch(setUser(user));
+    }
+    return user;
+}
+
+export const logout = () => async (dispatch) => {
+  const response = await fetch("/api/auth/logout", {
+    headers: {
+      "Content-Type": "application/json",
+    }
+  });
+  dispatch(removeUser());
+  return await response.json();
+};
+
+
+export const signUp = (username, first_name, last_name, email, is_teacher, password) => async (dispatch) => {
+  const response = await fetch("/api/auth/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username,
+      first_name,
+      last_name,
+      email,
+      is_teacher: is_teacher === "true",
+      password,
+    }),
+  });
+  const user = await response.json();
+  if (!user.errors) {
+        dispatch(setUser(user));
+    }
+    return user;
+
+}
+
 const sessionReducer = (state={user:null}, action) => {
     let newState = {...state};
     switch(action.type) {

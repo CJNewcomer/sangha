@@ -24,12 +24,12 @@ def upgrade():
     sa.Column('first_name', sa.String(length=40), nullable=False),
     sa.Column('last_name', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=100), nullable=False),
-    sa.Column('profile_image', sa.String(length=100), nullable=False),
+    sa.Column('is_teacher', sa.Boolean, nullable=False),
+    sa.Column('profile_image', sa.String(length=100), nullable=True),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('username'),
-    sa.UniqueConstraint('profile_image')
+    sa.UniqueConstraint('username')
     )
     # ### end Alembic commands ###qqqqqqqqq
 
