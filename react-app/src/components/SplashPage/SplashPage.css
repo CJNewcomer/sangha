@@ -7,6 +7,8 @@
     opacity: 75%;
     margin: 0;
     font-family: 'Cormorant Garamond', serif;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 img.bottom {
@@ -55,40 +57,40 @@ img.top {
 
 .splash__title {
     position: absolute;
-    bottom: 32rem;
-    right: 20rem;
+    bottom: 31rem;
+    right: 18rem;
     text-align: center;
     color: #EF476F;
 }
 
 .sanskrit__title {
     position: absolute;
-    bottom: 28rem;
-    right: 21.7rem;
+    bottom: 27rem;
+    right: 19.7rem;
     text-align: center;
     color: #EF476F;
 }
 
 .welcome__title-a {
     position: absolute;
-    bottom: 25rem;
-    right: 18.3rem;
+    bottom: 24rem;
+    right: 16.3rem;
     text-align: center;
     color: #EF476F;
 }
 
 .welcome__title-b {
     position: absolute;
-    bottom: 22rem;
-    right: 18rem;
+    bottom: 21rem;
+    right: 16rem;
     text-align: center;
     color: #EF476F;
 }
 
 .main__intro-container {
     position: absolute;
-    bottom: 18rem;
-    right: 16.5rem;
+    bottom: 17rem;
+    right: 14.5rem;
     display: flex;
     margin: 0.5rem;
     justify-content: center;

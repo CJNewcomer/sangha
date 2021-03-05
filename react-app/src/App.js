@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 // import NavBar from "./components/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
+import ProtectedRoute from "./components/NavBar/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import SplashPage from "./components/SplashPage";
