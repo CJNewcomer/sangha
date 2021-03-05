@@ -5,6 +5,7 @@ import App from './App';
 import configureStore from './store/index';
 import * as sessionActions from './store/session';
 import { Provider } from 'react-redux';
+import { ModalProvider } from './context/ModalAuthContext';
 
 const store = configureStore();
 
@@ -16,7 +17,9 @@ if (process.env.NODE_ENV !== 'production') {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ModalProvider>
+        <App />
+      </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

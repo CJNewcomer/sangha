@@ -1,0 +1,13 @@
+input, button {
+    border-radius: .2rem;
+}
+
+label, button {
+    font-family: 'Lusitana', serif;
+}
+
+button {
+    background-color: #EF476F;
+    opacity: 80%;
+    font-weight: 500;
+}

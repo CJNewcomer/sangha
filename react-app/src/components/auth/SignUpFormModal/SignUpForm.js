@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../services/auth';
+import { signUp } from '../../../store/session';
+import "./SignUpForm.css";
 
-const SignUpForm = ({authenticated, setAuthenticated}) => {
+const SignUpForm = () => {
+  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -10,13 +13,17 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [isTeacher, setIsTeacher] = useState("false");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      const user = await signUp(username, email, password);
-      if (!user.errors) {
-        setAuthenticated(true);
+      const user = await dispatch(signUp(username, firstName, lastName, email, isTeacher, password, confirmPassword));
+      if (user.errors) {
+        setErrors(user.errors);
+      } else {
+        setErrors((prevErrors) => [...prevErrors, 'Password fields must match.']);
       }
     }
   };
@@ -49,14 +56,19 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setConfirmPassword(e.target.value);
   };
 
-  if (authenticated) {
+  if (sessionUser) {
     return <Redirect to="/" />;
   }
 
   return (
     <form onSubmit={onSignUp}>
       <div>
-        <label>First Name</label>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
+      </div>
+      <div>
+        <label>First Name </label>
         <input
           type="text"
           name="first_name"
@@ -65,7 +77,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Last Name</label>
+        <label>Last Name </label>
         <input
           type="text"
           name="last_name"
@@ -74,7 +86,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>User Name</label>
+        <label>User Name </label>
         <input
           type="text"
           name="username"
@@ -83,7 +95,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label>Email </label>
         <input
           type="text"
           name="email"
@@ -112,7 +124,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label>Password </label>
         <input
           type="password"
           name="password"
@@ -121,7 +133,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Confirm Password</label>
+        <label>Confirm Password </label>
         <input
           type="password"
           name="confirm_password"
