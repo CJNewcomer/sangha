@@ -1,5 +1,13 @@
 .navbar__dropdown {
-
+    list-style: none;
+    position: absolute;
+    right: 0;
+    background-color: rgba(179, 179, 179, 0.9);
+    border-radius: 0.1rem;
+    margin-top: 0.1rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    font-weight: 600;
+    min-width: 6rem;
 }
 
 .navbar__dropdown-button {
@@ -7,5 +15,18 @@
 }
 
 .navbar__item {
-    
+    margin: 0 .5rem;
+    position: relative;
+}
+
+.navbar__item,
+.fas {
+    text-shadow: 0 0 2px rgba(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671),
+    0 0 2px rgb(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671);
+}
+
+.navbar__item:hover,
+.fas:hover {
+    text-shadow: 0 0 1.75px rgb(7, 59, 76), 0 0 1.75px rgb(7, 59, 76),
+    0 0 1.75px rgb(7, 59, 76), 0 0 1.75px rgb(7, 59, 76);
 }
