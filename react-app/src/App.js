@@ -41,10 +41,10 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
         </ProtectedRoute>
-        <Route path="/" exact={true} authenticated={!!sessionUser} >
+        <Route path="/" exact={true} >
           <SplashPage />
         </Route>
-        <ProtectedRoute path="/" exact={true} authenticated={!!sessionUser} >
+        <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >
           <LandingPage />
         </ProtectedRoute>
       </Switch>

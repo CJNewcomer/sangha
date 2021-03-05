@@ -38,7 +38,7 @@ const ProfileButton = ({ user }) => {
       </button>
       {showMenu && (
         <ul className='navbar__dropdown'>
-          <li className='navbar__dropdown-button'>
+          <li className='navbar__dropdown-item'>
             <NavLink
               to={`/users/${user.id}`}
               exact={true}
@@ -48,10 +48,7 @@ const ProfileButton = ({ user }) => {
             </NavLink>
           </li>
           <li>
-            <button
-              className='navbar__dropdown-button'
-              onClick={logoutUser}
-            >
+            <button className='navbar__dropdown-item' onClick={logoutUser}>
               Log Out
             </button>
           </li>

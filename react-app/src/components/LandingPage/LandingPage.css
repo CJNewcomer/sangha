@@ -1,0 +1,33 @@
+.landing__container {
+    position: relative;
+    height: 50rem;
+    width: 85rem;
+    background-size: cover;
+    vertical-align: bottom;
+    opacity: 50%;
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+img.landing {
+    height: 50rem;
+    width: 85rem;
+    overflow: hidden;
+}
+
+.box {
+    width: 100%;
+    height: -1rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .5);
+}
+
+.curve {
+    background-color: #073B4C;
+    width: 100%;
+    height: 5rem;       
+    box-shadow: 0rem .5rem 1rem 0rem rgba(0,0,0,0.36);
+}

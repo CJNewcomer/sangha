@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import ProfileButton from './ProfileButton';
 import LogoutButton from './LogoutButton';
 
 const NavBar = () => {
@@ -17,7 +18,7 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li className='navbar__item'>
-        
+        <ProfileButton user={sessionUser}/>
       </li>
       </>
     );
@@ -42,7 +43,7 @@ const NavBar = () => {
   return (
     <header className='box'>
       <div className='curve'>
-
+        <ul className='nav__wrapper'>{sessionLinks}</ul>
       </div>
     </header>
   );
