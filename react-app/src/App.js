@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // components
-// import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import SplashPage from "./components/SplashPage";
+import LandingPage from './components/LandingPage';
 
 // import redux
 import { getAllUsers } from "./store/user";
@@ -34,7 +34,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar authenticated={!!sessionUser} /> */}
       <Switch>
         <ProtectedRoute path="/users" exact={true} authenticated={!!sessionUser}>
           <UsersList/>
@@ -45,6 +44,9 @@ function App() {
         <Route path="/" exact={true} authenticated={!!sessionUser} >
           <SplashPage />
         </Route>
+        <ProtectedRoute path="/" exact={true} authenticated={!!sessionUser} >
+          <LandingPage />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
