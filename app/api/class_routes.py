@@ -1,8 +1,10 @@
+import re
 import boto3
 import botocore
 from flask import Blueprint, request
 from flask_login import login_required
-
+from werkzeug.utils import secure_filename
+from app.api.auth_routes import validation_errors_to_error_messages
 from app.config import Config
 from app.helpers import upload_file_to_s3
 from app.models import db, Class
@@ -47,6 +49,83 @@ def create_pet():
         )
 
         new_class = Class(
-
+            location_id=form.data["location_id"],
+            user_id=form.data["user_id"],
+            name=form.data["name"],
+            type=form.data["type"],
+            class_image=form.data["class_image"],
+            time=form.data["time"],
+            description=form.data["description"],
+            price=form.data["price"],
         )
+        db.session.add(new_class)
+        db.session.commit()
+        return new_class.to_dict()
 
+    errors = validation_errors_to_error_message(form.errors)
+    errors += image_error
+
+    return {"errors": errors}
+    
+
+@class_routes.route("/<class_id>", methods=['POST'])
+@login_required
+def update_class(class_id):
+    """
+    Update class
+    """
+    form = CreateClassForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    image_error = []
+    image = request.files.get("image", None)
+
+    class_to_update = Class.query.get(class_id)
+
+    class_to_update.location_id = form.data["location_id"]
+    class_to_update.user_id = form.data["user_id"]
+    class_to_update.name = form.data["name"]
+    class_to_update.type = form.data["type"]
+    class_to_update.class_image = form.data["class_image"]
+    class_to_update.time = form.data["time"]
+    class_to_update.description = form.data["description"]
+    class_to_update.price = form.data["price"]
+
+    if image is not None:
+        image.filename = secure_filename(image.filename)
+        pattern = re.compile(
+            ".*(apng|avif|jpe?g|png|svg|webp)$", re.IGNORECASE)
+        is_image = bool(pattern.match(image.mimetype))
+        if not is_image:
+            image_error.append(
+                "Upload must be an image (apng, avif, jpeg/jpg, png, svg, webp)."
+            )
+
+    if form.validate_on_submit() and not image_error:
+        output_link = upload_file_to_s3(image) if image else None
+
+        if output_link:
+            class_to_update.class_image = output_link
+
+        db.session.add(class_to_update)
+        db.session.commit()
+        return class_to_update.to_dict()
+
+    errors = validation_errors_to_error_messages(form.errors)
+    errors += image_error
+
+    return {"errors": errors}
+
+@class_routes.route("/<class_id>", methods=["DELETE"])
+@login_required
+def delete_class(class_id):
+    """
+    Delete a class
+    """
+    class_to_delete = Class.query.get(class_id)
+    if class_to_delete:
+        db.session.delete(class_to_delete)
+        db.session.commit()
+        return "Deleted"
+    else:
+        return {"errors": "No class found with provided id."}

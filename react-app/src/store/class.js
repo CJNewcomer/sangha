@@ -50,6 +50,8 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
     formData.append('description', description);
     formData.append('price', price);
 
+    if (image) formData.append('image', image);
+
     if (updateOneClass) {
         // update a single class
         const res = await fetch(`/api/classes/${updateOneClass}`, {
