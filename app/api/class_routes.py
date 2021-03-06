@@ -47,13 +47,6 @@ def create_pet():
         )
 
         new_class = Class(
-            
+
         )
 
-@class_routes.route('/', methods=['POST'])
-@login_required
-def upload_file():
-    if "class" not in request.classes:
-        return "No user_class key in request.classes"
-
-    class = request.classes["class"]
