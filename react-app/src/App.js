@@ -11,6 +11,7 @@ import LandingPage from './components/LandingPage';
 
 // import redux
 import { getAllUsers } from "./store/user";
+import { setUser } from "./store/session";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -23,7 +24,11 @@ function App() {
   useEffect(() => {
     dispatch(getAllUsers());
     (async() => {
-      await dispatch(authenticate());
+      const user = await dispatch(authenticate());
+      if (!user.errors) {
+        dispatch(setUser(user));
+      }
+      // await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);

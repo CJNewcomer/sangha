@@ -1,7 +1,105 @@
-.nav__wrapper {
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-weight: normal;
+    font-family: 'Cormorant Garamond', serif;
+    src: url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lusitana&display=swap");
+}
+
+.nav__main-menu,
+.nav__main-menu ul {
+    margin: 0;
+    padding: 0;
+    background: #073B4C;
+    color: whitesmoke;
+    list-style: none;
+    text-transform: none;
+    font-weight: 300;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 5rem;
+}
+
+.nav__main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    font-size: 1.3rem;
+}
+
+.nav__main-menu a {
+    display: block;
+    height: 100%;
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-touch .nav__main-menu a:hover,
+.no-touch .menu li.search__item:hover,
+.no-touch .menu li.search__item:hover a {
+    background: whitesmoke;
+    color: #073B4C;
+}
+
+.nav__main-menu > li {
+    display: block;
+    float: left;
+    height: 100%;
+    border-right: .5rem solid #073B4C;
+    text-align: center;
+}
+
+.nav__main-menu li.menu__go {
+    position: relative;
+    width: 6rem;
+    user-select: none;
+}
+
+.nav__main-menu > li:last-child {
+    float: right;
+    border-right: none;
+    border-left: .5rem solid #073B4C;
+}
+
+.nav__main-menu > li > a {
+    padding: 0 3rem;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    font-weight: bold;
+}
+
+.nav__main-menu:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+
+/* .nav__wrapper {
     display: flex;
     list-style: none;
     box-sizing: border-box;
+}
+
+.box {
+    width: 100%;
+    height: -1rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .5);
+}
+
+.curve {
+    background-color: #073B4C;
+    width: 100%;
+    height: 5rem;       
+    box-shadow: 0rem .5rem 1rem 0rem rgba(0,0,0,0.36);
 }
 
 .navbar__dropdown {
@@ -38,4 +136,4 @@
 .fas:hover {
     text-shadow: 0 0 1.75px rgb(7, 59, 76), 0 0 1.75px rgb(7, 59, 76),
     0 0 1.75px rgb(7, 59, 76), 0 0 1.75px rgb(7, 59, 76);
-}
+} */

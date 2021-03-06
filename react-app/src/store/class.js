@@ -34,6 +34,7 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
         name,
         type,
         class_image,
+        image,
         time,
         description,
         price

@@ -41,11 +41,32 @@ const NavBar = () => {
     //   </ul>
     // </nav>
   return (
-    <header className='box'>
-      <div className='curve'>
-        <ul className='nav__wrapper'>{sessionLinks}</ul>
-      </div>
-    </header>
+    <ul className='nav__main-menu'>{sessionLinks}
+      <li className='menu__go'>
+        <a className='menu__icon'><span>Menu</span></a>
+        <nav className='menu__wrapper'>
+          <div className='menu__scroll'>
+            <ul className='menu'>
+              <li className='search__item'>
+                <input className='search' type='search' placeholder='Search'/>
+                <a className='search__icon'>
+                  <i class="fas fa-search"></i></a>
+              </li>
+              <li>
+                <a className='profile_icon'>
+                  <i class="fas fa-user"></i>My Profile</a>
+                <ul className='sub__menu'>
+                  <li><a className='class_icon'>
+                    <i class="fas fa-chalkboard-teacher"></i>My Classes</a></li>
+                  <li><a className='message_icon'>
+                    <i class="fas fa-comments"></i>My Messages</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </li>
+    </ul>
   );
 }
 
