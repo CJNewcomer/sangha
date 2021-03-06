@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-weight: normal;
-    font-family: 'Cormorant Garamond', serif;
-    src: url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lusitana&display=swap");
-}
-
 .nav__main-menu,
 .nav__main-menu ul {
     margin: 0;
@@ -80,60 +74,153 @@
     content: '';
 }
 
-
-/* .nav__wrapper {
-    display: flex;
-    list-style: none;
-    box-sizing: border-box;
+.menu__wrapper {
+    position: fixed;
+    top: 6rem;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 6rem;
+    border-top: .5rem solid whitesmoke;
+    background: #073B4C;
+    transform: translateX(-6rem);
+    transition: transform 0.3s, width 0.3s;
 }
 
-.box {
-    width: 100%;
-    height: -1rem;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .5);
-}
-
-.curve {
-    background-color: #073B4C;
-    width: 100%;
-    height: 5rem;       
-    box-shadow: 0rem .5rem 1rem 0rem rgba(0,0,0,0.36);
-}
-
-.navbar__dropdown {
-    list-style: none;
+.menu__scroll {
     position: absolute;
-    right: 0;
-    background-color: rgba(179, 179, 179, 0.9);
-    border-radius: 0.2rem;
-    margin-top: 0.1rem;
-    padding: 1rem 0.5rem 0.5rem 0.5rem;
-    font-weight: 600;
-    min-width: 6rem;
+    overflow-y: scroll;
+    width: 35rem;
+    height: 100%;
 }
 
-.navbar__dropdown-item {
-    margin: .25rem;
-    font-weight: 600;    
-    font-family: 'Cormorant Garamond', serif;
+.menu {
+    border-bottom: .5rem solid whitesmoke;
+    text-align: left;
+    font-size: 1.5rem;
 }
 
-.navbar__item {
-    font-family: 'Cormorant Garamond', serif;
-    margin: 0 .5rem;
+.menu li:not(:first-child),
+.menu li li {
+    box-shadow: inset 0 .5rem #073B4C;
+}
+
+.sub__menu li {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s;
+}
+
+.sub__menu li a {
+    color: rgba(179, 179, 179, 0.9);
+}
+
+input.search {
     position: relative;
+    z-index: 10;
+    padding-left: 6rem;
+    outline: none;
+    border: none;
+    background: transparent;
+    color:transparent#5f6f81;
+    font-weight: 300;
+      font-family: 'Cormorant Garamond', serif;
+      cursor: pointer;
 }
 
-.navbar__item,
-.fas {
-    text-shadow: 0 0 2px rgba(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671),
-    0 0 2px rgb(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671);
+/* placeholder */
+
+.search::-webkit-input-placeholder {
+    color: #5f6f81;
 }
 
-.navbar__item:hover,
-.fas:hover {
-    text-shadow: 0 0 1.75px rgb(7, 59, 76), 0 0 1.75px rgb(7, 59, 76),
-    0 0 1.75px rgb(7, 59, 76), 0 0 1.75px rgb(7, 59, 76);
-} */
+.search:-moz-placeholder {
+    color: #5f6f81;
+}
+
+.search::-moz-placeholder {
+    color: #5f6f81;
+}
+
+.search:-ms-input-placeholder {
+    color: #5f6f81;
+}
+
+.search:focus::-webkit-input-placeholder,
+.no-touch .menu li.search__item:hover .search:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input.search:focus {
+    cursor: text;
+}
+
+.no-touch .menu li.search__item:hover input.search {
+    color: whitesmoke;
+}
+
+.no-touch .menu li.search__item:hover .search::-webkit-input-placeholder {
+    color: whitesmoke;
+}
+
+.no-touch .menu li.search__item:hover .search:-moz-placeholder {
+    color: whitesmoke;
+}
+
+.no-touch .menu li.search__item:hover .search::-moz-placeholder {
+    color: whitesmoke;
+}
+
+.no-touch .menu li.search__item:hover .search:-ms-input-placeholder {
+    color: whitesmoke;
+}
+
+.nav__main-menu a.search__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6rem;
+}
+
+i.fas::before {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+span {
+    width: 0;
+    height: 0;
+    display: block;
+    overflow: hidden;
+}
+
+.menu__wrapper .open-all,
+.menu__wrapper .open-part {
+    transform: translateX(0rem);
+}
+
+.menu__wrapper .open-all {
+    width: 30rem;
+}
+
+.menu__wrapper .open-all .sub__menu li {
+    height: 6rem;
+}
+
+@media screen and (max-width: 43rem) {
+    .menu__wrapper .open-all {
+        transform: translateX(0rem);
+        width: 100%;
+    }
+
+    .menu__wrapper .open-all .menu__scroll {
+        width: 130%;
+    }
+}

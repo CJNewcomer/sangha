@@ -13,6 +13,7 @@ import LandingPage from './components/LandingPage';
 import { getAllUsers } from "./store/user";
 import { setUser } from "./store/session";
 import { authenticate } from "./store/session";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <NavBar />
       <Switch>
         <ProtectedRoute path="/users" exact={true} authenticated={!!sessionUser}>
           <UsersList/>

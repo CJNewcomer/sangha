@@ -22,7 +22,7 @@ const NavBar = () => {
       </li>
       </>
     );
-  } 
+  }
     // <nav>
     //   <ul>
     //     <li>
@@ -40,34 +40,40 @@ const NavBar = () => {
     //     </li>
     //   </ul>
     // </nav>
-  return (
-    <ul className='nav__main-menu'>{sessionLinks}
-      <li className='menu__go'>
-        <a className='menu__icon'><span>Menu</span></a>
-        <nav className='menu__wrapper'>
-          <div className='menu__scroll'>
-            <ul className='menu'>
-              <li className='search__item'>
-                <input className='search' type='search' placeholder='Search'/>
-                <a className='search__icon'>
-                  <i class="fas fa-search"></i></a>
-              </li>
-              <li>
-                <a className='profile_icon'>
-                  <i class="fas fa-user"></i>My Profile</a>
-                <ul className='sub__menu'>
-                  <li><a className='class_icon'>
-                    <i class="fas fa-chalkboard-teacher"></i>My Classes</a></li>
-                  <li><a className='message_icon'>
-                    <i class="fas fa-comments"></i>My Messages</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </li>
-    </ul>
-  );
-}
+    return (
+      <header className='main__container'>
+      <nav className='main__nav'>{sessionLinks}
+        <ul className='menu'>
+          <li>
+            <a className='menu__home'>
+              <i className="fas fa-compass"></i><span>Home</span>
+            </a>
+          </li>
+          <li>
+            <input className='search' type='search' placeholder='Search'/>
+            <a className='menu__search'>
+              <i className="fas fa-search"></i>
+            </a>
+          </li>
+          <li>
+            <a className='menu__profile'>
+              <i className="fas fa-user"></i><span>My Profile</span>
+            </a>
+          </li>
+          <li>
+            <a className='menu__class'>
+              <i className="fas fa-chalkboard-teacher"></i><span>My Classes</span>
+            </a>
+          </li>
+          <li>
+            <a className='menu__message'>
+              <i className="fas fa-comments"></i><span>My Messages</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>  
+    )       
+} 
 
 export default NavBar;
