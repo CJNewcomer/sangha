@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
 import UsersList from "./components/UsersList";
-import User from "./components/User";
+import User from "./components/UserProfile/User"
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 

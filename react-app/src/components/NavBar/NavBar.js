@@ -3,35 +3,61 @@ import React from 'react';
 const NavBar = () => {
   
     return (
-      <nav className='nav__container'>
-        <ul className='nav'>
-          <li className='nav__items'>
-            <a href='/home' className='menu__home'>
-              <i className="fas fa-compass"></i></a>
-          </li>
-          <li className='nav__items'>
-            {/* <input className='search' type='search' placeholder='Search'/> */}
-            <a href='/search'className='menu__search'>
-              <i className="fas fa-search"></i></a>
-          </li>
-          <li className='nav__items'>
-            <a href='/users' className='menu__profile'>
-              <i className="fas fa-user"></i>
-            </a>
-          </li>
-          <li className='nav__items'>
-            <a href='/classes' className='menu__class'>
-              <i className="fas fa-chalkboard-teacher"></i>
-            </a>
-          </li>
-          <li className='nav__items'>
-            <a href='/messages' className='menu__message'>
-              <i className="fas fa-comments"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
- 
+      <div className='main__area'>
+        <nav className='main__menu'>
+          <ul>
+            <li>
+              <a href='/home'>
+                <i className="fas fa-compass"></i>
+                <span className='nav__text'>
+                  DashBoard
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              {/* <input className='search' type='search' placeholder='Search'/> */}
+              <a href='/search'>
+                <i className="fas fa-search"></i>
+                <span className='nav__text'>
+                  Search
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/users'>
+                <i className="fas fa-user"></i>
+                <span className='nav__text'>
+                  My Profile
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/classes'>
+                <i className="fas fa-chalkboard-teacher"></i>
+                <span className='nav__text'>
+                  My Classes
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/messages'>
+                <i className="fas fa-comments"></i>
+                <span className='nav__text'>
+                  My Messages
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/'>
+                <i className="fas fa-power-off"></i>
+                <span className='nav__text'>
+                  Logout
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     )       
 } 
 
