@@ -1,52 +1,64 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import ProfileButton from './ProfileButton';
-import LogoutButton from './LogoutButton';
 
 const NavBar = () => {
-  const sessionUser = useSelector((state) => state.session.user);
-
-  let sessionLinks;
-
-  if (!!sessionUser) {
-    sessionLinks = (
-      <>
-      <li className='navbar__item'>
-        <NavLink to="/search" exact={true} activeClassName='active'>
-          Search for Community
-        </NavLink>
-      </li>
-      <li className='navbar__item'>
-        <ProfileButton user={sessionUser}/>
-      </li>
-      </>
-    );
-  } 
-    // <nav>
-    //   <ul>
-    //     <li>
-    //       <NavLink to="/" exact={true} activeClassName="active">
-    //         Home
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <NavLink to="/users" exact={true} activeClassName="active">
-    //         Users
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <LogoutButton  />
-    //     </li>
-    //   </ul>
-    // </nav>
-  return (
-    <header className='box'>
-      <div className='curve'>
-        <ul className='nav__wrapper'>{sessionLinks}</ul>
+  
+    return (
+      <div className='main__area'>
+        <nav className='main__menu'>
+          <ul>
+            <li>
+              <a href='/home'>
+                <i className="fas fa-compass"></i>
+                <span className='nav__text'>
+                  DashBoard
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              {/* <input className='search' type='search' placeholder='Search'/> */}
+              <a href='/search'>
+                <i className="fas fa-search"></i>
+                <span className='nav__text'>
+                  Search
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/users'>
+                <i className="fas fa-user"></i>
+                <span className='nav__text'>
+                  My Profile
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/classes'>
+                <i className="fas fa-chalkboard-teacher"></i>
+                <span className='nav__text'>
+                  My Classes
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/messages'>
+                <i className="fas fa-comments"></i>
+                <span className='nav__text'>
+                  My Messages
+                </span>
+              </a>
+            </li>
+            <li className='has__subnav'>
+              <a href='/'>
+                <i className="fas fa-power-off"></i>
+                <span className='nav__text'>
+                  Logout
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </header>
-  );
-}
+    )       
+} 
 
 export default NavBar;
