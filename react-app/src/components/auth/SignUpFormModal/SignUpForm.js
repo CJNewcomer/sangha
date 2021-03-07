@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
-import { login } from '../../../store/session';
+// import { login } from '../../../store/session';
 import "./SignUpForm.css";
 
 const SignUpForm = () => {
@@ -29,10 +29,10 @@ const SignUpForm = () => {
     }
   };
 
-  const demoLogin = async (e) => {
-    e.preventDefault();
-    const user = await dispatch(login('demo@aa.io', 'password'));
-  }
+  // const demoLogin = async (e) => {
+  //   e.preventDefault();
+  //   const user = await dispatch(login('demo@aa.io', 'password'));
+  // }
 
   const updateFirstName = (e) => {
     setFirstName(e.target.value);
@@ -150,7 +150,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <button type="submit">Sign Up</button>
-        <button onSubmit={demoLogin} type='submit'>Demo Login</button>
+        {/* <button onSubmit={demoLogin} type='submit'>Demo Login</button> */}
       </form>
     </>
   );
