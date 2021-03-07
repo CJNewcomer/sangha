@@ -4,14 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
-import UsersList from "./components/UsersList";
 import User from "./components/User";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 
 // import redux
 import { getAllUsers } from "./store/user";
-import { authenticate } from "./store/session";
+import { setUser, authenticate } from "./store/session";
 
 function App() {
 
@@ -23,7 +22,10 @@ function App() {
   useEffect(() => {
     dispatch(getAllUsers());
     (async() => {
-      await dispatch(authenticate());
+      const user = await authenticate();
+      if (!user.errors) {
+        dispatch(setUser(user));
+      }
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -35,13 +37,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <ProtectedRoute path="/users" exact={true} authenticated={!!sessionUser}>
-          <UsersList/>
-        </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
         </ProtectedRoute>
-        <Route path="/" exact={true} >
+        <Route path="/" exact={true} authenticated={!!sessionUser}>
           <SplashPage />
         </Route>
         <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >
