@@ -4,13 +4,24 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
+<<<<<<< HEAD
 import User from "./components/User";
+=======
+import UsersList from "./components/UsersList";
+import User from "./components/UserProfile/User"
+>>>>>>> main
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 
 // import redux
 import { getAllUsers } from "./store/user";
+<<<<<<< HEAD
 import { setUser, authenticate } from "./store/session";
+=======
+import { setUser } from "./store/session";
+import { authenticate } from "./store/session";
+import NavBar from "./components/NavBar/NavBar";
+>>>>>>> main
 
 function App() {
 
@@ -36,6 +47,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <NavBar />
       <Switch>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
