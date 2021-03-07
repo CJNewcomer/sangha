@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
-import User from "./components/User";
+import User from "./components/UserProfile";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 
@@ -36,7 +36,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
