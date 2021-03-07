@@ -164,3 +164,5 @@ const CreateClassForm = ({ updateOneClass }) => {
         </div>
     );
 }
+
+export default CreateClassForm;
