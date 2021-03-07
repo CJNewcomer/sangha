@@ -1,10 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import './LandingPage.css';
 
 
 const LandingPage = () => {
-    const sessionUser = useSelector((state) => state.session.user);
 
     return (
         <>
