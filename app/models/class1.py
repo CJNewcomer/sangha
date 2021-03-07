@@ -11,6 +11,8 @@ class Class(db.Model):
     name = db.Column(db.String, nullable=False)
     type = db.Column(db.String, nullable=False)
     class_image = db.Column(db.String, nullable=False)
+    location = db.Column(db.String, nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
     time = db.Column(db.DateTime, nullable=False)
     description = db.Column(db.String(1000), nullable=False)
     price = db.Column(db.Integer, nullable=False)
@@ -22,7 +24,7 @@ class Class(db.Model):
                            default=datetime.datetime.utcnow)
 
     
-    location = db.relationship("Location", back_populates="classes")
+    locations = db.relationship("Location", back_populates="classes")
     review = db.relationship("Review", back_populates="classes")
     user = db.relationship("User", back_populates="classes")
 
@@ -34,6 +36,8 @@ class Class(db.Model):
             "name": self.name,
             "type": self.type,
             "class_image": self.class_image,
+            "location": self.location,
+            "date": self.date,
             "time": self.time,
             "description": self.description,
             "price": self.price,

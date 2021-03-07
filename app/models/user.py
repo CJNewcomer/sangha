@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(100), nullable=False, unique=True)
   is_teacher = db.Column(db.Boolean, default=False)
   profile_image = db.Column(db.String(100), nullable=True)
+  biography = db.Column(db.String(1000), nullable=True)
   hashed_password = db.Column(db.String(255), nullable=False)
 
   classes = db.relationship("Class", back_populates="user")
@@ -52,5 +53,6 @@ class User(db.Model, UserMixin):
       "last_name": self.last_name,
       "email": self.email,
       "is_teacher": self.is_teacher,
-      "profile_image": self.profile_image
+      "profile_image": self.profile_image,
+      "biography": self.biography
     }

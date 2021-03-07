@@ -144,7 +144,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                         <option value='' disabled>
                             -Select One-
                         </option>
-                        <option value='in-person'>In Person</option>
+                        <option value='in-person'>In-Person</option>
                         <option value='virtual'>Virtual</option>
                         <option value='both'>Both</option>
                     </select>
