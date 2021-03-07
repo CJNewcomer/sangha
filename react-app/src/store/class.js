@@ -36,6 +36,7 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
         image,
         date,
         time,
+        location,
         description,
         price
     } = oneClass;
@@ -48,6 +49,7 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
     formData.append('class_image', class_image);
     formData.append('date', date);
     formData.append('time', time);
+    formData.append('location', location);
     formData.append('description', description);
     formData.append('price', price);
 

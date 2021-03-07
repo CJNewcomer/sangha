@@ -17,6 +17,7 @@ const CreateClassForm = ({ updateOneClass }) => {
     const [image, setImage] = useState(null);
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
+    const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [errors, setErrors] = useState([]);
@@ -28,6 +29,7 @@ const CreateClassForm = ({ updateOneClass }) => {
             setImage(updateOneClass.image);
             setDate(updateOneClass.date);
             setTime(updateOneClass.time);
+            setLocation(updateOneClass.location);
             setDescription(updateOneClass.description);
             setPrice(updateOneClass.price);
         }
@@ -46,6 +48,7 @@ const CreateClassForm = ({ updateOneClass }) => {
             image,
             date,
             time,
+            location,
             description,
             price,
         };
@@ -75,7 +78,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                 <div>
                     <label>Class Name</label>
                     <input 
-                        name='name'
+                        type='text'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -128,6 +131,23 @@ const CreateClassForm = ({ updateOneClass }) => {
                         required
                         className='class__form-input'
                         />
+                </div>
+                <div>
+                    <label>Location</label>
+                    <select
+                        name='location'
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        required
+                        className='class__form-input'
+                    >
+                        <option value='' disabled>
+                            -Select One-
+                        </option>
+                        <option value='in-person'>In Person</option>
+                        <option value='virtual'>Virtual</option>
+                        <option value='both'>Both</option>
+                    </select>
                 </div>
                 <div>
                     <label>Price</label>
