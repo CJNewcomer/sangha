@@ -75,120 +75,139 @@ const CreateClassForm = ({ updateOneClass }) => {
         <div className='class__container'>
             <h1>{!!updateOneClass ? 'Update Class' : 'Create Class'}</h1>
             <form onSubmit={createClass} className='class__form'>
-                <div className='col-25'>
-                    <label>Class Name</label>
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Class Name</label>
+                    </div>
+                    <div className='col-75'>
+                        <input 
+                            type='text'
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            className='class__form-input'
+                            />
+                    </div>
                 </div>
-                <div className='col-75'>
-                    <input 
-                        type='text'
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        className='class__form-input'
-                        />
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Class Type</label>
+                    </div>
+                    <div className='col-75'>
+                        <select
+                            name='type'
+                            value={type}
+                            onChange={(e) => setType(e.target.value)}
+                            required
+                            className='class__form-input'
+                            >
+                            <option value='' disabled>
+                                -Select One-
+                            </option>
+                            <option value='Ashtanga'>Ashtanga</option>
+                            <option value='Hatha'>Hatha</option>
+                            <option value='Meditation'>Meditation</option>
+                            <option value='Prenatal'>Prenatal</option>
+                            <option value='Restorative'>Restorative</option>
+                            <option value='Vinyasa'>Vinyasa</option>
+                            <option value='Yin'>Yin</option>
+                            <option value='Yoga Nidra'>Yoga Nidra</option>
+                        </select>
+                    </div>
                 </div>
-                <div className='col-25'>
-                    <label>Class Type</label>
-                </div>
-                <div className='col-75'>
-                    <select
-                        name='type'
-                        value={type}
-                        onChange={(e) => setType(e.target.value)}
-                        required
-                        className='class__form-input'
-                    >
-                        <option value='' disabled>
-                            -Select One-
-                        </option>
-                        <option value='Ashtanga'>Ashtanga</option>
-                        <option value='Hatha'>Hatha</option>
-                        <option value='Meditation'>Meditation</option>
-                        <option value='Prenatal'>Prenatal</option>
-                        <option value='Restorative'>Restorative</option>
-                        <option value='Vinyasa'>Vinyasa</option>
-                        <option value='Yin'>Yin</option>
-                        <option value='Yoga Nidra'>Yoga Nidra</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Image
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Image</label>
+                    </div>
+                    <div className='col-75'>
                         <input className='image__upload' type='file' onChange={updateFile}/>
-                    </label>
+                    </div>
                 </div>
-                <div className='col-25'>
-                    <label>Date</label>
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Date</label>
+                    </div>
+                    <div className='col-75'>
+                        <input 
+                            type='date'
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                            required
+                            className='class__form-input'
+                            />
+                    </div>
                 </div>
-                <div className='col-75'>
-                    <input 
-                        type='date'
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                        required
-                        className='class__form-input'
-                        />
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Time</label>
+                    </div>
+                    <div className='col-75'>
+                        <input 
+                            type='time'
+                            value={time}
+                            onChange={(e) => setTime(e.target.value)}
+                            required
+                            className='class__form-input'
+                            />
+                    </div>
                 </div>
-                <div className='col-25'>
-                    <label>Time</label>
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Location</label>
+                    </div>
+                    <div className='col-75'>
+                        <select
+                            name='location'
+                            value={location}
+                            onChange={(e) => setLocation(e.target.value)}
+                            required
+                            className='class__form-input'
+                            >
+                            <option value='' disabled>
+                                -Select One-
+                            </option>
+                            <option value='in-person'>In-Person</option>
+                            <option value='virtual'>Virtual</option>
+                            <option value='both'>Both</option>
+                        </select>
+                    </div>
                 </div>
-                <div className='col-75'>
-                    <input 
-                        type='time'
-                        value={time}
-                        onChange={(e) => setTime(e.target.value)}
-                        required
-                        className='class__form-input'
-                        />
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Price</label>
+                    </div>
+                    <div className='col-75'>
+                        <input
+                            type='number'
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                            required
+                            className='class__form-input'
+                            />
+                    </div>
                 </div>
-                <div className='col-25'>
-                    <label>Location</label>
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Class Description</label>
+                    </div>
+                    <div className='col-75'>
+                        <textarea
+                            name='description'
+                            required={true}
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
+                            placeholder='What to expect?'
+                            cols={35}
+                            rows={4}
+                            className='class__form-input'
+                            ></textarea>
+                    </div>
                 </div>
-                <div className='col-75'>
-                    <select
-                        name='location'
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                        required
-                        className='class__form-input'
-                    >
-                        <option value='' disabled>
-                            -Select One-
-                        </option>
-                        <option value='in-person'>In-Person</option>
-                        <option value='virtual'>Virtual</option>
-                        <option value='both'>Both</option>
-                    </select>
-                </div>
-                <div className='col-25'>
-                    <label>Price</label>
-                </div>
-                <div className='col-75'>
-                    <input
-                        type='number'
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                        required
-                        className='class__form-input'
-                        />
-                </div>
-                <div className='col-25'>
-                    <label>Class Description</label>
-                </div>
-                <textarea
-                    name='description'
-                    required={true}
-                    onChange={(e) => setDescription(e.target.value)}
-                    value={description}
-                    placeholder='What to expect?'
-                    cols={35}
-                    rows={4}
-                    className='class__form-input'
-                ></textarea>
-                <div>
+                <div className='row'>
                     <button type='submit'>Create Class</button>
                     <button className='cancel' type='submit'>Cancel</button>
                 </div>
-                <div>
+                <div className='row'>
                     {errors.map((error) => (
                         <div key={error}>{error}</div>
                     ))}
