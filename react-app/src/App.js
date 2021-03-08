@@ -11,7 +11,7 @@ import CreateClassForm from './components/CreateClassForm';
 import SplashNavigation from './components/SplashPage/SplashNavigation';
 
 // import redux
-import { setUser, authenticate } from "./store/session";
+import { authenticate } from "./store/session";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -25,7 +25,6 @@ function App() {
       const user = await dispatch(authenticate());
       if (!user.errors) {
         setAuthenticated(true);
-        // dispatch(setUser(user));
       }
       setLoaded(true);
     })();
@@ -37,8 +36,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <SplashNavigation authenticated={!sessionUser}/>
       <Switch>
+        <Route path="/" >
+          <SplashNavigation />
+        </Route>
         {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
         </ProtectedRoute> */}

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import SignUpFormModal from '../auth/SignUpFormModal';
 import LoginFormModal from '../auth/LoginFormModal';
+import LogoutButton from '../NavBar/LogoutButton';
 
 import './SplashPage.css';
 
@@ -15,24 +16,11 @@ const SplashNavigation = () => {
         sessionLinks = (
             <>
                 <div>
-                    {/* <nav>
-                        <li className='nav__list-item'>
-                            <a className="menu__anchor"href="/home">
-                                <i className="fas fa-compass">
-                                    <span className="nav__text">
-                                        Home
-                                    </span>
-                                </i>
-                            </a>
-                        </li>
-                    </nav> */}
                     <nav>
                         <li className='nav__list-item'>
                             <a className="menu__anchor" href="/search">
                                 <i className="fas fa-search">
-                                    <span className="nav__text">
-                                        Search
-                                    </span>
+                                    <span className="nav__text">Search</span>
                                 </i>
                             </a>
                         </li>
@@ -47,6 +35,14 @@ const SplashNavigation = () => {
                             <LoginFormModal />
                         </li>
                     </nav>
+                </div>
+            </>
+        )
+    } else {
+        sessionLinks = (
+            <>
+                <div>
+                    <LogoutButton />
                 </div>
             </>
         )
