@@ -42,7 +42,7 @@ const CreateClassForm = ({ updateOneClass }) => {
 
         const oneClass = {
             userId: sessionUser.id,
-            locationId,
+            locationId: location.id,
             name: name,
             type,
             image,
@@ -72,11 +72,13 @@ const CreateClassForm = ({ updateOneClass }) => {
 
 
     return (
-        <div>
-            <h1>{!!updateOneClass ? 'Update Class' : 'Add Class'}</h1>
-            <form onSubmit={createClass} class='class__form'>
-                <div>
+        <div className='class__container'>
+            <h1>{!!updateOneClass ? 'Update Class' : 'Create Class'}</h1>
+            <form onSubmit={createClass} className='class__form'>
+                <div className='col-25'>
                     <label>Class Name</label>
+                </div>
+                <div className='col-75'>
                     <input 
                         type='text'
                         value={name}
@@ -85,8 +87,10 @@ const CreateClassForm = ({ updateOneClass }) => {
                         className='class__form-input'
                         />
                 </div>
-                <div>
+                <div className='col-25'>
                     <label>Class Type</label>
+                </div>
+                <div className='col-75'>
                     <select
                         name='type'
                         value={type}
@@ -112,8 +116,10 @@ const CreateClassForm = ({ updateOneClass }) => {
                         <input className='image__upload' type='file' onChange={updateFile}/>
                     </label>
                 </div>
-                <div>
+                <div className='col-25'>
                     <label>Date</label>
+                </div>
+                <div className='col-75'>
                     <input 
                         type='date'
                         value={date}
@@ -122,8 +128,10 @@ const CreateClassForm = ({ updateOneClass }) => {
                         className='class__form-input'
                         />
                 </div>
-                <div>
+                <div className='col-25'>
                     <label>Time</label>
+                </div>
+                <div className='col-75'>
                     <input 
                         type='time'
                         value={time}
@@ -132,8 +140,10 @@ const CreateClassForm = ({ updateOneClass }) => {
                         className='class__form-input'
                         />
                 </div>
-                <div>
+                <div className='col-25'>
                     <label>Location</label>
+                </div>
+                <div className='col-75'>
                     <select
                         name='location'
                         value={location}
@@ -149,8 +159,10 @@ const CreateClassForm = ({ updateOneClass }) => {
                         <option value='both'>Both</option>
                     </select>
                 </div>
-                <div>
+                <div className='col-25'>
                     <label>Price</label>
+                </div>
+                <div className='col-75'>
                     <input
                         type='number'
                         value={price}
@@ -159,7 +171,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                         className='class__form-input'
                         />
                 </div>
-                <div>
+                <div className='col-25'>
                     <label>Class Description</label>
                 </div>
                 <textarea
@@ -167,13 +179,14 @@ const CreateClassForm = ({ updateOneClass }) => {
                     required={true}
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
-                    placeholder='(What to expect?)'
+                    placeholder='What to expect?'
                     cols={35}
                     rows={4}
                     className='class__form-input'
                 ></textarea>
                 <div>
                     <button type='submit'>Create Class</button>
+                    <button className='cancel' type='submit'>Cancel</button>
                 </div>
                 <div>
                     {errors.map((error) => (

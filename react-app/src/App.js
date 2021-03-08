@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
-import User from "./components/UserProfile";
+// import User from "./components/UserProfile";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
+import CreateClassForm from './components/CreateClassForm';
 
 // import redux
 import { getAllUsers } from "./store/user";
@@ -38,8 +39,11 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
+        {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
+        </ProtectedRoute> */}
+        <ProtectedRoute path="/classes/new" exact={true} authenticated={!!sessionUser}>
+          <CreateClassForm />
         </ProtectedRoute>
         <Route path="/" exact={true} authenticated={!!sessionUser}>
           <SplashPage />
