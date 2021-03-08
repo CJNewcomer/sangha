@@ -1,10 +1,131 @@
-/* @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+.main__area {
+    height: 100%;
+    width: 100%;
 }
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
-.fa-2x {
-font-size: 2em;
-} */
-.fa {
+
+.main-menu {
+    background:#073B4C;
+    border-right:1px solid #e5e5e5;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    width:20%;
+    z-index: 1;
+    /* overflow:hidden;
+    -webkit-transition:width .05s linear;
+    transition:width .05s linear;
+    -webkit-transform:translateZ(0) scale(1,1);
+    z-index:1000; */
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+label {
+    display: inline-block;
+    padding: 2rem 4rem;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 10px;
+    z-index: 3;
+    position: fixed;
+}
+
+.bar {
+    display: block;
+    background-color: #073B4C;
+    width: 30px;
+    height: 3px;
+    border-radius: 5px;
+    margin: 5px auto;
+    transition: background-color .5s ease-in, transform .5s ease-in, width .5s ease-in;
+}
+
+.menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 100px;
+    text-align: center;
+    border-top: 2px solid rgba(255, 255, 255, .7);
+}
+
+.menu__anchor {
+    border-bottom: 2px solid rgba(255, 255, 255, .7);
+    padding: 20px 0;
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+    transition: color .3s .15s ease-in;
+}
+
+.menu__anchor::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: #fff;
+    width: 0;
+    transition: width .3s ease-in;
+    z-index: -1;
+}
+
+.menu__anchor:hover {
+    color: #073B4C;
+}
+
+.menu__anchor:hover::after {
+    width: 100%;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+input[type='checkbox']:checked ~ .content {
+    transform: translateX(20%);
+}
+
+input[type="checkbox"]:checked ~ label .bar {
+  background-color: #fff;
+}
+
+input[type="checkbox"]:checked ~ label .top {
+  -webkit-transform: translateY(0px) rotateZ(45deg);
+  -moz-transform: translateY(0px) rotateZ(45deg);
+  -ms-transform: translateY(0px) rotateZ(45deg);
+  -o-transform: translateY(0px) rotateZ(45deg);
+  transform: translateY(0px) rotateZ(45deg);
+}
+
+input[type="checkbox"]:checked ~ label .bottom {
+  -webkit-transform: translateY(-15px) rotateZ(-45deg);
+  -moz-transform: translateY(-15px) rotateZ(-45deg);
+  -ms-transform: translateY(-15px) rotateZ(-45deg);
+  -o-transform: translateY(-15px) rotateZ(-45deg);
+  transform: translateY(-15px) rotateZ(-45deg);
+}
+
+input[type="checkbox"]:checked ~ label .middle {
+  width: 0;
+}
+
+.middle {
+  margin: 0 auto;
+}
+
+/* .fas {
     position: relative;
     display: table-cell;
     width: 60px;
@@ -12,30 +133,11 @@ font-size: 2em;
     text-align: center;
     vertical-align: middle;
     font-size:20px;
-}
+} */
 
-.main-menu:hover,nav.main-menu.expanded {
-    width:250px;
-    overflow:visible;
-}
 
-.main-menu {
-    background:#212121;
-    border-right:1px solid #e5e5e5;
-    position:absolute;
-    top:0;
-    bottom:0;
-    height:100%;
-    left:0;
-    width:60px;
-    overflow:hidden;
-    -webkit-transition:width .05s linear;
-    transition:width .05s linear;
-    -webkit-transform:translateZ(0) scale(1,1);
-    z-index:1000;
-}
 
-.main-menu>ul {
+/* .main-menu>ul {
     margin:7px 0;
 }
 
@@ -75,7 +177,7 @@ font-size: 2em;
     display:table-cell;
     vertical-align:middle;
     width:190px;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .main-menu>ul.logout {
@@ -119,10 +221,4 @@ nav ul,nav li {
     background: #e2e2e2;
     width: 100%;
     height: 100%;
-}
-@font-face {
-  font-family: 'Titillium Web';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
-}
+} */

@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/NavBar/ProtectedRoute";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 import CreateClassForm from './components/CreateClassForm';
+import NavBar from './components/NavBar/NavBar';
 
 // import redux
 import { getAllUsers } from "./store/user";
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     dispatch(getAllUsers());
     (async() => {
-      const user = await authenticate();
+      const user = await dispatch(authenticate());
       if (!user.errors) {
         dispatch(setUser(user));
       }
@@ -37,7 +38,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
+      <NavBar authenticated={!!sessionUser}/>
       <Switch>
         {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />

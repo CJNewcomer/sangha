@@ -1,63 +1,71 @@
-import React from 'react';
+import React from "react";
 
 const NavBar = () => {
   
     return (
-      <div className='main__area'>
-        <nav className='main__menu'>
-          <ul>
+      <>
+        <main className="main__menu">
+          <ul className="menu__list">
             <li>
-              <a href='/home'>
-                <i className="fas fa-compass"></i>
-                <span className='nav__text'>
+              <a className="menu__anchor"href="/home">
+                {/* <i className="fas fa-compass"></i> */}
+                {/* <span className="nav__text">
                   DashBoard
-                </span>
+                </span> */}
               </a>
             </li>
-            <li className='has__subnav'>
-              {/* <input className='search' type='search' placeholder='Search'/> */}
-              <a href='/search'>
-                <i className="fas fa-search"></i>
-                <span className='nav__text'>
+            <li>
+              {/* <input className="search" type="search" placeholder="Search"/> */}
+              <a className="menu__anchor" href="/search">
+                {/* <i className="fas fa-search"></i> */}
+                {/* <span className="nav__text">
                   Search
-                </span>
+                </span> */}
               </a>
             </li>
-            <li className='has__subnav'>
-              <a href='/users'>
-                <i className="fas fa-user"></i>
-                <span className='nav__text'>
+            <li>
+              <a className="menu__anchor" href="/users">
+                {/* <i className="fas fa-user"></i> */}
+                {/* <span className="nav__text">
                   My Profile
-                </span>
+                </span> */}
               </a>
             </li>
-            <li className='has__subnav'>
-              <a href='/classes'>
-                <i className="fas fa-chalkboard-teacher"></i>
-                <span className='nav__text'>
+            <li>
+              <a className="menu__anchor" href="/classes">
+                {/* <i className="fas fa-chalkboard-teacher"></i> */}
+                {/* <span className="nav__text">
                   My Classes
-                </span>
+                </span> */}
               </a>
             </li>
-            <li className='has__subnav'>
-              <a href='/messages'>
-                <i className="fas fa-comments"></i>
-                <span className='nav__text'>
+            <li>
+              <a className="menu__anchor" href="/messages">
+                {/* <i className="fas fa-comments"></i> */}
+                {/* <span className="nav__text">
                   My Messages
-                </span>
+                </span> */}
               </a>
             </li>
-            <li className='has__subnav'>
-              <a href='/'>
-                <i className="fas fa-power-off"></i>
-                <span className='nav__text'>
+            <li>
+              <a className="menu__anchor" href="/">
+                {/* <i className="fas fa-power-off"></i> */}
+                {/* <span className="nav__text">
                   Logout
-                </span>
+                </span> */}
               </a>
             </li>
           </ul>
-        </nav>
-      </div>
+        </main>
+        <section>
+          <input type="checkbox" id="myInput" />
+            <label htmlFor="myInput">
+              <span className="bar top"></span>
+              <span className="bar middle"></span>
+              <span className="bar bottom"></span>
+            </label>
+        </section>
+      </>
     )       
 } 
 
