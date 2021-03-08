@@ -8,25 +8,24 @@ import ProtectedRoute from "./components/NavBar/ProtectedRoute";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 import CreateClassForm from './components/CreateClassForm';
-import NavBar from './components/NavBar/NavBar';
+import SplashNavigation from './components/SplashPage/SplashNavigation';
 
 // import redux
-import { getAllUsers } from "./store/user";
 import { setUser, authenticate } from "./store/session";
 
 function App() {
-
+  const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
 
   useEffect(() => {
-    dispatch(getAllUsers());
     (async() => {
       const user = await dispatch(authenticate());
       if (!user.errors) {
-        dispatch(setUser(user));
+        setAuthenticated(true);
+        // dispatch(setUser(user));
       }
       setLoaded(true);
     })();
@@ -38,7 +37,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar authenticated={!!sessionUser}/>
+      <SplashNavigation authenticated={!sessionUser}/>
       <Switch>
         {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
@@ -46,10 +45,10 @@ function App() {
         <ProtectedRoute path="/classes/new" exact={true} authenticated={!!sessionUser}>
           <CreateClassForm />
         </ProtectedRoute>
-        <Route path="/" exact={true} authenticated={!!sessionUser}>
+        <Route path="/" exact={true} authenticated={authenticated}>
           <SplashPage />
         </Route>
-        <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >
+        <ProtectedRoute path="/home" exact={true} setAuthenticated={setAuthenticated} >
           <LandingPage />
         </ProtectedRoute>
       </Switch>

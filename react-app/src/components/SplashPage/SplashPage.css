@@ -1,3 +1,64 @@
+.splash__header {
+    position: sticky;
+    z-index: 10;
+    width: 100%;
+    top: 0;
+    background-color: rgba(239, 71, 111, 0.8);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 3px 6px 0 rgba(7, 59, 76, 0.5);
+}
+
+.splash__wrapper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-family: 'Ledger', serif;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.splash__nav {
+    display: block;
+}
+
+.splash__wrapper {
+    display: flex;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.splash__link {
+    margin: 0;
+    padding: 0;
+}
+
+.splash__logo {
+    transform: scale(0.90);
+}
+
+.nav__list-item {
+    margin: 0 0.5rem;
+    position: relative;
+}
+
+.nav__list-item,
+.menu__anchor {
+    text-shadow: 0 0 2px rgba(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671),
+    0 0 2px rgb(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671);
+}
+
+.nav__list-item:hover,
+.menu__anchor:hover {
+     text-shadow: 0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16),
+    0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16);
+}
+
 .background__container {
     position: relative;
     height: 50rem;
@@ -55,17 +116,26 @@ img.top {
     animation-direction: alternate;
 }
 
+.splash__title,
+.sanskrit__title,
+.welcome__title-a,
+.welcome__title-b {
+    text-shadow: 0 0 1.75px rgba(7, 59, 76, 0.671), 0 0 1.75px rgb(7, 59, 76, 0.671),
+    0 0 1.75px rgb(7, 59, 76, 0.671), 0 0 1.75px rgb(7, 59, 76, 0.671);
+}
+
 .splash__title {
     position: absolute;
-    bottom: 31rem;
-    right: 18rem;
+    bottom: 29rem;
+    right: 16.5rem;
     text-align: center;
     color: #EF476F;
+    letter-spacing: 0.25rem;
 }
 
 .sanskrit__title {
     position: absolute;
-    bottom: 27rem;
+    bottom: 25rem;
     right: 19.7rem;
     text-align: center;
     color: #EF476F;
@@ -73,18 +143,20 @@ img.top {
 
 .welcome__title-a {
     position: absolute;
-    bottom: 24rem;
-    right: 16.3rem;
+    bottom: 22rem;
+    right: 15.3rem;
     text-align: center;
     color: #EF476F;
+    font-size: 1.2rem;
 }
 
 .welcome__title-b {
     position: absolute;
-    bottom: 21rem;
-    right: 16rem;
+    bottom: 19rem;
+    right: 15.1rem;
     text-align: center;
     color: #EF476F;
+    font-size: 1.2rem;
 }
 
 .main__intro-container {
@@ -101,7 +173,3 @@ li {
     display: flex;
     padding: 1rem;
 }
-
-/* @media (max-width: 800px) {
-
-} */

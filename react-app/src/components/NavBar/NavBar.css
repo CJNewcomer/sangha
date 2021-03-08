@@ -1,7 +1,7 @@
-.main__area {
+/* .main__area {
     height: 100%;
     width: 100%;
-}
+} */
 
 .main-menu {
     background:#073B4C;
@@ -11,21 +11,14 @@
     bottom:0;
     left:0;
     width:20%;
-    z-index: 1;
+    /* z-index: 1; */
     /* overflow:hidden;
     -webkit-transition:width .05s linear;
     transition:width .05s linear;
-    -webkit-transform:translateZ(0) scale(1,1);
-    z-index:1000; */
+    -webkit-transform:translateZ(0) scale(1,1); */
+    z-index:1000;
 }
 
-section {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    overflow: hidden;
-}
 
 label {
     display: inline-block;
@@ -45,6 +38,14 @@ label {
     border-radius: 5px;
     margin: 5px auto;
     transition: background-color .5s ease-in, transform .5s ease-in, width .5s ease-in;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: hidden;
 }
 
 .menu__list {
