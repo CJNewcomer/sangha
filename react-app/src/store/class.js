@@ -28,26 +28,28 @@ export const getClass = () => async (dispatch) => {
 
 export const createAClass = (oneClass, updateOneClass = null) => async (dispatch) => {
     const {
-        class_id,
         location_id,
         user_id,
         name,
         type,
         class_image,
         image,
+        date,
         time,
+        location,
         description,
         price
     } = oneClass;
 
     const formData = new FormData();
-    formData.append('class_id', class_id);
     formData.append('location_id', location_id);
     formData.append('user_id', user_id);
     formData.append('name', name);
     formData.append('type', type);
     formData.append('class_image', class_image);
+    formData.append('date', date);
     formData.append('time', time);
+    formData.append('location', location);
     formData.append('description', description);
     formData.append('price', price);
 

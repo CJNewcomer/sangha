@@ -54,6 +54,8 @@ def create_pet():
             name=form.data["name"],
             type=form.data["type"],
             class_image=form.data["class_image"],
+            location=form.data["location"],
+            date=form.data["date"],
             time=form.data["time"],
             description=form.data["description"],
             price=form.data["price"],
@@ -86,7 +88,9 @@ def update_class(class_id):
     class_to_update.user_id = form.data["user_id"]
     class_to_update.name = form.data["name"]
     class_to_update.type = form.data["type"]
+    class_to_update.location = form.data["location"]
     class_to_update.class_image = form.data["class_image"]
+    class_to_update.date = form.data["date"]
     class_to_update.time = form.data["time"]
     class_to_update.description = form.data["description"]
     class_to_update.price = form.data["price"]

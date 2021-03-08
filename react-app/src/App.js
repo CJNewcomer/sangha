@@ -4,16 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/UserProfile/User"
+// import User from "./components/UserProfile";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
+import CreateClassForm from './components/CreateClassForm';
 
 // import redux
 import { getAllUsers } from "./store/user";
-import { setUser } from "./store/session";
-import { authenticate } from "./store/session";
-import NavBar from "./components/NavBar/NavBar";
+import { setUser, authenticate } from "./store/session";
 
 function App() {
 
@@ -25,11 +23,10 @@ function App() {
   useEffect(() => {
     dispatch(getAllUsers());
     (async() => {
-      const user = await dispatch(authenticate());
+      const user = await authenticate();
       if (!user.errors) {
         dispatch(setUser(user));
       }
-      // await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -40,15 +37,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
-        <ProtectedRoute path="/users" exact={true} authenticated={!!sessionUser}>
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
+        {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
+        </ProtectedRoute> */}
+        <ProtectedRoute path="/classes/new" exact={true} authenticated={!!sessionUser}>
+          <CreateClassForm />
         </ProtectedRoute>
-        <Route path="/" exact={true} >
+        <Route path="/" exact={true} authenticated={!!sessionUser}>
           <SplashPage />
         </Route>
         <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >

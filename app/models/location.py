@@ -11,7 +11,7 @@ class Location(db.Model):
     state = db.Column(db.String(2), nullable=False)
     country = db.Column(db.String(50), nullable=False)
 
-    classes = db.relationship("Class", back_populates="location")
+    classes = db.relationship("Class", back_populates="locations")
 
 
     def to_dict(self):
