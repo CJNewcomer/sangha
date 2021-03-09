@@ -26,7 +26,8 @@ class Class(db.Model):
     
     locations = db.relationship("Location", back_populates="classes")
     review = db.relationship("Review", back_populates="classes")
-    user = db.relationship("User", back_populates="classes")
+    student = db.relationship("User", back_populates="attend_classes")
+    teacher = db.relationship("User", back_populates="teach_classes")
 
     def to_dict(self):
         return {
@@ -43,6 +44,8 @@ class Class(db.Model):
             "price": self.price,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            "teacher": self.teacher.to_dict(),
+            "student": self.student.to_dict()
         }
     
 

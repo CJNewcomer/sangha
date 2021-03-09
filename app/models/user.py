@@ -16,7 +16,8 @@ class User(db.Model, UserMixin):
   biography = db.Column(db.String(1000), nullable=True)
   hashed_password = db.Column(db.String(255), nullable=False)
 
-  classes = db.relationship("Class", back_populates="user")
+  teach_classes = db.relationship("Class", back_populates="teacher")
+  attend_classes = db.relationship("Class", back_populates="student")
   reviews = db.relationship("Review", back_populates="user")
   user_class = db.relationship("Class", secondary=user_classes)
   sent_messages = db.relationship("Message",
