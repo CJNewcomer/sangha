@@ -11,8 +11,6 @@ const CreateClassForm = ({ updateOneClass }) => {
     const history = useHistory();
 
     const [name, setName] = useState('');
-    // const [locationId, setLocationId = useState('');
-    // const [userId, setUserId = useState('');
     const [type, setType] = useState('');
     const [image, setImage] = useState(null);
     const [date, setDate] = useState('');
@@ -20,10 +18,13 @@ const CreateClassForm = ({ updateOneClass }) => {
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [country, setCountry] = useState('');
     const [errors, setErrors] = useState([]);
     
     useEffect(() => {
-        if (!!updateOneClass) {
+        if (updateOneClass) {
             setName(updateOneClass.name);
             setType(updateOneClass.type);
             setImage(updateOneClass.image);
@@ -32,6 +33,9 @@ const CreateClassForm = ({ updateOneClass }) => {
             setLocation(updateOneClass.location);
             setDescription(updateOneClass.description);
             setPrice(updateOneClass.price);
+            setCity(updateOneClass.city);
+            setState(updateOneClass.state);
+            setCountry(updateOneClass.country);
         }
     }, [updateOneClass]);
     
@@ -41,8 +45,7 @@ const CreateClassForm = ({ updateOneClass }) => {
         let newErrors = [];
 
         const oneClass = {
-            userId: sessionUser.id,
-            locationId: location.id,
+            user_id: sessionUser.id,
             name: name,
             type,
             image,
@@ -51,17 +54,20 @@ const CreateClassForm = ({ updateOneClass }) => {
             location,
             description,
             price,
+            city,
+            state,
+            country
         };
 
         const classErrors = await dispatch(
             !!updateOneClass ? createAClass(oneClass,updateOneClass.id) 
-            : createAClass(updateOneClass)
+            : createAClass(oneClass)
             );
         if (classErrors.errors) {
             newErrors = classErrors.errors;
             setErrors(newErrors);
         } else {
-            history.push(`/classes${classErrors.id}`);
+            history.push(`/classes/${classErrors.id}`);
         }
     };
 
@@ -166,9 +172,9 @@ const CreateClassForm = ({ updateOneClass }) => {
                             <option value='' disabled>
                                 -Select One-
                             </option>
-                            <option value='in-person'>In-Person</option>
-                            <option value='virtual'>Virtual</option>
-                            <option value='both'>Both</option>
+                            <option value='In-Person'>In-Person</option>
+                            <option value='Virtual'>Virtual</option>
+                            <option value='Both'>Both</option>
                         </select>
                     </div>
                 </div>
@@ -201,6 +207,48 @@ const CreateClassForm = ({ updateOneClass }) => {
                             rows={4}
                             className='class__form-input'
                             ></textarea>
+                    </div>
+                </div>
+                 <div className='row'>
+                    <div className='col-25'>
+                        <label>City</label>
+                    </div>
+                    <div className='col-75'>
+                        <input 
+                            type='text'
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            required
+                            className='class__form-input'
+                            />
+                    </div>
+                </div>
+                 <div className='row'>
+                    <div className='col-25'>
+                        <label>State</label>
+                    </div>
+                    <div className='col-75'>
+                        <input 
+                            type='text'
+                            value={state}
+                            onChange={(e) => setState(e.target.value)}
+                            required
+                            className='class__form-input'
+                            />
+                    </div>
+                </div>
+                 <div className='row'>
+                    <div className='col-25'>
+                        <label>Country</label>
+                    </div>
+                    <div className='col-75'>
+                        <input 
+                            type='text'
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
+                            required
+                            className='class__form-input'
+                            />
                     </div>
                 </div>
                 <div className='row'>

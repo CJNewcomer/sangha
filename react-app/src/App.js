@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/NavBar/ProtectedRoute";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 import CreateClassForm from './components/CreateClassForm';
-// import SplashNavigation from './components/SplashPage/SplashNavigation';
+import SplashNavigation from './components/SplashPage/SplashNavigation';
 
 // import redux
 import { authenticate } from "./store/session";
@@ -37,9 +37,9 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Route path="/" >
+        <Route path="/" exact={true} >
           <SplashNavigation />
-        </Route> */}
+        </Route>
         {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <User />
         </ProtectedRoute> */}

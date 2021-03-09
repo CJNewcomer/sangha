@@ -1,13 +1,14 @@
 import re
 import boto3
 import botocore
+from datetime import datetime
 from flask import Blueprint, request
 from flask_login import login_required
 from werkzeug.utils import secure_filename
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.config import Config
 from app.helpers import upload_file_to_s3
-from app.models import db, Class
+from app.models import db, Class, Location
 from app.forms import CreateClassForm
 
 
@@ -18,12 +19,12 @@ class_routes = Blueprint('class', __name__)
 @class_routes.route("")
 def get_classes():
     classes = Class.query.all()
-    return {"classes": [class.to_dict() for class in classes]}
+    return {"classes": [classy.to_dict() for classy in classes]}
 
 
 @class_routes.route("", methods=["POST"])
 @login_required
-def create_pet():
+def create_class():
     form = CreateClassForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
@@ -48,15 +49,28 @@ def create_pet():
             else "https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg"
         )
 
+        location = Location(
+            city=form.data["city"],
+            state=form.data["state"],
+            country=form.data["country"]
+        )
+        db.session.add(location)
+        db.session.commit()
+
+        date_time = datetime.combine(form.data["date"],
+        form.data["time"])
+
+        time_ = date_time.time()
+
         new_class = Class(
-            location_id=form.data["location_id"],
+            location_id=location.id,
             user_id=form.data["user_id"],
             name=form.data["name"],
             type=form.data["type"],
             class_image=form.data["class_image"],
             location=form.data["location"],
             date=form.data["date"],
-            time=form.data["time"],
+            time=date_time,
             description=form.data["description"],
             price=form.data["price"],
         )
@@ -64,7 +78,7 @@ def create_pet():
         db.session.commit()
         return new_class.to_dict()
 
-    errors = validation_errors_to_error_message(form.errors)
+    errors = validation_errors_to_error_messages(form.errors)
     errors += image_error
 
     return {"errors": errors}
