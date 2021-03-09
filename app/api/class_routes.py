@@ -43,11 +43,9 @@ def create_class():
 
     if form.validate_on_submit() and not image_error:
 
-        output_link = (
-            upload_file_to_s3(image)
-            if image
-            else "https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg"
-        )
+        url = ''
+        if request.files:
+            url = upload_file_to_s3(request.files['image'], Config.S3_BUCKET)
 
         location = Location(
             city=form.data["city"],
@@ -60,14 +58,14 @@ def create_class():
         date_time = datetime.combine(form.data["date"],
         form.data["time"])
 
-        time_ = date_time.time()
+        # time_ = date_time.time()
 
         new_class = Class(
             location_id=location.id,
             user_id=form.data["user_id"],
             name=form.data["name"],
             type=form.data["type"],
-            class_image=form.data["class_image"],
+            class_image=url or "https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg",
             location=form.data["location"],
             date=form.data["date"],
             time=date_time,
