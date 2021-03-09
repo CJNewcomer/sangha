@@ -26,19 +26,6 @@ const SplashPage = () => {
             <div className='welcome__title-b'>
                 <h3>join the community</h3>
             </div>
-            {/* <div className='main__intro-container'>
-                {!sessionUser && (
-                    <>    
-                        <li>
-                            <SignUpFormModal />
-                        </li>
-                        <li>
-                            <LoginFormModal />
-                        </li>
-                    </>
-                )}
-                {sessionUser && <NavBar authenticated={!!sessionUser} />}
-            </div> */}
         </div>
     )
 }
