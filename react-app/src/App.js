@@ -10,6 +10,7 @@ import LandingPage from './components/LandingPage';
 import CreateClassForm from './components/CreateClassForm';
 import ClassProfile from './components/ClassProfile/ClassProfile';
 import SplashNavigation from './components/SplashPage/SplashNavigation';
+import SearchBar from './components/SearchBar/SearchBar';
 
 // import redux
 import { authenticate } from "./store/session";
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/" exact={true} authenticated={authenticated}>
           <SplashPage />
+        </Route>
+        <Route path='/search'>
+          <SearchBar />
         </Route>
         <ProtectedRoute path="/home" exact={true} setAuthenticated={setAuthenticated} >
           <LandingPage />
