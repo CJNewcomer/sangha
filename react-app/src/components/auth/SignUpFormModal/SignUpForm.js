@@ -29,11 +29,6 @@ const SignUpForm = () => {
     }
   };
 
-  // const demoLogin = async (e) => {
-  //   e.preventDefault();
-  //   const user = await dispatch(login('demo@aa.io', 'password'));
-  // }
-
   const updateFirstName = (e) => {
     setFirstName(e.target.value);
   };
@@ -62,8 +57,8 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
-  if (sessionUser) {
-    return <Redirect to="/" />;
+  if (!!sessionUser) {
+    return <Redirect to="/home" />;
   }
 
   return (

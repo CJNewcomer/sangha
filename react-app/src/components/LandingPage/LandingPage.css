@@ -1,7 +1,16 @@
 .landing__container {
+    background: url(./images/yogis_practicing.jpg)
+    no-repeat center fixed;
+    background-size: contain;
     position: relative;
-    height: 50rem;
-    width: 85rem;
+    min-height: 100vh;
+    opacity: 65%;
+}
+
+.landing__container {
+    position: relative;
+    /* height: 50rem;
+    width: 85rem; */
     background-size: cover;
     vertical-align: bottom;
     opacity: 50%;
@@ -12,6 +21,7 @@
 }
 
 img.landing {
+    margin: 0;
     height: 50rem;
     width: 85rem;
     overflow: hidden;
