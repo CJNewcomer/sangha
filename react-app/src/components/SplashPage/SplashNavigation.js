@@ -10,19 +10,18 @@ import './SplashPage.css';
 const SplashNavigation = () => {
     const sessionUser = useSelector((state) => state.session.user);
 
-    const sessionLinks = (sessionUser) => {
-        return 
-    }
+    let sessionLinks;
 
-
+    if (!sessionUser) {
+        sessionLinks = (
             <>
                 <div>
                     <nav>
                         <li className='nav__list-item'>
+                            <input type='search' placeholder='Search' />
                             <a className="menu__anchor" href="/search">
                                 <i className="fas fa-search"></i>
                             </a>
-                            <input type='search' placeholder='Search' />
                         </li>
                     </nav>
                     <nav>
@@ -37,15 +36,15 @@ const SplashNavigation = () => {
                     </nav>
                 </div>
             </>
-    )
+        )
     } else {
-    
+        sessionLinks = (
             <>
                 <div>
                     <LogoutButton />
                 </div>
             </>
-        
+        )
     }
 
     return (

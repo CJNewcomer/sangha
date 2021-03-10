@@ -28,7 +28,6 @@ export const getClass = () => async (dispatch) => {
 
 export const createAClass = (oneClass, updateOneClass = null) => async (dispatch) => {
     const {
-        location_id,
         user_id,
         name,
         type,
@@ -38,11 +37,13 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
         time,
         location,
         description,
-        price
+        price, 
+        city,
+        state,
+        country
     } = oneClass;
 
     const formData = new FormData();
-    formData.append('location_id', location_id);
     formData.append('user_id', user_id);
     formData.append('name', name);
     formData.append('type', type);
@@ -52,6 +53,9 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
     formData.append('location', location);
     formData.append('description', description);
     formData.append('price', price);
+    formData.append('city', city);
+    formData.append('state', state);
+    formData.append('country', country);
 
     if (image) formData.append('image', image);
 
@@ -73,7 +77,7 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
         }
     } else {
         // creating a class
-        const res = await fetch(`/api/classes`, {
+        const res = await fetch(`/api/classes/`, {
             method: 'POST',
             body: formData,
         });

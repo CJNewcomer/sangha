@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
-// import User from "./components/UserProfile";
+// import UserProfile from "./components/UserProfile";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 import CreateClassForm from './components/CreateClassForm';
-// import SplashNavigation from './components/SplashPage/SplashNavigation';
+import ClassProfile from './components/ClassProfile/ClassProfile';
+import SplashNavigation from './components/SplashPage/SplashNavigation';
 
 // import redux
 import { authenticate } from "./store/session";
@@ -37,11 +38,14 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Route path="/" >
+        <Route path="/" exact={true} >
           <SplashNavigation />
-        </Route> */}
+        </Route>
+        <ProtectedRoute path="/classes/:classId" exact={true} authenticated={!!sessionUser}>
+          <ClassProfile />
+        </ProtectedRoute>
         {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
-          <User />
+          <UserProfile />
         </ProtectedRoute> */}
         <ProtectedRoute path="/classes/new" exact={true} authenticated={!!sessionUser}>
           <CreateClassForm />
