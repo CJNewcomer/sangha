@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // components
 import ProtectedRoute from "./components/NavBar/ProtectedRoute";
-// import UserProfile from "./components/UserProfile";
+import UserProfile from "./components/UserProfile";
 import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 import CreateClassForm from './components/CreateClassForm';
@@ -44,9 +44,9 @@ function App() {
         <ProtectedRoute path="/classes/:classId" exact={true} authenticated={!!sessionUser}>
           <ClassProfile />
         </ProtectedRoute>
-        {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
+        <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <UserProfile />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <ProtectedRoute path="/classes/new" exact={true} authenticated={!!sessionUser}>
           <CreateClassForm />
         </ProtectedRoute>
