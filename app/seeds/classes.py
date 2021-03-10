@@ -12,18 +12,9 @@ def seed_class():
     user8 = User.query.filter_by(username="yogiCandace").first()
     user9 = User.query.filter_by(username="yogiEmily").first()
 
-    location1 = Location.query.filter_by(city="Memphis").first()
-    location2 = Location.query.filter_by(city="Denver").first()
-    location3 = Location.query.filter_by(city="Manchester").first()
-    location4 = Location.query.filter_by(city="New York City").first()
-    location5 = Location.query.filter_by(city="Portland").first()
-    location6 = Location.query.filter_by(city="Phoenix").first()
-    location7 = Location.query.filter_by(city="Houston").first()
-    location8 = Location.query.filter_by(city="Las Vegas").first()
-
 
     short_form = Class(
-        location_id=location1,
+        location_id=1,
         teacher=user2,
         name="Short Form Ashtanga",
         type="Ashtanga",
@@ -35,7 +26,7 @@ def seed_class():
         price=10,
     )
     yin = Class(
-        location_id=location2,
+        location_id=2,
         teacher=user3,
         name="Yin 60",
         type="Yin",
@@ -47,7 +38,7 @@ def seed_class():
         price=12,
     )
     hatha = Class(
-        location_id=location3,
+        location_id=3,
         teacher=user4,
         name="Hatha Yoga with Cass",
         type="Hatha",
@@ -59,7 +50,7 @@ def seed_class():
         price=10,
     )
     vinyasa = Class(
-        location_id=location4,
+        location_id=4,
         teacher=user5,
         name="Vinyasa Flow with Mary",
         type="Vinyasa",
@@ -71,7 +62,7 @@ def seed_class():
         price=15,
     )
     meditation = Class(
-        location_id=location5,
+        location_id=5,
         teacher=user6,
         name="Meditation Workshop",
         type="Meditation",
@@ -83,7 +74,7 @@ def seed_class():
         price=35,
     )
     yoga_nidra = Class(
-        location_id=location6,
+        location_id=6,
         teacher=user7,
         name="Yoga Nidra",
         type="Yoga Nidra",
@@ -95,7 +86,7 @@ def seed_class():
         price=18,
     )
     mommy_to_be = Class(
-        location_id=location7,
+        location_id=7,
         teacher=user8,
         name="Mommy-to-be Yoga",
         type="Prenatal",
@@ -107,7 +98,7 @@ def seed_class():
         price=18,
     )
     restorative = Class(
-        location_id=location8,
+        location_id=8,
         teacher=user9,
         name="Restorative Yoga",
         type="Restorative",

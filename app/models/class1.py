@@ -45,7 +45,8 @@ class Class(db.Model):
             "created_at": self.created_at,
             "updated_at": self.updated_at,
             "teacher": self.teacher.to_dict(),
-            "student": self.student.to_dict()
+            "student": self.student.to_dict(),
+            "locations": self.locations.to_dict()
         }
     
 

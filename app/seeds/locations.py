@@ -4,6 +4,7 @@ from app.models import db, Class, Location
 def seed_locations():
 
     memphis = Location(
+        id=1,
         long=-90.048981,
         lat=35.149532,
         city="Memphis",
@@ -11,6 +12,7 @@ def seed_locations():
         country="United States"
     )
     denver = Location(
+        id=2,
         long=-104.990250,
         lat=39.739235,
         city="Denver",
@@ -18,6 +20,7 @@ def seed_locations():
         country="United States"
     )
     manchester = Location(
+        id=3,
         long=-71.454391,
         lat=43.008663,
         city="Manchester",
@@ -25,6 +28,7 @@ def seed_locations():
         country="United States"
     )
     new_york_city = Location(
+        id=4,
         long=-73.935242,
         lat=40.730610,
         city="New York City",
@@ -32,6 +36,7 @@ def seed_locations():
         country="United States"
     )
     portland = Location(
+        id=5,
         long=-122.679565,
         lat=45.512794,
         city="Portland",
@@ -39,6 +44,7 @@ def seed_locations():
         country="United States"
     )
     phoenix= Location(
+        id=6,
         long=-112.074036,
         lat=33.448376,
         city="Phoenix",
@@ -46,6 +52,7 @@ def seed_locations():
         country="United States"
     )
     houston = Location(
+        id=7,
         long=-95.358421,
         lat=29.749907,
         city="Houston",
@@ -53,6 +60,7 @@ def seed_locations():
         country="United States"
     )
     las_vegas = Location(
+        id=8,
         long=-115.172813,
         lat=36.114647,
         city="Las Vegas",
