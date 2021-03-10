@@ -1,23 +1,64 @@
 .profile__container {
-
+    display: flex;
+    width: 60%;
+    margin: auto;
+    padding: 1.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    text-align: left;
+    background-color: whitesmoke;
 }
 
-.profile__left {
-
+@media (max-width: 900px) {
+    .profile__container {
+        flex-direction: column-reverse;
+    }
 }
 
 .profile__update-class {
+    display: flex;
+    justify-content: flex-end;
+}
 
+.profile__image-button > img {
+    border-radius: .5rem;
+    flex-direction: column;
+    justify-content: left;
+    width: 100%;
+    height: 16.5rem;
+    object-fit: cover;
+    margin: .5rem .5rem .5rem 0;
 }
 
 button.profile__delete-class {
-
-}
-
-.profile__right {
-
+    margin-top: 1rem;
+    background-color: rgb(255, 209, 102) !important;
 }
 
 .profile__info {
+    font-family: 'Ledger', serif;
+}
 
+.profile__info > h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: .1rem;
+    margin-top: 0;
+}
+
+.profile__info > h3 {
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.profile__description {
+    font-size: .95rem;
+    font-weight: 500;
+    margin-top: .9rem;
+    margin-bottom: 4.65rem;
 }

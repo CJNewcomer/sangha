@@ -54,7 +54,7 @@ def seed_class():
         teacher=user5,
         name="Vinyasa Flow with Mary",
         type="Vinyasa",
-        class_image="https://sangha.s3.us-east-2.amazonaws.com/sriyoga-ashram-QgCl-pNkfPc-unsplash.jpg",
+        class_image="https://sangha.s3.us-east-2.amazonaws.com/rishikesh-yogpeeth-Isf-5rBPiIs-unsplash.jpg",
         location="Both",
         date="2021-03-31 00:00",
         time="2021-03-31 06:00 PM",

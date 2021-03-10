@@ -17,11 +17,10 @@
     left: 0;
     bottom: 0;
     background-color: rgba(179, 179, 179, 0.9);
-    opacity: 40%;
+    opacity: 80%;
 }
 
 .modal__content {
-    color: #073B4C;
     position: absolute;
     background-color: rgba(228, 227, 227, 0.9);
     opacity: 80%;
