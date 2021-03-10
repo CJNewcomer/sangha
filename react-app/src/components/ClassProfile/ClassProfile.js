@@ -67,7 +67,7 @@ const ClassProfile = () => {
                         <h3>{yogaClass.type}</h3>
                         <h3>{yogaClass.date} {yogaClass.time}</h3>
                         <h3>{yogaClass.location}</h3>
-                        <h3>{yogaClass.locations.city}, {yogaClass.locations.state} {yogaClass.locations.country}</h3>
+                        <h3>{yogaClass.location.city}, {yogaClass.location.state} {yogaClass.locations.country}</h3>
                         <h3>
                             <NavLink to={`/users/${yogaClass.teacher.id}`}>Teacher: {yogaClass.teacher.first_name}</NavLink>
                         </h3>

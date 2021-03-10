@@ -2,7 +2,7 @@ import re
 import boto3
 import botocore
 from datetime import datetime
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from werkzeug.utils import secure_filename
 from app.api.auth_routes import validation_errors_to_error_messages
@@ -18,7 +18,7 @@ class_routes = Blueprint('class', __name__)
 @class_routes.route("")
 def get_classes():
     classes = Class.query.all()
-    return {"classes": [classy.to_dict() for classy in classes]}
+    return jsonify({"classes": [classy.to_dict() for classy in classes]})
 
 
 @class_routes.route("", methods=["POST"])
