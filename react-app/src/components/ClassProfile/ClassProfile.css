@@ -21,6 +21,7 @@
 button {
     background-color: rgb(255, 209, 102) !important;
     cursor: pointer;
+    padding: .25rem .5rem;
 }
 
 .profile__update-class {
