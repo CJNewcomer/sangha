@@ -7,35 +7,35 @@ import './UserProfile.css';
 const UserProfile = () => {
     const history = useHistory();
     const { userId } = useParams();
-
+    
     const user = useSelector((state) => state.users[userId]);
     const classes = useSelector((state) => Object.values(state.classes));
+    const sessionUser = useSelector((state) => state.session.user);
 
+    // Grabbing all classes booked or taught
     const myClasses = classes.filter((oneClass) => oneClass.userId === user.id);
 
     if (!user) return null;
 
-    const { username, first_name, last_name, email, profile_image, is_teacher, biography } = user;
-
     return (
         <>
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <img src={profile_image} alt="User Profile"/>
+            <div className='profile__container'>
+                <div className='profile__user'>
+                    <div className='profile__user-info'>
+                        <div className='profile__image'>
+                            <img src={user.profile_image} alt="User Profile"/>
                         </div>
-                        <div>
-                            <i>{username}</i>
+                        <div className='profile__username'>
+                            <i>{user.username}</i>
                         </div>
-                        <div>
-                            <i>{first_name} {last_name}</i>
+                        <div className='profile__name'>
+                            <i>{user.first_name} {user.last_name}</i>
                         </div>
-                        <div>
-                            <i>{email}</i>
+                        <div className='profile__email'>
+                            <i>{user.email}</i>
                         </div>
-                        <div>
-                            <p>{biography}</p>
+                        <div className='profile__bio'>
+                            <p>{user.biography}</p>
                         </div>
                     </div>
                 </div>

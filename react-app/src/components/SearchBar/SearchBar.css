@@ -1,0 +1,78 @@
+.search__container {
+    display: flex;  
+    justify-content: center;
+    margin-top: 3rem; 
+}
+
+.search__bar > input {
+    width: 35rem;
+    height: 2.5rem;
+    border-radius: .5rem;
+    font-family: 'Lusitana', serif;
+    color: rgb(24, 20, 20);
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .search__bar > input {
+        width: 20rem;
+    }
+}
+
+.result__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 70%;
+    margin: auto;
+    height: 100%;
+}
+
+.results {
+    display: flex;
+    background-color: whitesmoke;
+    margin: 2rem;
+    border-radius: .5rem;
+    height: 16.5rem;
+    font-family: 'Ledger', serif;
+}
+
+.class__tile:hover {
+    transform: scale(1.05);
+    opacity: 0.5;
+}
+
+.class__tile {
+    border-radius: .5rem;
+    overflow: hidden;
+    width: 15rem;
+    height: 16.5rem;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+.class__tile > img {
+    width: 100%;
+    height: 16.5rem;
+    object-fit: cover;
+}
+
+.class_tile-info {
+    margin-top: -12rem;
+    border-radius: .5rem;
+    padding-bottom: 1.75rem;
+    /* padding-top: 1.75rem; */
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+}
+
+.pet__card-info > h3 {
+    color: whitesmoke;
+    text-shadow: 0 0 3px rgb(34, 16, 0), 0 0 3px rgb(34, 16, 0),
+    0 0 3px rgb(34, 16, 0), 0 0 3px rgb(34, 16, 0);
+    font-size: 1.5rem;
+    font-weight: 800;
+}

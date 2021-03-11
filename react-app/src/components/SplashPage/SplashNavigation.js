@@ -17,8 +17,8 @@ const SplashNavigation = () => {
             <>
                 <div>
                     <nav>
-                        <li className='nav__list-item'>
-                            <input type='search' placeholder='Search' />
+                        <li className='nav__list-search'>
+                            {/* <input type='search' placeholder='Search' /> */}
                             <a className="menu__anchor" href="/search">
                                 <i className="fas fa-search"></i>
                             </a>
