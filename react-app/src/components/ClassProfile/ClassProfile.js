@@ -31,13 +31,13 @@ const ClassProfile = () => {
         }
     }
 
-    let bookClass;
+    // let bookClass;
     
-    if (!sessionUser || sessionUser.id !== yogaClass?.teacher.id){
-        bookClass = (
-            <button className='class__add' onClick={() => dispatch(addToUserClass(yogaClass.id))}>Book This Class</button>
-            )    
-        }
+    // if (!sessionUser || sessionUser.id !== yogaClass?.teacher.id){
+    //     bookClass = (
+    //         <button className='class__add' onClick={() => dispatch(addToUserClass(yogaClass.id))}>Book This Class</button>
+    //         )    
+    //     }
         
     if (!yogaClass) return null;
 
@@ -55,6 +55,10 @@ const ClassProfile = () => {
                                 onClick={onDelete}>Delete Class</button>
                             </div>
                             }
+                        </div>
+                        <div className='profile__book-class'>
+                            {sessionUser.id !== yogaClass?.teacher.id &&
+                            <button className='class__add' onClick={() => dispatch(addToUserClass(yogaClass.id))}>Book This Class</button>}
                         </div>
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>
