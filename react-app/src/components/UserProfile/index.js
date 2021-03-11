@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import './UserProfile.css';
 
 
 const UserProfile = () => {
+    const dispatch = useDispatch();
     const history = useHistory();
     const { userId } = useParams();
     
@@ -13,8 +14,8 @@ const UserProfile = () => {
     const sessionUser = useSelector((state) => state.session.user);
 
     // Grabbing all classes booked or taught
-    const myClasses = classes.filter((oneClass) => oneClass.userId === user.id);
-
+    const myClasses = classes.filter((oneClass) => oneClass.userId === sessionUser.id);
+    
     if (!user) return null;
 
     return (
@@ -37,8 +38,36 @@ const UserProfile = () => {
                         <div className='profile__bio'>
                             <p>{user.biography}</p>
                         </div>
+                        <div>
+                            {!myClasses.length && <h2>No Classes Booked</h2>}
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div className='classes__main'>
+                <div classes__container>
+                    {myClasses.map((myClass) => {
+                        const {class_image, name, date} = myClass;
+                        return (
+                            <div
+                            key={myClass.userId}
+                            className='class__tile'
+                            onClick={() => {
+                                history.push(`/classes/${myClass.id}`);
+                            }}>
+                                <div>
+                                    <img src={class_image} alt=""/>
+                                    <div>
+                                        <h3>{name}</h3>
+                                        <h3>{user.teacher.first_name}</h3>
+                                        <h3>{date}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+
             </div>
         </>
     )
