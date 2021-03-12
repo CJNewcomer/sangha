@@ -28,12 +28,6 @@ def get_one_class(class_id):
     return jsonify({"classes": [one_class.to_dict()]})
 
 
-# @class_routes.route("/<class_id>/user/<user_id>/myclasses", methods=["POST"])
-# def book_one_class(class_id):
-#     one_class = Class.query.get(class_id)
-#     return jsonify({"classes": [one_class.to_dict()]})
-
-
 @class_routes.route("", methods=["POST"])
 @login_required
 def create_class():

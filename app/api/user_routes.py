@@ -20,8 +20,8 @@ def user(id):
     return user.to_dict()
 
 
-@user_routes.route('/<int:id>/myclasses')
-@login_required
-def user_classes(class_id):
-    user_classes = User.query.get(class_id)
-    return user_classes.to_dict()
+# @user_routes.route('/<int:id>/myclasses', methods=["POST"])
+# @login_required
+# def user_classes(class_id):
+#     user_classes = User.query.get(class_id)
+  
