@@ -1,20 +1,19 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import './UserProfile.css';
 
 
 const UserProfile = () => {
-    const dispatch = useDispatch();
     const history = useHistory();
     const { userId } = useParams();
     
     const user = useSelector((state) => state.users[userId]);
     const classes = useSelector((state) => Object.values(state.classes));
     const sessionUser = useSelector((state) => state.session.user);
-
+    
     // Grabbing all classes booked or taught
-    const myClasses = classes.filter((oneClass) => oneClass.userId === sessionUser.id);
+    const myClasses = classes.filter((oneClass) => oneClass.userId === user.id);
     
     if (!user) return null;
 
