@@ -9,11 +9,12 @@ import SplashPage from "./components/SplashPage";
 import LandingPage from './components/LandingPage';
 import CreateClassForm from './components/CreateClassForm';
 import ClassProfile from './components/ClassProfile/ClassProfile';
-import SplashNavigation from './components/SplashPage/SplashNavigation';
+import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
 
 // import redux
 import { authenticate } from "./store/session";
+
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -38,10 +39,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <NavBar />
       <Switch>
-        <Route path="/" exact={true} >
-          <SplashNavigation />
-        </Route>
         <ProtectedRoute path="/classes/:classId" exact={true} authenticated={!!sessionUser}>
           <ClassProfile />
         </ProtectedRoute>

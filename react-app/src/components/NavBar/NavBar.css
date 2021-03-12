@@ -2,6 +2,9 @@
     height: 100%;
     width: 100%;
 } */
+.nav__bar {
+    display: flex;
+}
 
 .main-menu {
     background:#073B4C;

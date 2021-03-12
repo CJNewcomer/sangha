@@ -1,9 +1,14 @@
 const ADD = 'user_classes/ADD';
 
-export const addToUserClass = (id) => {
+const addClass = (oneClass) => ({
+    type: ADD,
+    oneClass,
+})
+// look up class_id against current user 
+export const addToUserClass = (oneClass) => async (dispatch) => {
+    
     return {
-        type: ADD,
-        id
+     
     }
 }
 

@@ -1,14 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import LoginFormModal from '../auth/LoginFormModal/index';
-// import SignUpFormModal from '../auth/SignUpFormModal/index';
-// import LogoutButton from '../NavBar/LogoutButton';
-// import NavBar from '../NavBar/NavBar';
 import './SplashPage.css';
 
 
 const SplashPage = () => {
-    const sessionUser = useSelector((state) => state.session.user);
 
     return (
         <div className='background__container'>
