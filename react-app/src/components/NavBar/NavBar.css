@@ -1,6 +1,6 @@
 .side__nav {
     height: 100%;
-    width: 5rem;
+    width: 8rem;
     position: fixed;
     z-index: 10;
     top: 0;
@@ -11,7 +11,7 @@
     padding-top: 60px;
 }
 
-.sidenav a .menu__anchor {
+.sidenav li .menu__anchor {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;

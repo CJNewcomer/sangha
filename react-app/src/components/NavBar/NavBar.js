@@ -25,8 +25,8 @@ const NavBar = () => {
     sessionLinks = (
       <>
         <nav className='side__nav' id='awesomeSideNav'>
-          <a onclick={openNav}> &#x2630;</a>
-          <a href="javascript:void(0)" class="close__button" onClick={closeNav}>&times;</a>
+          <li onclick={openNav}> &#x2630;</li>
+          <li class="close__button" onClick={closeNav}>&times;</li>
             <li className='nav__list-search'>
                 <NavLink 
                 className="menu__anchor" 
@@ -50,8 +50,8 @@ const NavBar = () => {
     sessionLinks = (
       <>
         <div className='side__nav' id='awesomeSideNav'>
-          <a onclick={openNav}> &#x2630;</a>
-          <a href="javascript:void(0)" class="close__button" onClick={closeNav}>&times;</a>
+          <li onclick={openNav}> &#x2630;</li  >
+          <li class="close__button" onClick={closeNav}>&times;</li>
           <li>
             <NavLink 
             className="menu__anchor" 
@@ -59,7 +59,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-search"></i>
-              Search
+               Search
             </NavLink>
           </li>
           <li>
@@ -69,7 +69,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-user"></i>
-              My Profile
+               My Profile
             </NavLink>
           </li>
           <li>
@@ -79,7 +79,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-chalkboard-teacher"></i>
-              My Classes
+               My Classes
             </NavLink>
           </li>
           <li>
@@ -89,7 +89,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-comments"></i>
-              My Messages
+               My Messages
             </NavLink>
           </li>
           <li>
@@ -97,7 +97,7 @@ const NavBar = () => {
             className="menu__anchor" 
             to="/">
               <i className="fas fa-power-off"></i>
-              Logout
+               Logout
             </NavLink>
           </li>
           <li>
@@ -112,8 +112,8 @@ const NavBar = () => {
     return (
       <>
         <div className='side__nav' id='awesomeSideNav'>
-          <a onclick={openNav}> &#x2630;</a>
-          <a href="#" class="close__button" onClick={closeNav}>&times;</a>
+          <li onclick={openNav}> &#x2630;</li>
+          <li class="close__button" onClick={closeNav}>&times;</li>
           <a className="menu__anchor" href="/home">
             <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
           </a>    
