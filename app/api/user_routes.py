@@ -20,26 +20,29 @@ def user(id):
     return user.to_dict()
 
 
-@user_routes.route('/<int:id>/myclasses/<int:class_id>')
-@login_required
-def user_class(id, class_id):
-    if current_user.id is not id:
-       return {"enrolled": False}
-    yoga_class = Class.query.get(class_id)
-    return {"enrolled": any([student for student in yoga_class.student if student.id == current_user.id])}
+# @user_routes.route('/<int:id>/myclasses/<int:class_id>')
+# @login_required
+# def user_class(id, class_id):
+#     if current_user.id is not id:
+#        return {"enrolled": False}
+#     yoga_class = Class.query.get(class_id)
+#     return {"enrolled": any([student for student in yoga_class.student if student.id == current_user.id])}
 
 
 # POST route that needs to grab a single class by id on onClick event and store within user 
-@user_routes.route('/<int:id>/myclasses', methods=["POST"])
+@user_routes.route('/<int:id>/myclasses/<int:class_id>', methods=["POST"])
 @login_required
 def book_class(id, class_id):
     if current_user.id is not id:
         return {"enrolled": False}
     yoga_class = Class.query.get(class_id)
-    yoga_class.student.append()
-    db.session.save(yoga_class.student)
-    user_class = user.attend_classes.push(class_id)
-    db.session.add(user_class)
+    if current_user not in yoga_class.student:
+        yoga_class.student.append(current_user)
+        db.session.commit()
+        return {"message": "You are now registered for this class."}
+    else:
+        return {"errors": "Already registered for this class."}
+   
 
 
 
