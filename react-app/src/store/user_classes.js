@@ -6,10 +6,11 @@ const addClass = (oneClass) => ({
 })
 // look up class_id against current user 
 export const addToUserClass = (oneClass) => async (dispatch) => {
-    
-    return {
-     
-    }
+    const res = await fetch(`/api/${user.id}/myclasses`, {
+        method: 'POST',
+        body: 
+    })
+  
 }
 
 const userClassReducer = (state={}, action) => {
@@ -18,9 +19,7 @@ const userClassReducer = (state={}, action) => {
             const newState = {...state};
             if (!newState[action.id]){
                 newState[action.id] = {id: action.id, count:1}
-            } else {
-
-            }
+            } 
             return newState;
         default:
             return state;

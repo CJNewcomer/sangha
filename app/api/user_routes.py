@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import User, Class, user_classes
+from app.models import db, User, Class, user_classes
 
 
 user_routes = Blueprint('users', __name__)
@@ -26,15 +26,23 @@ def user_class(id, class_id):
     if current_user.id is not id:
        return {"enrolled": False}
     yoga_class = Class.query.get(class_id)
-    return {"enrolled": any([student for student in yoga_class.student if student.id == current_user.id]))}
+    return {"enrolled": any([student for student in yoga_class.student if student.id == current_user.id])}
 
 
 # POST route that needs to grab a single class by id on onClick event and store within user 
-@user_routes.route('/<int:user_id>/myclasses', methods=["POST"])
+@user_routes.route('/<int:id>/myclasses', methods=["POST"])
 @login_required
-def book_class(user_id, class_id):
-   if current_user.id is not user_id:
-       pass
+def book_class(id, class_id):
+    if current_user.id is not id:
+        return {"enrolled": False}
+    yoga_class = Class.query.get(class_id)
+    yoga_class.student.append()
+    db.session.save(yoga_class.student)
+    user_class = user.attend_classes.push(class_id)
+    db.session.add(user_class)
+
+
+
 
 # add user instance of object to instance of sql alchemy class
 # instead of db.session.add - look up class through sqlalchemy by class id
