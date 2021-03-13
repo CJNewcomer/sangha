@@ -11,12 +11,22 @@ import './NavBar.css'
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
+  const openNav = () => {
+    document.getElementById("awesomeSideNav").style.width = "25rem";
+  }
+
+  const closeNav = () => {
+    document.getElementById("awesomeSideNav").style.width = "0";
+  }
+
   let sessionLinks;
 
   if (!sessionUser) {
     sessionLinks = (
       <>
-        <nav className='nav__bar'>
+        <nav className='side__nav' id='awesomeSideNav'>
+          <a onclick={openNav}> &#x2630;</a>
+          <a href="javascript:void(0)" class="close__button" onClick={closeNav}>&times;</a>
             <li className='nav__list-search'>
                 <NavLink 
                 className="menu__anchor" 
@@ -39,8 +49,10 @@ const NavBar = () => {
   } else {
     sessionLinks = (
       <>
-        <nav className='nav__bar'>
-          <li className='nav__list-search'>
+        <div className='side__nav' id='awesomeSideNav'>
+          <a onclick={openNav}> &#x2630;</a>
+          <a href="javascript:void(0)" class="close__button" onClick={closeNav}>&times;</a>
+          <li>
             <NavLink 
             className="menu__anchor" 
             to="/search"
@@ -91,7 +103,7 @@ const NavBar = () => {
           <li>
             <LogoutButton />
           </li>
-        </nav>
+        </div>
       </>
     )
   }
@@ -99,21 +111,13 @@ const NavBar = () => {
 
     return (
       <>
-        <div className='splash__header'>
-          <div className='splash__wrapper-header'>
-            <main className="main__menu">
-              <ul className="menu__list">
-                <li>
-                  <a className="menu__anchor"href="/home">
-                    <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
-                  </a>
-                </li>
-              </ul>
-              <nav className='splash__wrapper'>
-                <ul>{sessionLinks}</ul>
-              </nav>
-            </main>
-          </div>
+        <div className='side__nav' id='awesomeSideNav'>
+          <a onclick={openNav}> &#x2630;</a>
+          <a href="#" class="close__button" onClick={closeNav}>&times;</a>
+          <a className="menu__anchor" href="/home">
+            <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
+          </a>    
+          <div>{sessionLinks}</div>          
         </div>
       </>
     )       

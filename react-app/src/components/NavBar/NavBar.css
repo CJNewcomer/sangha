@@ -1,46 +1,35 @@
-.nav__bar {
-    display: flex;
-}
-.splash__header {
-    position: sticky;
+.side__nav {
+    height: 100%;
+    width: 5rem;
+    position: fixed;
     z-index: 10;
-    width: 100%;
     top: 0;
-    background-color: rgba(239, 71, 111, 0.8);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 3px 6px 0 rgba(7, 59, 76, 0.5);
-    /* height: 10rem; */
-    /* overflow: auto; */
+    left: 0;
+    background-color: #EF476F;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
-.splash__wrapper-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1140px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.2rem;
-    font-family: 'Ledger', serif;
-    color: whitesmoke;
+.sidenav a .menu__anchor {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
-}
-
-.splash__nav {
+    font-size: 25px;
+    color: #818181;
     display: block;
+    transition: 0.3s;
 }
 
-.splash__wrapper {
-    display: flex;
-    list-style: none;
-    box-sizing: border-box;
+.side__nav .menu__anchor:hover {
+    color: #f1f1f1;
 }
 
-.splash__link {
-    margin: 0;
-    padding: 0;
+.side__nav .close__button {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 .nav__logo {
@@ -49,10 +38,10 @@
     height: 9.5rem;
 }
 
-.nav__list-item {
+/* .nav__list-item {
     margin: 0 0.5rem;
     position: relative;
-}
+} */
 
 .nav__list-item {
     text-shadow: 0 0 2px rgba(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671),
@@ -62,121 +51,4 @@
 .nav__list-item:hover {
      text-shadow: 0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16),
     0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16);
-}
-
-.main-menu {
-    background:#073B4C;
-    position: fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    width:20%;
-    z-index:1000;
-}
-
-
-label {
-    display: inline-block;
-    padding: 2rem 4rem;
-    background-color: transparent;
-    cursor: pointer;
-    margin: 10px;
-    z-index: 3;
-    position: fixed;
-}
-
-.bar {
-    display: block;
-    background-color: #073B4C;
-    width: 30px;
-    height: 3px;
-    border-radius: 5px;
-    margin: 5px auto;
-    transition: background-color .5s ease-in, transform .5s ease-in, width .5s ease-in;
-}
-
-section {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    overflow: hidden;
-}
-
-.menu__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 100px;
-    text-align: center;
-    /* border-top: 2px solid rgba(255, 255, 255, .7); */
-}
-
-.menu__anchor {
-    /* border-bottom: 2px solid rgba(255, 255, 255, .7); */
-    padding: 20px 0;
-    display: block;
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 500;
-    position: relative;
-    transition: color .3s .15s ease-in;
-}
-
-.menu__anchor::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    background-color: #fff;
-    width: 0;
-    transition: width .3s ease-in;
-    z-index: -1;
-}
-
-.menu__anchor:hover {
-    color: #073B4C;
-}
-
-.menu__anchor:hover::after {
-    width: 100%;
-}
-
-input[type='checkbox'] {
-    display: none;
-}
-
-input[type='checkbox']:checked ~ .content {
-    transform: translateX(20%);
-}
-
-input[type="checkbox"]:checked ~ label .bar {
-  background-color: #fff;
-}
-
-input[type="checkbox"]:checked ~ label .top {
-  -webkit-transform: translateY(0px) rotateZ(45deg);
-  -moz-transform: translateY(0px) rotateZ(45deg);
-  -ms-transform: translateY(0px) rotateZ(45deg);
-  -o-transform: translateY(0px) rotateZ(45deg);
-  transform: translateY(0px) rotateZ(45deg);
-}
-
-input[type="checkbox"]:checked ~ label .bottom {
-  -webkit-transform: translateY(-15px) rotateZ(-45deg);
-  -moz-transform: translateY(-15px) rotateZ(-45deg);
-  -ms-transform: translateY(-15px) rotateZ(-45deg);
-  -o-transform: translateY(-15px) rotateZ(-45deg);
-  transform: translateY(-15px) rotateZ(-45deg);
-}
-
-input[type="checkbox"]:checked ~ label .middle {
-  width: 0;
-}
-
-.middle {
-  margin: 0 auto;
 }
