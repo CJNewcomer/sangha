@@ -6,8 +6,8 @@
     background-color: rgba(239, 71, 111, 0.8);
     backdrop-filter: blur(6px);
     box-shadow: 0 3px 6px 0 rgba(7, 59, 76, 0.5);
-    height: 10rem;
-    overflow: auto;
+    /* height: 10rem; */
+    /* overflow: auto; */
 }
 
 .splash__wrapper-header {
@@ -41,6 +41,7 @@
 }
 
 .splash__logo {
+    top: 0;
     transform: scale(0.90);
 }
 

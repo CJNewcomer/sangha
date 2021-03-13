@@ -6,7 +6,16 @@ label, button {
     font-family: 'Lusitana', serif;
 }
 
-button {
+button.login__modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EF476F;
+    opacity: 80%;
+    font-weight: 500;
+}
+
+button.login__demo {
     display: flex;
     justify-content: center;
     align-items: center;

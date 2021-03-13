@@ -6,12 +6,30 @@ const addClass = (oneClass) => ({
 })
 // look up class_id against current user 
 export const addToUserClass = (oneClass) => async (dispatch) => {
-    const res = await fetch(`/api/${user.id}/myclasses`, {
+    const { class_id, user_id } = oneClass;
+
+    const res = await fetch(`/api/${user_id}/myclasses`, {
         method: 'POST',
-        body: 
-    })
-  
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            class_id,
+            user_id
+        }),
+    });
+
+    const bookedClass = await res.json();
+
+    if (!bookedClass.errors) {
+        dispatch(addClass(bookedClass))
+        return bookedClass;
+    } else {
+        const errors = bookedClass;
+        return errors;
+    }
 }
+
 
 const userClassReducer = (state={}, action) => {
     switch(action.type){
