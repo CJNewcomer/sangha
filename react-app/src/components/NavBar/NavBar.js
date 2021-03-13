@@ -24,6 +24,7 @@ const NavBar = () => {
                 exact={true}
                 activeClassName='active'>
                     <i className="fas fa-search"></i>
+                    Search
                 </NavLink>
             </li>
             <li className='nav__list-item'>
@@ -46,6 +47,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-search"></i>
+              Search
             </NavLink>
           </li>
           <li>
@@ -55,6 +57,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-user"></i>
+              My Profile
             </NavLink>
           </li>
           <li>
@@ -64,6 +67,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-chalkboard-teacher"></i>
+              My Classes
             </NavLink>
           </li>
           <li>
@@ -73,6 +77,7 @@ const NavBar = () => {
             exact={true}
             activeClassName='active'>
               <i className="fas fa-comments"></i>
+              My Messages
             </NavLink>
           </li>
           <li>
@@ -80,6 +85,7 @@ const NavBar = () => {
             className="menu__anchor" 
             to="/">
               <i className="fas fa-power-off"></i>
+              Logout
             </NavLink>
           </li>
           <li>
@@ -103,8 +109,8 @@ const NavBar = () => {
                   </a>
                 </li>
               </ul>
-              <nav>
-                <ul className='splash__wrapper'>{sessionLinks}</ul>
+              <nav className='splash__wrapper'>
+                <ul>{sessionLinks}</ul>
               </nav>
             </main>
           </div>

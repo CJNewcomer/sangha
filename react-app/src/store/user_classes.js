@@ -5,6 +5,7 @@ const addClass = () => ({
 })
 
 // look up class_id against current user 
+
 export const addToUserClass = (class_id, user_id) => async (dispatch) => {
     const res = await fetch(`/api/users/${user_id}/myclasses/${class_id}`, {
         method: 'POST',
@@ -13,6 +14,7 @@ export const addToUserClass = (class_id, user_id) => async (dispatch) => {
     dispatch(addClass())
     return data;
 }
+
 
 const userClassReducer = (state={}, action) => {
     switch(action.type){
