@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { getOneClass, deleteClass } from '../../store/class';
@@ -12,6 +12,7 @@ const ClassProfile = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const {classId} = useParams();
+    const [errors, setErrors] = useState([]);
 
     const yogaClass = useSelector((state) => state.class[classId]);
     const sessionUser = useSelector((state) => state.session.user);
@@ -28,6 +29,15 @@ const ClassProfile = () => {
         if (res) {
             dispatch(deleteClass(yogaClass.id))
             history.push(`/classes/${yogaClass.id}`)
+        }
+    }
+
+    const addOneClass = async () => {
+        const data = await dispatch(addToUserClass(yogaClass.id))
+        if (data.errors) {
+            setErrors([data.errors])
+        } else {
+            history.push(`/users/${sessionUser.id}`)
         }
     }
 
@@ -58,7 +68,7 @@ const ClassProfile = () => {
                         </div>
                         <div className='profile__book-class'>
                             {sessionUser.id !== yogaClass?.teacher.id &&
-                            <button className='class__add' onClick={() => dispatch(addToUserClass(yogaClass.id))}>Book This Class</button>}
+                            <button className='class__add' onClick={addOneClass}>Book This Class</button>}
                         </div>
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>
