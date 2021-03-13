@@ -9,6 +9,7 @@ from app.api.auth_routes import validation_errors_to_error_messages
 from app.config import Config
 from app.helpers import upload_file_to_s3
 from app.models import db, Class, Location
+from app.models.user import user_classes
 from app.forms import CreateClassForm
 
 
@@ -19,6 +20,12 @@ class_routes = Blueprint('class', __name__)
 def get_classes():
     classes = Class.query.all()
     return jsonify({"classes": [classy.to_dict() for classy in classes]})
+
+
+@class_routes.route("/<class_id>")
+def get_one_class(class_id):
+    one_class = Class.query.get(class_id)
+    return jsonify({"classes": [one_class.to_dict()]})
 
 
 @class_routes.route("", methods=["POST"])

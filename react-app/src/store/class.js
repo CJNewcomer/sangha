@@ -26,6 +26,12 @@ export const getClass = () => async (dispatch) => {
     }
 };
 
+export const getOneClass = (id) => async (dispatch) => {
+    const res = await fetch(`/api/classes/${id}`);
+    const json = await res.json();
+    return dispatch(get(json.classes));
+}
+
 export const createAClass = (oneClass, updateOneClass = null) => async (dispatch) => {
     const {
         user_id,

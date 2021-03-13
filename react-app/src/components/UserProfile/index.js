@@ -11,10 +11,10 @@ const UserProfile = () => {
     const user = useSelector((state) => state.users[userId]);
     const classes = useSelector((state) => Object.values(state.classes));
     const sessionUser = useSelector((state) => state.session.user);
-
+    
     // Grabbing all classes booked or taught
     const myClasses = classes.filter((oneClass) => oneClass.userId === user.id);
-
+    
     if (!user) return null;
 
     return (
@@ -37,8 +37,36 @@ const UserProfile = () => {
                         <div className='profile__bio'>
                             <p>{user.biography}</p>
                         </div>
+                        <div>
+                            {!myClasses.length && <h2>No Classes Booked</h2>}
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div className='classes__main'>
+                <div classes__container>
+                    {myClasses.map((myClass) => {
+                        const {class_image, name, date} = myClass;
+                        return (
+                            <div
+                            key={myClass.userId}
+                            className='class__tile'
+                            onClick={() => {
+                                history.push(`/classes/${myClass.id}`);
+                            }}>
+                                <div>
+                                    <img src={class_image} alt=""/>
+                                    <div>
+                                        <h3>{name}</h3>
+                                        <h3>{user.teacher.first_name}</h3>
+                                        <h3>{date}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+
             </div>
         </>
     )

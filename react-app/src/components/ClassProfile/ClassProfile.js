@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, NavLink } from 'react-router-dom';
-import { getClass, deleteClass } from '../../store/class';
+import { getOneClass, deleteClass } from '../../store/class';
+import { addToUserClass } from '../../store/user_classes';
 import CreateClassModal from '../CreateClassForm/CreateClassModal';
 
 import './ClassProfile.css';
@@ -17,10 +18,11 @@ const ClassProfile = () => {
     
 
     useEffect(() => {
-        dispatch(getClass())
-    }, [dispatch])
+        dispatch(getOneClass(classId))
+    }, [dispatch, classId])
 
-
+    
+    
     const onDelete = (e) => {
         const res = window.confirm(`Are you sure you want to delete ${yogaClass.name}?`)
         if (res) {
@@ -29,6 +31,14 @@ const ClassProfile = () => {
         }
     }
 
+    // let bookClass;
+    
+    // if (!sessionUser || sessionUser.id !== yogaClass?.teacher.id){
+    //     bookClass = (
+    //         <button className='class__add' onClick={() => dispatch(addToUserClass(yogaClass.id))}>Book This Class</button>
+    //         )    
+    //     }
+        
     if (!yogaClass) return null;
 
     return (
@@ -45,6 +55,10 @@ const ClassProfile = () => {
                                 onClick={onDelete}>Delete Class</button>
                             </div>
                             }
+                        </div>
+                        <div className='profile__book-class'>
+                            {sessionUser.id !== yogaClass?.teacher.id &&
+                            <button className='class__add' onClick={() => dispatch(addToUserClass(yogaClass.id))}>Book This Class</button>}
                         </div>
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>

@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from '../store/session';
 import userReducer from '../store/user';
 import classReducer from '../store/class';
+import userClassReducer from '../store/user_classes';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     user: userReducer,
     class: classReducer,
+    user_class: userClassReducer,
 })
 
 let enhancer;
