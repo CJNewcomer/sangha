@@ -52,7 +52,7 @@ const UserProfile = () => {
                             key={myClass.userId}
                             className='class__tile'
                             onClick={() => {
-                                history.push(`/classes/${myClass.id}`);
+                                history.push(`/users/${sessionUser.id}/myclasses/${myClass.id}`);
                             }}>
                                 <div>
                                     <img src={class_image} alt=""/>

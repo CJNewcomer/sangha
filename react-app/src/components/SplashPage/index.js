@@ -1,8 +1,29 @@
 import React from 'react';
+import { useSelector }from 'react-redux';
+import SignUpFormModal from '../auth/SignUpFormModal';
+import LoginFormModal from '../auth/LoginFormModal';
 import './SplashPage.css';
 
 
 const SplashPage = () => {
+    const sessionUser = useSelector((state) => state.session.user)
+
+    let loggedOutUser;
+
+    if (!sessionUser) {
+        loggedOutUser = (
+            <>
+                <div className='welcome__buttons'>
+                    <li className='nav__list-item'>
+                        <SignUpFormModal />
+                    </li>
+                    <li className='nav__list-item'>
+                        <LoginFormModal />
+                    </li>
+            </div>
+            </>
+        )
+    }
 
     return (
         <div className='background__container'>
@@ -20,6 +41,7 @@ const SplashPage = () => {
             <div className='welcome__title-b'>
                 <h3>join the community</h3>
             </div>
+            <div>{loggedOutUser}</div>
         </div>
     )
 }

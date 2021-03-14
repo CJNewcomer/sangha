@@ -1,182 +1,126 @@
-.nav__bar {
-    display: flex;
+.fa-2x {
+    font-size: 2em;
 }
-.splash__header {
-    position: sticky;
-    z-index: 10;
-    width: 100%;
-    top: 0;
-    background-color: rgba(239, 71, 111, 0.8);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 3px 6px 0 rgba(7, 59, 76, 0.5);
-    /* height: 10rem; */
-    /* overflow: auto; */
+.fa {
+    position: relative;
+    display: table-cell;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size:20px;
 }
 
-.splash__wrapper-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1140px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.2rem;
-    font-family: 'Ledger', serif;
+
+.main__menu:hover,nav.main__menu.expanded {
+    width:250px;
+    overflow:visible;
+}
+
+.main__menu {
+    background:#EF476F;
+    position:absolute;
+    top:0;
+    bottom:0;
+    height:100%;
+    left:0;
+    width:60px;
+    overflow:hidden;
+    -webkit-transition:width .05s linear;
+    transition:width .05s linear;
+    -webkit-transform:translateZ(0) scale(1,1);
+    z-index:1000;
+}
+
+.main__menu > ul {
+    margin:7px 0;
+}
+
+.main__menu li {
+    position:relative;
+    display:block;
+    width:250px;
+}
+
+.main__menu li > a {
+    position:relative;
+    display:table;
+    border-collapse:collapse;
+    border-spacing:0;
+    color:#073B4C;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    text-decoration:none;
+    -webkit-transform:translateZ(0) scale(1,1);
+    -webkit-transition:all .1s linear;
+    transition:all .1s linear; 
+}
+
+.main__menu i {
+    position:relative;
+    display:table-cell;
+    width:60px;
+    height:36px;
+    text-align:center;
+    vertical-align:middle;
+    font-size:18px;
+}
+
+.main__menu .nav__text {
+    position:relative;
+    display:table-cell;
+    vertical-align:middle;
+    width:190px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.main__menu > ul.logout {
+    position:absolute;
+    left:0;
+    bottom:0;
+}
+
+.no-touch .scrollable.hover {
+    overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+    overflow-y:auto;
+    overflow:visible;
+}
+
+a:hover,a:focus {
+    text-decoration:none;
+}
+
+nav {
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+}
+
+nav ul,nav li {
+    outline:0;
+    margin:0;
+    padding:0;
+}
+
+.main__menu li:hover>a,nav.main__menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
     color: whitesmoke;
-    text-decoration: none;
+    background-color:#118AB2;
 }
 
-.splash__nav {
-    display: block;
-}
-
-.splash__wrapper {
-    display: flex;
-    list-style: none;
-    box-sizing: border-box;
-}
-
-.splash__link {
-    margin: 0;
-    padding: 0;
+.area {
+    float: left;
+    background: #e2e2e2;
+    width: 100%;
+    height: 100%;
 }
 
 .nav__logo {
     top: 0;
     transform: scale(0.90);
     height: 9.5rem;
-}
-
-.nav__list-item {
-    margin: 0 0.5rem;
-    position: relative;
-}
-
-.nav__list-item {
-    text-shadow: 0 0 2px rgba(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671),
-    0 0 2px rgb(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671);
-}
-
-.nav__list-item:hover {
-     text-shadow: 0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16),
-    0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16);
-}
-
-.main-menu {
-    background:#073B4C;
-    position: fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    width:20%;
-    z-index:1000;
-}
-
-
-label {
-    display: inline-block;
-    padding: 2rem 4rem;
-    background-color: transparent;
-    cursor: pointer;
-    margin: 10px;
-    z-index: 3;
-    position: fixed;
-}
-
-.bar {
-    display: block;
-    background-color: #073B4C;
-    width: 30px;
-    height: 3px;
-    border-radius: 5px;
-    margin: 5px auto;
-    transition: background-color .5s ease-in, transform .5s ease-in, width .5s ease-in;
-}
-
-section {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    overflow: hidden;
-}
-
-.menu__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 100px;
-    text-align: center;
-    /* border-top: 2px solid rgba(255, 255, 255, .7); */
-}
-
-.menu__anchor {
-    /* border-bottom: 2px solid rgba(255, 255, 255, .7); */
-    padding: 20px 0;
-    display: block;
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 500;
-    position: relative;
-    transition: color .3s .15s ease-in;
-}
-
-.menu__anchor::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    background-color: #fff;
-    width: 0;
-    transition: width .3s ease-in;
-    z-index: -1;
-}
-
-.menu__anchor:hover {
-    color: #073B4C;
-}
-
-.menu__anchor:hover::after {
-    width: 100%;
-}
-
-input[type='checkbox'] {
-    display: none;
-}
-
-input[type='checkbox']:checked ~ .content {
-    transform: translateX(20%);
-}
-
-input[type="checkbox"]:checked ~ label .bar {
-  background-color: #fff;
-}
-
-input[type="checkbox"]:checked ~ label .top {
-  -webkit-transform: translateY(0px) rotateZ(45deg);
-  -moz-transform: translateY(0px) rotateZ(45deg);
-  -ms-transform: translateY(0px) rotateZ(45deg);
-  -o-transform: translateY(0px) rotateZ(45deg);
-  transform: translateY(0px) rotateZ(45deg);
-}
-
-input[type="checkbox"]:checked ~ label .bottom {
-  -webkit-transform: translateY(-15px) rotateZ(-45deg);
-  -moz-transform: translateY(-15px) rotateZ(-45deg);
-  -ms-transform: translateY(-15px) rotateZ(-45deg);
-  -o-transform: translateY(-15px) rotateZ(-45deg);
-  transform: translateY(-15px) rotateZ(-45deg);
-}
-
-input[type="checkbox"]:checked ~ label .middle {
-  width: 0;
-}
-
-.middle {
-  margin: 0 auto;
 }

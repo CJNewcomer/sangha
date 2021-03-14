@@ -98,6 +98,14 @@ img.top {
     font-size: 1.2rem;
 }
 
+.welcome__buttons {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 15rem;
+    right: 15rem;
+}
+
 li {
     list-style: none;
     display: flex;

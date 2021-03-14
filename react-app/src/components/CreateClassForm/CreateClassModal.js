@@ -8,14 +8,10 @@ export default function CreateClassModal({ updateOneClass }) {
   return (
     <>
       <button
-        className={
-          updateOneClass
-            ? 'profile-button'
-            : 'nav__item navbar-dropdown__nav__item'
-        }
+        className="add__update-class"
         onClick={() => setShowModal(true)}
       >
-        {!!updateOneClass ? 'Update Class' : 'Add Class'}
+        {updateOneClass ? 'Update Class' : 'Add Class'}
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

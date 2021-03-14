@@ -1,97 +1,105 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import SignUpFormModal from "../auth/SignUpFormModal";
-import LoginFormModal from "../auth/LoginFormModal";
-import LogoutButton from "../NavBar/LogoutButton";
-import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../store/session";
 
 import './NavBar.css'
 
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+
+  const onLogout = async (e) => {
+    e.preventDefault();
+    await dispatch(logout());
+  }
 
   let sessionLinks;
 
   if (!sessionUser) {
     sessionLinks = (
       <>
-        <nav className='nav__bar'>
-            <li className='nav__list-search'>
-                <NavLink 
-                className="menu__anchor" 
-                to="/search" 
-                exact={true}
-                activeClassName='active'>
-                    <i className="fas fa-search"></i>
-                    Search
-                </NavLink>
+        <div className='area'></div>
+        <nav className='main__menu'>
+          <ul>
+            <li>
+              <a href="/">
+                <i className="fas fa-home fa-2x"></i>
+                <span className='nav__text'>
+                  Home
+                </span>
+              </a>
             </li>
-            <li className='nav__list-item'>
-                <SignUpFormModal />
+            <li className='has__subnav'>
+              <a href="/search">
+                <i className="fas fa-search fa-2x"></i>
+                <span className='nav__text'>
+                  Search
+                </span>
+              </a>
             </li>
-            <li className='nav__list-item'>
-                <LoginFormModal />
-            </li>
-        </nav>
+          </ul>
+        </nav>  
       </>
     )
   } else {
     sessionLinks = (
       <>
-        <nav className='nav__bar'>
-          <li className='nav__list-search'>
-            <NavLink 
-            className="menu__anchor" 
-            to="/search"
-            exact={true}
-            activeClassName='active'>
-              <i className="fas fa-search"></i>
-              Search
-            </NavLink>
-          </li>
-          <li>
-            <NavLink 
-            className="menu__anchor" 
-            to={`/users/${sessionUser.id}`}
-            exact={true}
-            activeClassName='active'>
-              <i className="fas fa-user"></i>
-              My Profile
-            </NavLink>
-          </li>
-          <li>
-            <NavLink 
-            className="menu__anchor" 
-            to={`/users/${sessionUser.id}/myclasses`} 
-            exact={true}
-            activeClassName='active'>
-              <i className="fas fa-chalkboard-teacher"></i>
-              My Classes
-            </NavLink>
-          </li>
-          <li>
-            <NavLink 
-            className="menu__anchor" 
-            to={`/users/${sessionUser.id}/mymessages`} 
-            exact={true}
-            activeClassName='active'>
-              <i className="fas fa-comments"></i>
-              My Messages
-            </NavLink>
-          </li>
-          <li>
-            <NavLink 
-            className="menu__anchor" 
-            to="/">
-              <i className="fas fa-power-off"></i>
-              Logout
-            </NavLink>
-          </li>
-          <li>
-            <LogoutButton />
-          </li>
-        </nav>
+        <div className='area'></div>
+        <nav className='main__menu'>
+            <ul>
+              <li>
+                <a href="/">
+                  <i className="fa fa-home fa-2x"></i>
+                  <span className='nav__text'>
+                    Home
+                  </span>
+                </a>
+              </li>
+              <li className='has__subnav'>
+                <a href="/search">
+                  <i className="fa fa-search fa-2x"></i>
+                  <span className='nav__text'>
+                    Search
+                  </span>
+                </a>
+              </li>
+              <li className='has__subnav'>
+                <a href={`/users/${sessionUser.id}`}>
+                  <i className="fa fa-user fa-2x"></i>
+                  <span className='nav__text'>
+                    My Profile
+                  </span>
+                </a>
+              </li>
+              <li className='has__subnav'>
+                <a href={`/users/${sessionUser.id}/myclasses`}>
+                  <i className="fa fa-chalkboard-teacher fa-2x"></i>
+                  <span className='nav__text'>
+                    My Classes
+                  </span>
+                </a>
+              </li>
+              <li className='has__subnav'>
+                <a href={`/users/${sessionUser.id}/mymessages`}>
+                  <i className="fa fa-comments fa-2x"></i>
+                  <span className='nav__text'>
+                    My Messages
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul>
+              <li className='has__subnav'>
+                <a onClick={onLogout} href="/">
+                  <i className="fa fa-power-off fa-2x"></i>
+                  <span className='nav__text'>
+                    Logout
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
       </>
     )
   }
@@ -99,22 +107,19 @@ const NavBar = () => {
 
     return (
       <>
-        <div className='splash__header'>
-          <div className='splash__wrapper-header'>
-            <main className="main__menu">
-              <ul className="menu__list">
-                <li>
-                  <a className="menu__anchor"href="/home">
-                    <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
-                  </a>
-                </li>
-              </ul>
-              <nav className='splash__wrapper'>
-                <ul>{sessionLinks}</ul>
-              </nav>
-            </main>
-          </div>
-        </div>
+        <div className='area'></div>
+        <nav className='main__menu'>
+          <ul>
+            <li>
+              <a href="/">
+                <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
+              </a>    
+            </li>
+          </ul>
+          <ul>
+          <div>{sessionLinks}</div>          
+          </ul>
+        </nav>
       </>
     )       
 } 

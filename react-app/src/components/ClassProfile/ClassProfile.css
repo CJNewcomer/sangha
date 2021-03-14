@@ -18,8 +18,9 @@
     }
 }
 
-button {
-    background-color: rgb(255, 209, 102) !important;
+button.profile__update-class,
+button.profile__book-class {
+    background-color: rgb(255, 209, 102);
     cursor: pointer;
     padding: .25rem .5rem;
 }
