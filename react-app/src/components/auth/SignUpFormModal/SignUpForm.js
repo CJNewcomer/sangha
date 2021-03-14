@@ -107,7 +107,7 @@ const SignUpForm = () => {
         </div>
         <div>
           <label>Student</label>
-          <input
+          <input className='is__student'
             type="radio"
             value="false"
             name="is_teacher"
@@ -117,7 +117,7 @@ const SignUpForm = () => {
         </div>
         <div>
           <label>Teacher</label>
-          <input
+          <input className='is__teacher'
             type="radio"
             value="true"
             name="is_teacher"

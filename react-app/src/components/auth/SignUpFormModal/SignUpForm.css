@@ -2,11 +2,20 @@ input, button {
     border-radius: .2rem;
 }
 
+input.is__student {
+    display: flex;
+}
+
+input.is__teacher {
+    display: flex;
+}
+
 label, button {
     font-family: 'Lusitana', serif;
 }
 
 button {
+    margin-top: .8rem;
     display: flex;
     justify-content: center;
     align-items: center;
