@@ -1,4 +1,6 @@
 import React from 'react';
+import SignUpFormModal from '../auth/SignUpFormModal';
+import LoginFormModal from '../auth/LoginFormModal';
 import './SplashPage.css';
 
 
@@ -19,6 +21,14 @@ const SplashPage = () => {
             </div>
             <div className='welcome__title-b'>
                 <h3>join the community</h3>
+            </div>
+            <div className='welcome__buttons'>
+                <li className='nav__list-item'>
+                    <SignUpFormModal />
+                </li>
+                <li className='nav__list-item'>
+                    <LoginFormModal />
+                </li>
             </div>
         </div>
     )
