@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import SignUpFormModal from "../auth/SignUpFormModal";
 import LoginFormModal from "../auth/LoginFormModal";
 import LogoutButton from "../NavBar/LogoutButton";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 import './NavBar.css'
 
@@ -24,10 +24,13 @@ const NavBar = () => {
   if (!sessionUser) {
     sessionLinks = (
       <>
-        <nav className='side__nav' id='awesomeSideNav'>
-          <li onclick={openNav}> &#x2630;</li>
-          <li class="close__button" onClick={closeNav}>&times;</li>
-            <li className='nav__list-search'>
+        <div className='side__nav' id="awesomeSideNav">
+          <a href="" onClick={openNav}> &#x2630;</a>
+          <a href="javascript:void(0)" className="close__button" onClick={closeNav}>&times;</a>
+          <a className="menu__anchor" href="/search">
+            <i className="fas fa-search"></i>
+          </a>
+            {/* <li className='nav__list-search'>
                 <NavLink 
                 className="menu__anchor" 
                 to="/search" 
@@ -36,23 +39,39 @@ const NavBar = () => {
                     <i className="fas fa-search"></i>
                     Search
                 </NavLink>
-            </li>
+            </li> */}
             <li className='nav__list-item'>
                 <SignUpFormModal />
             </li>
             <li className='nav__list-item'>
                 <LoginFormModal />
             </li>
-        </nav>
+        </div>
       </>
     )
   } else {
     sessionLinks = (
       <>
         <div className='side__nav' id='awesomeSideNav'>
-          <li onclick={openNav}> &#x2630;</li  >
-          <li class="close__button" onClick={closeNav}>&times;</li>
-          <li>
+          <a href="" onClick={openNav}> &#x2630;</a>
+          <a className="close__button" onClick={closeNav}>&times;</a>
+          <a className="menu__anchor" href="/search">
+            <i className="fas fa-search"></i>
+          </a>
+          <a className="menu__anchor" href={`/users/${sessionUser.id}`}>
+            <i className="fas fa-user"></i>
+          </a>
+          <a className="menu__anchor"  href={`/users/${sessionUser.id}/myclasses`} >
+            <i className="fas fa-chalkboard-teacher"></i>
+          </a>
+          <a className="menu__anchor" href={`/users/${sessionUser.id}/mymessages`} >
+            <i className="fas fa-comments"></i>
+          </a>
+          <a className="menu__anchor"  href="/">
+            <i className="fas fa-power-off"></i>
+          </a>
+
+          {/* <li>
             <NavLink 
             className="menu__anchor" 
             to="/search"
@@ -61,8 +80,8 @@ const NavBar = () => {
               <i className="fas fa-search"></i>
                Search
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink 
             className="menu__anchor" 
             to={`/users/${sessionUser.id}`}
@@ -71,8 +90,8 @@ const NavBar = () => {
               <i className="fas fa-user"></i>
                My Profile
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink 
             className="menu__anchor" 
             to={`/users/${sessionUser.id}/myclasses`} 
@@ -81,8 +100,8 @@ const NavBar = () => {
               <i className="fas fa-chalkboard-teacher"></i>
                My Classes
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink 
             className="menu__anchor" 
             to={`/users/${sessionUser.id}/mymessages`} 
@@ -91,15 +110,15 @@ const NavBar = () => {
               <i className="fas fa-comments"></i>
                My Messages
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink 
             className="menu__anchor" 
             to="/">
               <i className="fas fa-power-off"></i>
                Logout
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <LogoutButton />
           </li>
@@ -112,8 +131,8 @@ const NavBar = () => {
     return (
       <>
         <div className='side__nav' id='awesomeSideNav'>
-          <li onclick={openNav}> &#x2630;</li>
-          <li class="close__button" onClick={closeNav}>&times;</li>
+          <a className="menu__anchor" href="" onClick={openNav}> &#x2630;</a>
+          <a className="menu__anchor" href="" className="close__button" onClick={closeNav}>&times;</a>
           <a className="menu__anchor" href="/home">
             <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
           </a>    

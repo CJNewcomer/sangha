@@ -1,6 +1,6 @@
 .side__nav {
     height: 100%;
-    width: 8rem;
+    width: 13rem;
     position: fixed;
     z-index: 10;
     top: 0;
@@ -11,7 +11,7 @@
     padding-top: 60px;
 }
 
-.sidenav li .menu__anchor {
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -20,7 +20,7 @@
     transition: 0.3s;
 }
 
-.side__nav .menu__anchor:hover {
+.side__nav a:hover {
     color: #f1f1f1;
 }
 
@@ -29,7 +29,12 @@
     top: 0;
     right: 25px;
     font-size: 36px;
-    margin-left: 50px;
+    margin-left: 8rem;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 .nav__logo {
@@ -37,18 +42,13 @@
     transform: scale(0.90);
     height: 9.5rem;
 }
+    /* 
+    .nav__list-item {
+        text-shadow: 0 0 2px rgba(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671),
+        0 0 2px rgb(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671);
+    }
 
-/* .nav__list-item {
-    margin: 0 0.5rem;
-    position: relative;
-} */
-
-.nav__list-item {
-    text-shadow: 0 0 2px rgba(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671),
-    0 0 2px rgb(7, 59, 76, 0.671), 0 0 2px rgb(7, 59, 76, 0.671);
-}
-
-.nav__list-item:hover {
-     text-shadow: 0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16),
-    0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16);
-}
+    .nav__list-item:hover {
+        text-shadow: 0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16),
+        0 0 1.75px rgb(17, 17, 16), 0 0 1.75px rgb(17, 17, 16);
+    } */
