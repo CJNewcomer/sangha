@@ -57,7 +57,7 @@ const NavBar = () => {
                 </a>
               </li>
               <li className='has__subnav'>
-                <a href="/">
+                <a href="/search">
                   <i className="fa fa-search fa-2x"></i>
                   <span className='nav__text'>
                     Search
