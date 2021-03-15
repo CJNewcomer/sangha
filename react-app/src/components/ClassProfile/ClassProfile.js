@@ -33,7 +33,7 @@ const ClassProfile = () => {
     }
 
     const addOneClass = async () => {
-        const data = await dispatch(addToUserClass(yogaClass.id))
+        const data = await dispatch(addToUserClass(sessionUser.id, yogaClass.id))
         if (data.errors) {
             setErrors([data.errors])
         } else {

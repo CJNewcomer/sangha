@@ -5,9 +5,9 @@ const addClass = () => ({
 })
 
 // look up class_id against current user 
-// /${class_id}
-export const addToUserClass = (user_id) => async (dispatch) => {
-    const res = await fetch(`/api/users/${user_id}/myclasses`, {
+
+export const addToUserClass = (user_id, class_id) => async (dispatch) => {
+    const res = await fetch(`/api/users/${user_id}/myclasses/${class_id}`, {
         method: 'POST',
     })
     const data = await res.json()

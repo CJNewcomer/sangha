@@ -30,6 +30,16 @@ class Class(db.Model):
     student = db.relationship("User", secondary=user_classes, back_populates="attend_classes")
     teacher = db.relationship("User", foreign_keys=[user_id], back_populates="teach_classes")
 
+    def to_simple_dict(self):
+        return {
+            "id": self.id,
+            "class_image": self.class_image,
+            "teacher": self.teacher.first_name,
+            "name": self.name,
+            "date": self.date,
+            "time": self.time
+        }
+
     def to_dict(self):
         return {
             "id": self.id,

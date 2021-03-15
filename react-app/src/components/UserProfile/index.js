@@ -6,11 +6,11 @@ import './UserProfile.css';
 
 const UserProfile = ({ userProfileImage }) => {
     const history = useHistory();
-    const { userId } = useParams();
+    const { user_id } = useParams();
     const [image, setImage] = useState(null);
     const [errors, setErrors] = useState([]);
     
-    const user = useSelector((state) => state.user[userId]);
+    const user = useSelector((state) => state.user[user_id]);
     const classes = useSelector((state) => Object.values(state.class));
     const sessionUser = useSelector((state) => state.session.user);
     
@@ -53,22 +53,23 @@ const UserProfile = ({ userProfileImage }) => {
             reader.readAsDataURL(file);
         }
     };
-
-
+    
+    
     // Grabbing all classes booked or taught
-    const myClasses = classes.filter((oneClass) => oneClass.sessionUser.id === sessionUser.id);
+    const myClasses = classes.filter((class_) => class_.sessionUser?.id === sessionUser.id);
+    console.log("------", myClasses)
     
     if (!sessionUser) return null;
 
     return (
         <>
             <div className='profile__container-a'>
-                <div className='profile__user'>
+                <div className='profile__user-a'>
+                    <div className='profile__image'>
+                        {/* <input className='image__upload' type='file' style={{display: "none"}} onChange={updateFile}/> */}
+                        <img src={"https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"} alt=""/>
+                    </div>
                     <div className='profile__user-info'>
-                        <div className='profile__image'>
-                            <input className='image__upload' type='file' style={{display: "none"}} onChange={updateFile}/>
-                            <img src={sessionUser.userProfileImage} alt="User Profile"/>
-                        </div>
                         <div className='profile__username'>
                             <i>{sessionUser.username}</i>
                         </div>
@@ -78,9 +79,13 @@ const UserProfile = ({ userProfileImage }) => {
                         <div className='profile__email'>
                             <i>{sessionUser.email}</i>
                         </div>
+                        <div></div>
+                        <div className='profile__location'>
+                            <i>{sessionUser.classes.location_id}</i>
+                        </div>
                     </div>
                 </div>
-                <div className='profile__user'>
+                <div className='profile__user-b'>
                     <div className='profile__bio'>
                         <p>{sessionUser.biography}</p>
                     </div>
@@ -88,31 +93,32 @@ const UserProfile = ({ userProfileImage }) => {
             </div>
             <div className='profile__container-b'>
                 {!myClasses.length && <h2>No Classes Booked</h2>}
-            </div>
-            <div className='classes__main'>
-                <div classes__container>
-                    {myClasses.map((myClass) => {
-                        // const {class_image, name, date} = myClass;
-                        return (
-                            <div
-                            key={myClass.userId}
-                            className='class__tile'
-                            onClick={() => {
-                                history.push(`/users/${sessionUser.id}/myclasses/${myClass.id}`);
-                            }}>
-                                <div>
-                                    <img src={myClass.class_image} alt=""/>
-                                    <div>
-                                        <h3>{myClass.name}</h3>
-                                        <h3>{user.teacher.first_name}</h3>
-                                        <h3>{myClass.date}</h3>
+                <div className='classes__main'>
+                    <div className='classes__container'>
+                        {myClasses.map((myClass) => {
+                            // const {class_image, name, date} = myClass;
+                            return (
+                                <div
+                                key={myClass.sessionUser.id}
+                                className='class__tile'
+                                onClick={() => {
+                                    history.push(`/users/${sessionUser.id}/myclasses/${myClass.id}`);
+                                }}>
+                                    <div className='myclasses__image'>
+                                        <img src={sessionUser.myClasses[0].class_image} alt=""/>
+                                    </div>
+                                    <div className='myclasses__info'>
+                                        <div>
+                                            <h3>{sessionUser.myClasses[0].name}</h3>
+                                            <h3>{sessionUser.myClasses[0].teacher.first_name}</h3>
+                                            <h3>{sessionUser.myClasses[0].date}</h3>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
                 </div>
-
             </div>
         </>
     )

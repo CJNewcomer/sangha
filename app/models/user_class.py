@@ -8,6 +8,6 @@ user_classes = db.Table(
     db.Column("class_id", db.Integer, db.ForeignKey("classes.id"),
                 nullable=False),
     db.Column("review_id", db.Integer, db.ForeignKey("reviews.id"),
-                nullable=False)
+                nullable=True)
 
 )
