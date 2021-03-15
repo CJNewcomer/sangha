@@ -19,7 +19,7 @@ class_routes = Blueprint('class', __name__)
 @class_routes.route("")
 def get_classes():
     classes = Class.query.all()
-    return jsonify({"classes": [classy.to_dict() for classy in classes]})
+    return {"classes": [classy.to_dict() for classy in classes]}
 
 
 @class_routes.route("/<class_id>")

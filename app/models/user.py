@@ -44,7 +44,7 @@ class User(db.Model, UserMixin):
   def check_password(self, password):
     return check_password_hash(self.password, password)
 
-
+  
 
   def to_dict(self):
     return {
@@ -55,5 +55,6 @@ class User(db.Model, UserMixin):
       "email": self.email,
       "is_teacher": self.is_teacher,
       "profile_image": self.profile_image,
-      "biography": self.biography
+      "biography": self.biography,
+      "classes": [class_.to_simple_dict() for class_ in self.user_class]
     }

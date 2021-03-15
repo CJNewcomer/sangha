@@ -33,7 +33,7 @@ const ClassProfile = () => {
     }
 
     const addOneClass = async () => {
-        const data = await dispatch(addToUserClass(yogaClass.id))
+        const data = await dispatch(addToUserClass(sessionUser.id, yogaClass.id))
         if (data.errors) {
             setErrors([data.errors])
         } else {
@@ -82,6 +82,11 @@ const ClassProfile = () => {
                         <h3>${yogaClass.price}</h3>
                         <h4 className='profile__description'>{yogaClass.description}</h4>
                     </div>
+                </div>
+            </div>
+            <div className='reviews__container'>
+                <div>
+                    <h2>Class Reviews</h2>
                 </div>
             </div>
         </>
