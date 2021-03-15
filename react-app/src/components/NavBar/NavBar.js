@@ -68,7 +68,7 @@ const NavBar = () => {
                 <a href={`/users/${sessionUser.id}`}>
                   <i className="fa fa-user fa-2x"></i>
                   <span className='nav__text'>
-                    My Profile
+                    {`${sessionUser.first_name}'s `} Profile
                   </span>
                 </a>
               </li>
@@ -76,7 +76,7 @@ const NavBar = () => {
                 <a href={`/users/${sessionUser.id}/myclasses`}>
                   <i className="fa fa-chalkboard-teacher fa-2x"></i>
                   <span className='nav__text'>
-                    My Classes
+                    {`${sessionUser.first_name}'s `} Classes
                   </span>
                 </a>
               </li>
@@ -84,7 +84,7 @@ const NavBar = () => {
                 <a href={`/users/${sessionUser.id}/mymessages`}>
                   <i className="fa fa-comments fa-2x"></i>
                   <span className='nav__text'>
-                    My Messages
+                    {`${sessionUser.first_name}'s `} Messages
                   </span>
                 </a>
               </li>
@@ -109,13 +109,13 @@ const NavBar = () => {
       <>
         <div className='area'></div>
         <nav className='main__menu'>
-          <ul>
+          {/* <ul>
             <li>
               <a href="/">
                 <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
               </a>    
             </li>
-          </ul>
+          </ul> */}
           <ul>
           <div>{sessionLinks}</div>          
           </ul>

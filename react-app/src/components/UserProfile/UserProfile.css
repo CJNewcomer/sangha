@@ -1,4 +1,4 @@
-.profile__container {
+.profile__container-a {
     display: flex;
     max-width: 700px;
     height: 100%;
@@ -18,8 +18,9 @@
     }
 }
 
-.profile__user {
-
+.profile__user .profile__bio {
+    display: flex;
+    justify-content: right;
 }
 
 .profile__user-info {
@@ -35,7 +36,11 @@
 }
 
 .profile__image {
+    margin: 1rem;
     border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 .profile__username {
@@ -56,5 +61,19 @@
 .profile__bio {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
 }
 
+.profile__container-b {
+    display: flex;
+    max-width: 700px;
+    height: 100%;
+    margin: auto;
+    padding: 0 1rem;
+    margin-top: 2rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    text-align: left;
+    background-color: whitesmoke;
+}

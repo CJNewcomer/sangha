@@ -121,9 +121,9 @@ const classReducer = (state = initialState, action) => {
         case CREATE_CLASS:
             newState[action.oneClass.id] = action.oneClass;
             return newState;
-            case REMOVE_CLASS:
-                delete newState[Number(action.oneClassId)];
-                return newState;
+        case REMOVE_CLASS:
+            delete newState[Number(action.oneClassId)];
+            return newState;
             default:
                 return newState;
     }

@@ -49,7 +49,7 @@
     border-spacing:0;
     color:#073B4C;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
+    font-size: 1.3rem;
     text-decoration:none;
     -webkit-transform:translateZ(0) scale(1,1);
     -webkit-transition:all .1s linear;
@@ -59,11 +59,11 @@
 .main__menu i {
     position:relative;
     display:table-cell;
-    width:60px;
-    height:36px;
+    width:3.7rem;
+    height:2.9rem;
     text-align:center;
     vertical-align:middle;
-    font-size:18px;
+    font-size: 1.8rem;
 }
 
 .main__menu .nav__text {
@@ -109,7 +109,7 @@ nav ul,nav li {
 
 .main__menu li:hover>a,nav.main__menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
     color: whitesmoke;
-    background-color:#118AB2;
+    background-color:#06ADA0;
 }
 
 .area {
@@ -119,8 +119,8 @@ nav ul,nav li {
     height: 100%;
 }
 
-.nav__logo {
+/* .nav__logo {
     top: 0;
     transform: scale(0.90);
     height: 9.5rem;
-}
+} */
