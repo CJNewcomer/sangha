@@ -73,13 +73,21 @@ const NavBar = () => {
                 </a>
               </li>
               <li className='has__subnav'>
+                {sessionUser.is_teacher ? 
+                <a href="/classes">
+                  <i className="fa fa-chalkboard-teacher fa-2x"></i>
+                  <span className='nav__text'>
+                    Create a New Class
+                  </span>
+                </a> : 
+              <li className='has__subnav'>
                 <a href={`/users/${sessionUser.id}/myclasses`}>
                   <i className="fa fa-chalkboard-teacher fa-2x"></i>
                   <span className='nav__text'>
                     {`${sessionUser.first_name}'s `} Classes
                   </span>
                 </a>
-              </li>
+              </li> }
               <li className='has__subnav'>
                 <a href={`/users/${sessionUser.id}/mymessages`}>
                   <i className="fa fa-comments fa-2x"></i>
@@ -87,6 +95,7 @@ const NavBar = () => {
                     {`${sessionUser.first_name}'s `} Messages
                   </span>
                 </a>
+              </li>
               </li>
             </ul>
             <ul>
