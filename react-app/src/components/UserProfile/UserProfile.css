@@ -76,11 +76,11 @@ div.profile__image img {
 
 .profile__container-b {
     display: flex;
-    max-width: 700px;
+    max-width: 850px;
     height: 100%;
     margin: auto;
     padding: 0 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     border-radius: .5rem;
     overflow: hidden;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
@@ -88,22 +88,72 @@ div.profile__image img {
     background-color: whitesmoke;
 }
 
-.classes_main {
+h2 {
+    font-family: 'Ledger', serif;
+}
 
+.classes__main {
+    /* flex-wrap: wrap; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    box-sizing: border-box;
+    width: fit-content;
+    margin: auto;
+    height: 100%;
 }
 
 .classes__container {
-
+    display: flex;
+    /* align-content: center; */
+    /* background-color: whitesmoke; */
+    margin: 2rem;
+    /* border-radius: .5rem; */
+    /* height: 16.5rem; */
+    font-family: 'Ledger', serif;
+    padding-bottom: 3rem;
 }
 
 .class__tile {
-    margin: 1rem 0;
+    margin: -2rem .75rem;
+    height: 16.5rem;
 }
 
-.myclasses__image {
-
+.myclasses__image img{
+    width: 100%;
+    height: 16.5rem;
+    /* border-radius: 50%; */
+    object-fit: cover;
 }
 
 .myclasses__info {
+    margin-top: -12rem;
+    border-radius: .5rem;
+    padding-bottom: 1.75rem;
+    /* padding-top: 1.75rem; */
+    text-decoration: none;
+    /* position: relative; */
+    text-align: center;
+}
 
+.myclasses__info > h3 {
+    color: whitesmoke;
+    text-shadow: 0 0 3px rgb(34, 16, 0), 0 0 3px rgb(34, 16, 0),
+    0 0 3px rgb(34, 16, 0), 0 0 3px rgb(34, 16, 0);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.profile__container-c {
+    display: flex;
+    max-width: 850px;
+    height: 100%;
+    margin: auto;
+    padding: 0 1rem;
+    margin-top: 3rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    text-align: left;
+    background-color: whitesmoke;
 }

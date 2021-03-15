@@ -84,6 +84,11 @@ const ClassProfile = () => {
                     </div>
                 </div>
             </div>
+            <div className='reviews__container'>
+                <div>
+                    <h2>Class Reviews</h2>
+                </div>
+            </div>
         </>
     )
 
