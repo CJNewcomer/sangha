@@ -6,7 +6,16 @@ import { addToUserClass } from '../../store/user_classes';
 import CreateClassModal from '../CreateClassForm/CreateClassModal';
 
 import './ClassProfile.css';
-
+export const convertTime = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour12: true,
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+};
 
 const ClassProfile = () => {
     const dispatch = useDispatch();
@@ -40,7 +49,7 @@ const ClassProfile = () => {
             history.push(`/users/${sessionUser.id}`)
         }
     }
-
+    
     // let bookClass;
     
     // if (!sessionUser || sessionUser.id !== yogaClass?.teacher.id){
@@ -73,7 +82,7 @@ const ClassProfile = () => {
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>
                         <h3>{yogaClass.type}</h3>
-                        <h3>{yogaClass.date} {yogaClass.time}</h3>
+                        <h3>{(new Date(yogaClass.time)).toLocaleString("en-US", convertTime)}</h3>
                         <h3>{yogaClass.location}</h3>
                         <h3>{yogaClass.locations.city}, {yogaClass.locations.state} {yogaClass.locations.country}</h3>
                         <h3>

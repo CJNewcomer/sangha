@@ -28,15 +28,14 @@ def user(id):
     return user.to_dict()
 
 
-@user_routes.route('/<int:id>', methods=["POST"])
+@user_routes.route('/<int:id>/profilepic', methods=["PUT"])
 @login_required
 def user_add_profile_image(id):
     user = User.query.get(id)
-    form = SignUpForm()
-    form["csrf_token"].data = request.cookies["csrf_token"]
 
     image_error = []
     image = request.files.get("image", None)
+    print("^^^^^^^^^^^^^^", image)
 
     if image != None:
         image.filename = secure_filename(image.filename)
@@ -48,22 +47,20 @@ def user_add_profile_image(id):
                 "Upload must be an image (apng, avif, jpeg/jpg, png, svg, webp)."
             )
 
-    if form.validate_on_submit() and not image_error:
+    if not image_error:
+        print("^^^^^^^^^^^^^^", image)
 
-        url = ''
-        if request.files:
-            url = upload_file_to_s3(request.files['image'], Config.S3_BUCKET)
+        url = "https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
+        if image:
+            url = upload_file_to_s3(image, Config.S3_BUCKET)
         
-        new_profile_image = User(
-            profile_image=url or "https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
-        )
-        db.session.add(new_profile_image)
+        user.profile_image = url
+     
         db.session.commit()
-        return new_profile_image.to_dict()
+        return user.to_dict()
 
-    errors = validation_errors_to_error_messages(form.errors)
-    errors += image_error
-
+    errors = image_error
+    print("errors", errors)
     return {"errors": errors}
 
 

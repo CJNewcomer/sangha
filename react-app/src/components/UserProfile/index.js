@@ -2,8 +2,9 @@ import React, {useState, useEffect}from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { getClass } from '../../store/class';
+import { updateOneUser } from '../../store/session';
 import './UserProfile.css';
-
+import { convertTime } from '../ClassProfile/ClassProfile';
 
 const UserProfile = ({ userProfileImage }) => {
     const dispatch = useDispatch();
@@ -26,19 +27,19 @@ const UserProfile = ({ userProfileImage }) => {
         }
     }, [userProfileImage])
 
-    const createProfileImage = async (e) => {
-        e.preventDefault();
+    const createProfileImage = async (image) => {
+        console.log("-----------",image)
         setErrors([]);
         let newErrors = [];
 
         const user = {
-            user_id: sessionUser.id,
+            id: sessionUser.id,
             image
         };
 
-        const profileErrors = await dispatchEvent(
-            userProfileImage ? createProfileImage(user, userProfileImage.id)
-            : createProfileImage(user)
+        const profileErrors = await dispatch (
+            userProfileImage ? updateOneUser(user, userProfileImage.id)
+            : updateOneUser(user)
         );
         if (profileErrors.errors) {
             newErrors = profileErrors.errors;
@@ -51,12 +52,8 @@ const UserProfile = ({ userProfileImage }) => {
     const updateFile = (e) => {
         const file = e.target.files[0];
         if (file) {
-            const reader = new FileReader();
             setImage(file);
-            reader.onload = (e) => {
-                image.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
+            createProfileImage(file);
         }
     };
     
@@ -72,8 +69,9 @@ const UserProfile = ({ userProfileImage }) => {
             <div className='profile__container-a'>
                 <div className='profile__user-a'>
                     <div className='profile__image'>
-                        {/* <input className='image__upload' type='file' style={{display: "none"}} onChange={updateFile}/> */}
-                        <img src={"https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"} alt=""/>
+                        <input className='image__upload' type='file' id='uploaded' style={{display: "none"}} onChange={updateFile}/>
+                        <img src={sessionUser.profile_image} alt=""/>
+                        <button onClick={() => document.getElementById('uploaded').click()}></button>
                     </div>
                     <div className='profile__user-info'>
                         <div className='profile__username'>
@@ -93,7 +91,16 @@ const UserProfile = ({ userProfileImage }) => {
                 </div>
                 <div className='profile__user-b'>
                     <div className='profile__bio'>
-                        <p>{sessionUser.biography}</p>
+                        {/* <p>{sessionUser.biography}</p> */}
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -118,8 +125,7 @@ const UserProfile = ({ userProfileImage }) => {
                                         <div className='myclasses__info'>
                                             <h3>{myClass.name}</h3>
                                             <h3>{myClass.teacher.first_name}</h3>
-                                            <h3>{myClass.date}</h3>
-                                            <h3>{myClass.time}</h3>
+                                            <h3>{(new Date(myClass.time)).toLocaleString("en-US", convertTime)}</h3>
                                         </div>
                                     </div>
                                     </div>
@@ -141,7 +147,7 @@ const UserProfile = ({ userProfileImage }) => {
                                     key={taughtClass.id}
                                     className='class__tile'
                                     onClick={() => {
-                                        history.push(`/users/${sessionUser.id}/myclasses/${taughtClasses.id}`);
+                                        history.push(`/classes/${taughtClass.id}`);
                                     }}>
                                         <div className='myclasses__image'>
                                             <img src={taughtClass.class_image} alt=""/>
@@ -150,8 +156,7 @@ const UserProfile = ({ userProfileImage }) => {
                                         <div className='myclasses__info'>
                                             <h3>{taughtClass.name}</h3>
                                             <h3>{taughtClass.teacher.first_name}</h3>
-                                            <h3>{taughtClass.date}</h3>
-                                            <h3>{taughtClass.time}</h3>
+                                            <h3>{(new Date(taughtClass.time)).toLocaleString("en-US", convertTime)}</h3>
                                         </div>
                                     </div>
                                     </div>

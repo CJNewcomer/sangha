@@ -17,8 +17,8 @@ class Location(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "long": float(self.long),
-            "lat": float(self.lat),
+            "long": float(self.long or 0),
+            "lat": float(self.lat or 0),
             "city": self.city,
             "state": self.state,
             "country": self.country,

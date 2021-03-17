@@ -13,8 +13,8 @@ class Class(db.Model):
     type = db.Column(db.String, nullable=False)
     class_image = db.Column(db.String, nullable=False)
     location = db.Column(db.String, nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
-    time = db.Column(db.DateTime, nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    time = db.Column(db.DateTime(timezone=False), nullable=False)
     description = db.Column(db.String(1000), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime,
@@ -37,7 +37,7 @@ class Class(db.Model):
             "teacher": self.teacher.first_name,
             "name": self.name,
             "date": self.date,
-            "time": self.time
+            "time": self.time.isoformat()
         }
 
     def to_dict(self):
@@ -50,11 +50,11 @@ class Class(db.Model):
             "class_image": self.class_image,
             "location": self.location,
             "date": self.date,
-            "time": self.time,
+            "time": self.time.isoformat(),
             "description": self.description,
             "price": self.price,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat(),
             "teacher": self.teacher.to_dict(),
             "student": [student.to_dict() for student in self.student],
             "locations": self.locations.to_dict()

@@ -20,7 +20,7 @@ def seed_class():
         type="Ashtanga",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/katie-bush-XUyYBfsvCec-unsplash.jpg",
         location="Both",
-        date="2021-04-01 00:00",
+        date="2021-04-01",
         time="2021-04-01 09:00 AM",
         description="60 minute class focused on breath and movement, for beginners and experts, designed to build strength and flexibility. Cues given in both Sanskrit and English.",
         price=10,
@@ -32,7 +32,7 @@ def seed_class():
         type="Yin",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/sriyoga-ashram-QgCl-pNkfPc-unsplash.jpg",
         location="Both",
-        date="2021-04-03 00:00",
+        date="2021-04-03",
         time="2021-04-03 10:00 AM",
         description="60 minute class, gentle and relaxing for all levels, meditative practice holding passive poses, using mindful muscle relaxtion. Targets the connective tissue nourishing joins, ligaments, and fascia.",
         price=12,
@@ -44,7 +44,7 @@ def seed_class():
         type="Hatha",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/anupam-mahapatra-Vz0RbclzG_w-unsplash.jpg",
         location="In-Person",
-        date="2021-04-02 00:00",
+        date="2021-04-02",
         time="2021-04-02 11:00 AM",
         description="60 minute class designed for all levels, sustained poses with attention to alignment.",
         price=10,
@@ -56,7 +56,7 @@ def seed_class():
         type="Vinyasa",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/rishikesh-yogpeeth-Isf-5rBPiIs-unsplash.jpg",
         location="Both",
-        date="2021-03-31 00:00",
+        date="2021-03-31",
         time="2021-03-31 06:00 PM",
         description="60 minutes of flow that will energize, stretch, and strengthen your body, your will, and your confidence.",
         price=15,
@@ -68,7 +68,7 @@ def seed_class():
         type="Meditation",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/close-up-woman-meditating-indoors.jpg",
         location="Both",
-        date="2021-03-28 00:00",
+        date="2021-03-28",
         time="2021-03-28 11:00 AM",
         description="2 hour workshop that will guide you through the basics of meditation and how to develop a practice of your own.",
         price=35,
@@ -80,7 +80,7 @@ def seed_class():
         type="Yoga Nidra",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/yoga_nidra.png",
         location="Virtual",
-        date="2021-04-20 00:00",
+        date="2021-04-20",
         time="2021-04-20 08:00 PM",
         description="Restorative guided meditation, practiced in savasana (laying on back), 45 minutes.",
         price=18,
@@ -92,7 +92,7 @@ def seed_class():
         type="Prenatal",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/Screen+Shot+2021-03-09+at+12.42.51+PM.png",
         location="Both",
-        date="2021-04-03 00:00",
+        date="2021-04-03",
         time="2021-04-03 09:00 AM",
         description="60 minute class devoted to teaching strength and stamina, as well as concentration and breath control, all of which aids in labor and birth.",
         price=18,
@@ -104,7 +104,7 @@ def seed_class():
         type="Restorative",
         class_image="https://sangha.s3.us-east-2.amazonaws.com/logan-weaver-MHX1XkQyZVE-unsplash.jpg",
         location="In-Person",
-        date="2021-04-15 00:00",
+        date="2021-04-15",
         time="2021-04-15 12:00 PM",
         description="60 minute class focused on slowing down and opening your body through passive stretching through use of props for support.",
         price=21,
@@ -124,5 +124,5 @@ def seed_class():
 
 
 def undo_class():
-    db.session.execute("TRUNCATE classes RESTART IDENTITY CASCADE;")
+    db.session.execute("TRUNCATE classes CASCADE;")
     db.session.commit()
