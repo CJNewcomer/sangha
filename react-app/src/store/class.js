@@ -83,7 +83,7 @@ export const createAClass = (oneClass, updateOneClass = null) => async (dispatch
         }
     } else {
         // creating a class
-        const res = await fetch(`/api/classes/`, {
+        const res = await fetch(`/api/classes/new`, {
             method: 'POST',
             body: formData,
         });

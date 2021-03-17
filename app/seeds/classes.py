@@ -124,5 +124,5 @@ def seed_class():
 
 
 def undo_class():
-    db.session.execute("TRUNCATE classes RESTART IDENTITY CASCADE;")
+    db.session.execute("TRUNCATE classes CASCADE;")
     db.session.commit()
