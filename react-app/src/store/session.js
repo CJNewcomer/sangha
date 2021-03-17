@@ -97,6 +97,38 @@ export const signUp = (username, first_name, last_name, email, is_teacher, passw
 
 }
 
+export const updateOneUser = (user) => async (dispatch) => {
+  const {
+    // profile_image,
+    image,
+  } = user;
+
+  const formData = new FormData();
+  // formData.append('profile_image', profile_image);
+
+  if (image) {
+    formData.append('image', image);
+    console.log("*********", image)
+  }
+
+  if (user) {
+    const res = await fetch(`/api/users/${user.id}/profilepic`, {
+      method: 'PUT',
+      body: formData,
+    });
+
+    const updatedProfile = await res.json();
+
+    if (res.ok) {
+      dispatch(setUser(updatedProfile));
+      return updatedProfile;
+    } else {
+      const errors = user;
+      return errors;
+    }
+  }
+};
+
 const sessionReducer = (state={user:null}, action) => {
     let newState = {...state};
     switch(action.type) {

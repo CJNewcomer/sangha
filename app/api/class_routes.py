@@ -13,7 +13,7 @@ from app.models.user import user_classes
 from app.forms import CreateClassForm
 
 
-class_routes = Blueprint('classes', __name__)
+class_routes = Blueprint('class', __name__)
 
 
 @class_routes.route("")
@@ -28,7 +28,7 @@ def get_one_class(class_id):
     return jsonify({"classes": [one_class.to_dict()]})
 
 
-@class_routes.route("/new", methods=["POST"])
+@class_routes.route("", methods=["POST"])
 @login_required
 def create_class():
     form = CreateClassForm()

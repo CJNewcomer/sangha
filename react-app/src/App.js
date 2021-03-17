@@ -47,7 +47,7 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <UserProfile />
         </ProtectedRoute>
-        <ProtectedRoute path="/classes/new" exact={true} authenticated={!!sessionUser}>
+        <ProtectedRoute path="/classes" exact={true} authenticated={!!sessionUser}>
           <CreateClassForm />
         </ProtectedRoute>
         <Route path="/" exact={true} authenticated={authenticated}>
