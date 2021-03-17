@@ -23,17 +23,18 @@
 .profile__user-b .profile__bio {
     display: flex;
     justify-content: flex-end;
-    height: 15rem;
-    width: 30rem;
+    height: 10rem;
+    width: 32.3rem;
+    margin-left: 2.5rem;
+    margin-top: 1rem;
 }
 
 .profile__user-info {
     position: relative;
     height: 5rem;
     overflow: hidden;
-    top: 8rem;
+    top: 11rem;
     margin-left: 1.1rem;
-
 }
 
 @media (max-width: 900px) {
@@ -45,15 +46,11 @@
 div.profile__image img {
     margin: 1rem;
     border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
     position: absolute;
 }
 
-.profile__username {
-    display: flex;
-    flex-direction: row;
-}
 
 .profile__name {
     display: flex;
@@ -74,6 +71,22 @@ div.profile__image img {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+
+button.upload {
+    display: flex;
+    cursor: pointer;
+    padding: .1rem;
+    top: 10.6rem;
+    margin: .3rem .7rem;
+    font-weight: bold;
+
+}
+
+.update__profile {
+    display: flex;
+    justify-content: center;
+    height: 3rem;
 }
 
 .profile__container-b {

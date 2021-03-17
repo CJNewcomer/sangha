@@ -27,8 +27,8 @@ const SplashPage = () => {
 
     return (
         <div className='background__container'>
-            <img className='bottom' alt={"lotus"} src='https://sangha.s3.us-east-2.amazonaws.com/lotus_in_rain.jpg'/>
-            <img className='top' alt={"yogis"} src='https://sangha.s3.us-east-2.amazonaws.com/anjaneyasana.jpg'/>
+            <img className='bottom' alt="lotus" src='https://sangha.s3.us-east-2.amazonaws.com/lotus_in_rain.jpg'/>
+            <img className='top' alt="yogis" src='https://sangha.s3.us-east-2.amazonaws.com/anjaneyasana.jpg'/>
             <div className='splash__title'>
                 <h1>sangha</h1>
             </div>
