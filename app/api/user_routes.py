@@ -8,7 +8,6 @@ from werkzeug.utils import secure_filename
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.config import Config
 from app.helpers import upload_file_to_s3
-from app.forms import SignUpForm
 
 
 user_routes = Blueprint('users', __name__)
@@ -35,7 +34,6 @@ def user_add_profile_image(id):
 
     image_error = []
     image = request.files.get("image", None)
-    print("^^^^^^^^^^^^^^", image)
 
     if image != None:
         image.filename = secure_filename(image.filename)
@@ -48,7 +46,6 @@ def user_add_profile_image(id):
             )
 
     if not image_error:
-        print("^^^^^^^^^^^^^^", image)
 
         url = "https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         if image:
@@ -62,16 +59,7 @@ def user_add_profile_image(id):
     errors = image_error
     print("errors", errors)
     return {"errors": errors}
-
-
-# @user_routes.route('/<int:id>/myclasses/<int:class_id>')
-# @login_required
-# def user_class(id, class_id):
-#     if current_user.id is not id:
-#        return {"enrolled": False}
-#     yoga_class = Class.query.get(class_id)
-#     return {"enrolled": any([student for student in yoga_class.student if student.id == current_user.id])}
-
+    
 
 # POST route that needs to grab a single class by id on onClick event and store within user 
 @user_routes.route('/<int:id>/myclasses/<int:class_id>', methods=["POST"])
