@@ -22,7 +22,7 @@ def review(id):
     return review.to_dict()
 
 
-@review_routes.route("", methods=["POST"])
+@review_routes.route("/new", methods=["POST"])
 @login_required
 def create_review():
     form = CreateReviewForm()

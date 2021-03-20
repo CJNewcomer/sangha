@@ -9,7 +9,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.class_routes import class_routes
-
+from .api.review_routes import review_routes
 
 from .seeds import seed_commands
 

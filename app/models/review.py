@@ -1,5 +1,7 @@
 import datetime
 from .db import db
+from .user import User
+from .class1 import Class
 
 
 class Review(db.Model):
