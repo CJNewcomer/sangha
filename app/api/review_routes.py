@@ -40,7 +40,7 @@ def create_review():
 
 @review_routes.route("/<int:review_id>", methods=["PUT", "DELETE"])
 @login_required
-def edit_review(review_id):
+def edit_review(review_id, user_id):
     review = Review.query.get(review_id)
     if request.method == "PUT":
         form = CreateReviewForm()
@@ -56,3 +56,4 @@ def edit_review(review_id):
         review.comment = "[DELETED]"
         db.session.commit()
         return review.to_dict()
+    
