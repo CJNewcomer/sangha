@@ -148,7 +148,7 @@ def delete_class(class_id):
     if class_to_delete:
         db.session.delete(class_to_delete)
         db.session.commit()
-        # return "Deleted"
-        return redirect(url_for("/users/<int:user_id"))
+        return "Deleted"
+        # return redirect(url_for("/users/<int:user_id"))
     else:
         return {"errors": "No class found with provided id."}

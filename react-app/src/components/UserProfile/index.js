@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { getClass } from '../../store/class';
 import { updateOneUser } from '../../store/session';
-import './UserProfile.css';
+import './UserProfile.css'; 
 import { convertTime } from '../ClassProfile/ClassProfile';
 
 const UserProfile = ({ userProfileImage }) => {
@@ -60,7 +60,7 @@ const UserProfile = ({ userProfileImage }) => {
     // Grabbing all classes booked or taught
     const myClasses = classes.filter(({student}) => student.some(oneStudent => oneStudent.id === sessionUser.id));
     const taughtClasses = classes.filter(({teacher}) => teacher.id === sessionUser.id)
-    console.log("-----", sessionUser.classes.location_id)    
+    
     if (!sessionUser) return null;
 
     return (

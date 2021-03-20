@@ -57,8 +57,8 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
-  if (!!sessionUser) {
-    return <Redirect to="/home" />;
+  if (sessionUser) {
+    return <Redirect to="/users/user_id" />;
   }
 
   return (

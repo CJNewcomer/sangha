@@ -3,7 +3,7 @@
     height: 100vh;
     width: 100%;
     /* background-size: cover; */
-    vertical-align: bottom;
+    /* vertical-align: bottom; */
     opacity: 75%;
     margin: 0;
     font-family: 'Cormorant Garamond', serif;
@@ -12,8 +12,8 @@
 }
 
 img.bottom {
-    height: 50rem;
-    width: 85rem;
+    height: 100vh;
+    width: 100%;
     background-position: center;
     background-size: cover;
     /* z-index: -1; */
@@ -21,8 +21,8 @@ img.bottom {
 }
 
 img.top {
-    height: 50rem;
-    width: 85rem;
+    height: 100vh;
+    width: 100%;
     background-position: center;
     background-size: cover;
     /* z-index: -1; */
@@ -71,7 +71,7 @@ img.top {
 
 .splash__title {
     position: absolute;
-    bottom: 29rem;
+    bottom: 26.5rem;
     right: 16.5rem;
     text-align: center;
     color: #EF476F;
@@ -80,7 +80,7 @@ img.top {
 
 .sanskrit__title {
     position: absolute;
-    bottom: 25rem;
+    bottom: 23rem;
     right: 19.7rem;
     text-align: center;
     color: #EF476F;
@@ -88,7 +88,7 @@ img.top {
 
 .welcome__title-a {
     position: absolute;
-    bottom: 22rem;
+    bottom: 20rem;
     right: 15.3rem;
     text-align: center;
     color: #EF476F;
@@ -97,7 +97,7 @@ img.top {
 
 .welcome__title-b {
     position: absolute;
-    bottom: 19rem;
+    bottom: 17rem;
     right: 15.1rem;
     text-align: center;
     color: #EF476F;
@@ -108,7 +108,7 @@ img.top {
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 15rem;
+    bottom: 13rem;
     right: 15rem;
 }
 

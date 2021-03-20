@@ -51,7 +51,6 @@ div.profile__image img {
     position: absolute;
 }
 
-
 .profile__name {
     display: flex;
     flex-direction: row;
@@ -80,7 +79,6 @@ button.upload {
     top: 10.6rem;
     margin: .3rem .7rem;
     font-weight: bold;
-
 }
 
 .update__profile {
