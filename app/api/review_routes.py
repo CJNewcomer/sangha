@@ -15,11 +15,11 @@ def reviews():
     return {"reviews": [reviews.to_dict() for review in reviews]}
 
 
-@review_routes.route("/<int:id>")
+@review_routes.route("/<review_id>")
 @login_required
-def review(id):
-    review = Review.query.get(id)
-    return review.to_dict()
+def one_review(review_id):
+    review = Review.query.get(review_id)
+    return jsonify({"reviews": [review.to_dict()]})
 
 
 @review_routes.route("/new", methods=["POST"])
@@ -48,6 +48,7 @@ def edit_review(review_id):
 
         if form.validate_on_submit():
             form.populate_obj(review)
+            db.session.add(review)
             db.session.commit()
             return {"errors": validation_errors_to_error_messages(form.errors)}
     elif request.method == "DELETE":

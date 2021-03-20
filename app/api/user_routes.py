@@ -3,7 +3,7 @@ import boto3
 import botocore
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, User, Class, user_classes
+from app.models import db, User, Class, Review, user_classes
 from werkzeug.utils import secure_filename
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.config import Config
@@ -74,3 +74,17 @@ def book_class(id, class_id):
         return {"message": "You are now registered for this class."}
     else:
         return {"errors": "Already registered for this class."}
+
+@user_routes.route('/<int:id>/myreviews/<int:class_id>/<int:review_id>', methods=["POST"])
+@login_required
+def review_class(id, class_id, review_id):
+    if current_user.id is not id:
+        return {"errors": ["Invalid user."]}
+    yoga_class = Class.query.get(class_id)
+    if current_user in yoga_class.student:
+        class_review = Review.query.get(review_id)
+        yoga_class.student.append(class_review)
+        db.session.commit()
+        return {"message": "Thank you for your review!"}
+    else:
+        return {"errors": "You need to be registered for the class to create a review."}
