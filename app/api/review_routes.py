@@ -14,15 +14,15 @@ def reviews():
     reviews = Review.query.all()
     return {"reviews": [reviews.to_dict() for review in reviews]}
 
-
-@review_routes.route("/<review_id>")
+# filter out which reviews have comment of "DELETED"
+@review_routes.route("/<int:review_id>")
 @login_required
 def one_review(review_id):
     review = Review.query.get(review_id)
-    return jsonify({"reviews": [review.to_dict()]})
+    return {"reviews": [review.to_dict()]}
 
 
-@review_routes.route("/new", methods=["POST"])
+@review_routes.route("", methods=["POST"])
 @login_required
 def create_review():
     form = CreateReviewForm()
@@ -38,7 +38,7 @@ def create_review():
     return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
-@review_routes.route("/<review_id>", methods=["PUT", "DELETE"])
+@review_routes.route("/<int:review_id>", methods=["PUT", "DELETE"])
 @login_required
 def edit_review(review_id):
     review = Review.query.get(review_id)
@@ -50,7 +50,9 @@ def edit_review(review_id):
             form.populate_obj(review)
             db.session.add(review)
             db.session.commit()
-            return {"errors": validation_errors_to_error_messages(form.errors)}
+            return review.to_dict()
+        return {"errors": validation_errors_to_error_messages(form.errors)}
     elif request.method == "DELETE":
-        review.body = "[DELETED]"
+        review.comment = "[DELETED]"
         db.session.commit()
+        return review.to_dict()
