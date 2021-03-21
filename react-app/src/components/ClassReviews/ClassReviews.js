@@ -5,7 +5,7 @@ import { createReview } from '../../store/review';
 import "./ClassReviews.css";
 
 
-const ClassReview = ({ updateOneReview }) => {
+const CreateReview = ({ updateOneReview }) => {
     const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -73,4 +73,4 @@ const ClassReview = ({ updateOneReview }) => {
 
 }
 
-export default ClassReview;
+export default CreateReview;

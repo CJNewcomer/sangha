@@ -20,10 +20,11 @@ export const convertTime = {
 const ClassProfile = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {classId} = useParams();
+    const {classId, reviewId} = useParams();
     const [errors, setErrors] = useState([]);
 
     const yogaClass = useSelector((state) => state.class[classId]);
+    const classReview = useSelector((state) => state.review[reviewId])
     const sessionUser = useSelector((state) => state.session.user);
     
 
@@ -78,6 +79,11 @@ const ClassProfile = () => {
                         <div className='profile__book-class'>
                             {sessionUser.id !== yogaClass?.teacher.id &&
                             <button className='class__add' onClick={addOneClass}>Book This Class</button>}
+                        </div>
+                        <div class='profile__review-class'>
+                            {sessionUser.id === yogaClass.student.id && 
+                            <div>
+                                <CreateReviewModal updateOneReview={}
                         </div>
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>
