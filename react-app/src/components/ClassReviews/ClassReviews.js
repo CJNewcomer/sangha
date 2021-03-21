@@ -5,7 +5,7 @@ import { createReview } from '../../store/review';
 import "./ClassReviews.css";
 
 
-const CreateReview = ({ updateOneReview }) => {
+const ClassReview = ({ updateOneReview }) => {
     const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -43,7 +43,34 @@ const CreateReview = ({ updateOneReview }) => {
     };
 
     return (
-        
+        <div className='review__container'>
+            <h1>{updateOneReview ? 'Edit Review' : 'Create Review'}</h1>
+            <form onSubmit={createClassReview} className='review__form'>
+                <div className='row'>
+                    <div className='col-25'>
+                        <label>Comment</label>
+                    </div>
+                    <div className='col-75'>
+                        <textarea
+                            className='review__text'
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                            required
+                            />
+                    </div>
+                </div>
+                <div className='row'>
+                    <button type='submit'>Create Review</button>
+                </div>
+                <div className='row'>
+                    {errors.map((error) => (
+                        <div key={error}>{error}</div>
+                    ))}
+                </div>
+            </form>
+        </div>
     )
 
 }
+
+export default ClassReview;
