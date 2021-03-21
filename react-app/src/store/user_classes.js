@@ -9,8 +9,6 @@ const addReview = () => ({
     type: ADD_REVIEW,
 })
 
-// look up class_id against current user 
-
 export const addToUserClass = (user_id, class_id) => async (dispatch) => {
     const res = await fetch(`/api/users/${user_id}/myclasses/${class_id}`, {
         method: 'POST',
@@ -20,8 +18,13 @@ export const addToUserClass = (user_id, class_id) => async (dispatch) => {
     return data;
 }
 
-export const addReviewToClass = (user_id, class_id, review_id) => async (dispatch) => {
-    const res = await fetch(`/api/`)
+export const addReviewToClass = (user_id, review_id) => async (dispatch) => {
+    const res = await fetch(`/api/users/${user_id}/myreviews/${review_id}`, {
+        method: 'POST',
+    })
+    const data = await res.json()
+    dispatch(addReview())
+    return data;
 }
 
 
@@ -32,6 +35,11 @@ const userClassReducer = (state={}, action) => {
             if (!newState[action.id]){
                 newState[action.id] = {id: action.id, count:1}
             } 
+            return newState;
+        case ADD_REVIEW:
+            if (!newState[action.id]){
+                newState[action.id] = {id: action.id}
+            }
             return newState;
         default:
             return state;
