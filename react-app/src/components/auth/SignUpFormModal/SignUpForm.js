@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
-// import { login } from '../../../store/session';
 import "./SignUpForm.css";
 
 const SignUpForm = () => {
@@ -57,14 +56,14 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
-  if (!!sessionUser) {
-    return <Redirect to="/home" />;
+  if (sessionUser) {
+    return <Redirect to="/users/user_id" />;
   }
 
   return (
     <>
       <form onSubmit={onSignUp}>
-        <div>
+        <div className='signup__errors'>
           {errors.map((error) => (
             <div>{error}</div>
           ))}

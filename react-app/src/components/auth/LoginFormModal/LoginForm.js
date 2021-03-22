@@ -33,7 +33,7 @@ const LoginForm = () => {
   };
 
   if (sessionUser) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/" />;
   }
 
   return (

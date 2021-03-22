@@ -4,6 +4,7 @@ import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { getOneClass, deleteClass } from '../../store/class';
 import { addToUserClass } from '../../store/user_classes';
 import CreateClassModal from '../CreateClassForm/CreateClassModal';
+import CreateReviewModal from '../ClassReviews/index';
 
 import './ClassProfile.css';
 export const convertTime = {
@@ -20,10 +21,11 @@ export const convertTime = {
 const ClassProfile = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {classId} = useParams();
-    const [errors, setErrors] = useState([]);
+    const {classId, reviewId} = useParams();
+    const [setErrors] = useState([]);
 
     const yogaClass = useSelector((state) => state.class[classId]);
+    const classReview = useSelector((state) => state.review[reviewId])
     const sessionUser = useSelector((state) => state.session.user);
     
 
@@ -49,14 +51,6 @@ const ClassProfile = () => {
             history.push(`/users/${sessionUser.id}`)
         }
     }
-    
-    // let bookClass;
-    
-    // if (!sessionUser || sessionUser.id !== yogaClass?.teacher.id){
-    //     bookClass = (
-    //         <button className='class__add' onClick={() => dispatch(addToUserClass(yogaClass.id))}>Book This Class</button>
-    //         )    
-    //     }
         
     if (!yogaClass) return null;
 
@@ -78,6 +72,13 @@ const ClassProfile = () => {
                         <div className='profile__book-class'>
                             {sessionUser.id !== yogaClass?.teacher.id &&
                             <button className='class__add' onClick={addOneClass}>Book This Class</button>}
+                        </div>
+                        <div class='profile__review-class'>
+                            {sessionUser.id === yogaClass.student.id && 
+                            <div>
+                                <CreateReviewModal updateOneReview={classReview} />
+                            </div>
+                            }
                         </div>
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>

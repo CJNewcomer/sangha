@@ -2,7 +2,7 @@ import re
 import boto3
 import botocore
 from datetime import datetime
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, redirect, url_for
 from flask_login import login_required
 from werkzeug.utils import secure_filename
 from app.api.auth_routes import validation_errors_to_error_messages
@@ -149,5 +149,6 @@ def delete_class(class_id):
         db.session.delete(class_to_delete)
         db.session.commit()
         return "Deleted"
+        # return redirect(url_for("/users/<int:user_id"))
     else:
         return {"errors": "No class found with provided id."}

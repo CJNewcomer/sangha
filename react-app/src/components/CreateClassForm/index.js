@@ -60,7 +60,7 @@ const CreateClassForm = ({ updateOneClass }) => {
         };
 
         const classErrors = await dispatch(
-            !!updateOneClass ? createAClass(oneClass,updateOneClass.id) 
+            updateOneClass ? createAClass(oneClass,updateOneClass.id) 
             : createAClass(oneClass)
             );
         if (classErrors.errors) {

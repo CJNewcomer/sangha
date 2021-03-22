@@ -1,4 +1,4 @@
-const GET_CLASS = '/classes/get';
+const GET_CLASS = 'classes/get';
 const CREATE_CLASS = 'classes/create';
 const REMOVE_CLASS = 'classes/removeClass';
 
