@@ -23,7 +23,7 @@ const NavBar = () => {
         <nav className='main__menu'>
           <ul>
             <li>
-              <a href="/">
+              <a href="/home">
                 <i className="fas fa-home fa-2x"></i>
                 <span className='nav__text'>
                   Home
@@ -49,7 +49,7 @@ const NavBar = () => {
         <nav className='main__menu'>
             <ul>
               <li>
-                <a href="/">
+                <a href="/home">
                   <i className="fa fa-home fa-2x"></i>
                   <span className='nav__text'>
                     Home

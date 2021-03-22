@@ -72,7 +72,7 @@ img.top {
 .splash__title {
     position: absolute;
     bottom: 26.5rem;
-    right: 16.5rem;
+    right: 14.2rem;
     text-align: center;
     color: #EF476F;
     letter-spacing: 0.25rem;
@@ -81,7 +81,7 @@ img.top {
 .sanskrit__title {
     position: absolute;
     bottom: 23rem;
-    right: 19.7rem;
+    right: 17.7rem;
     text-align: center;
     color: #EF476F;
 }
@@ -89,7 +89,7 @@ img.top {
 .welcome__title-a {
     position: absolute;
     bottom: 20rem;
-    right: 15.3rem;
+    right: 13.3rem;
     text-align: center;
     color: #EF476F;
     font-size: 1.2rem;
@@ -98,7 +98,7 @@ img.top {
 .welcome__title-b {
     position: absolute;
     bottom: 17rem;
-    right: 15.1rem;
+    right: 13.1rem;
     text-align: center;
     color: #EF476F;
     font-size: 1.2rem;
@@ -108,8 +108,8 @@ img.top {
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 13rem;
-    right: 15rem;
+    bottom: 13.6rem;
+    right: 13rem;
 }
 
 li {
