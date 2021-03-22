@@ -10,8 +10,8 @@ const UserProfile = ({ userProfileImage }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { user_id } = useParams();
-    const [image, setImage] = useState(null);
-    const [errors, setErrors] = useState([]);
+    const [setImage] = useState(null);
+    const [setErrors] = useState([]);
     
     const user = useSelector((state) => state.user[user_id]);
     const classes = useSelector((state) => Object.values(state.class));
@@ -25,7 +25,7 @@ const UserProfile = ({ userProfileImage }) => {
         if (userProfileImage) {
             setImage(userProfileImage.image);
         }
-    }, [userProfileImage])
+    }, [userProfileImage, setImage])
 
     const createProfileImage = async (image) => {
         setErrors([]);
@@ -33,7 +33,7 @@ const UserProfile = ({ userProfileImage }) => {
 
         const user = {
             id: sessionUser.id,
-            image
+            image,
         };
 
         const profileErrors = await dispatch (
@@ -108,7 +108,6 @@ const UserProfile = ({ userProfileImage }) => {
                     <div className='classes__main'>
                         <div className='classes__container'>
                             {myClasses.map((myClass) => {
-                                // const {class_image, name, date} = myClass;
                                 return (
                                     <div
                                     key={myClass.id}
@@ -139,7 +138,6 @@ const UserProfile = ({ userProfileImage }) => {
                     <div className='classes__main'>
                         <div className='classes__container'>
                             {taughtClasses.map((taughtClass) => {
-                                // const {class_image, name, date} = myClass;
                                 return (
                                     <div
                                     key={taughtClass.id}

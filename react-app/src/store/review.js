@@ -1,5 +1,3 @@
-import { updateOneUser } from "./session";
-
 const GET_REVIEW = 'reviews/get';
 const CREATE_REVIEW = 'reviews/create';
 const REMOVE_REVIEW = 'reviews/removeReview';
@@ -88,7 +86,7 @@ export const removeReview = (review_id) => async (dispatch) => {
         method: 'DELETE',
     });
     if (res.ok) {
-        dispatch(remove(review));
+        dispatch(remove(review_id));
     }
 };
 

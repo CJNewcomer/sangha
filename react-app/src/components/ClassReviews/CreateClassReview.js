@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { createReview } from '../../store/review';
-import "./ClassReviews.css";
+import "./CreateClassReviews.css";
 
 
 const CreateReview = ({ updateOneReview }) => {
     const sessionUser = useSelector((state) => state.session.user);
+    const reviewedClass = useSelector((state) => state.class.id);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -26,7 +27,7 @@ const CreateReview = ({ updateOneReview }) => {
 
         const review = {
             user_id: sessionUser.id,
-            class_id,
+            class_id: reviewedClass.id,
             comment,
         };
 
