@@ -73,7 +73,7 @@ const ClassProfile = () => {
                             {sessionUser.id !== yogaClass?.teacher.id &&
                             <button className='class__add' onClick={addOneClass}>Book This Class</button>}
                         </div>
-                        <div class='profile__review-class'>
+                        <div className='profile__review-class'>
                             {sessionUser.id === yogaClass.student.id && 
                             <div>
                                 <CreateReviewModal updateOneReview={classReview} />

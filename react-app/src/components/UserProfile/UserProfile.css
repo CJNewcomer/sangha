@@ -89,13 +89,15 @@ button.upload {
 
 .profile__container-b {
     display: flex;
+    position: relative;
     max-width: 850px;
     height: 100%;
     margin: auto;
     padding: 0 1rem;
     margin-top: 3rem;
     border-radius: .5rem;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow: auto;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     text-align: left;
     background-color: whitesmoke;
