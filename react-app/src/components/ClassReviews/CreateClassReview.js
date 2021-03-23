@@ -7,18 +7,16 @@ import "./CreateClassReviews.css";
 
 const CreateReview = ({ updateOneReview }) => {
     const sessionUser = useSelector((state) => state.session.user);
-    const reviewedClass = useSelector((state) => state.review.id);
-    console.log("------------", reviewedClass)
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const [classId, setClassId] = useState('')
     const [comment, setComment] = useState('');
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         if (updateOneReview) {
             setComment(updateOneReview.comment);
-            console.log("---------", updateOneReview.comment)
         }
     }, [updateOneReview]);
 
@@ -29,7 +27,7 @@ const CreateReview = ({ updateOneReview }) => {
 
         const review = {
             user_id: sessionUser.id,
-            class_id: reviewedClass.id,
+            class_id: sessionUser.classId,
             comment,
         };
 

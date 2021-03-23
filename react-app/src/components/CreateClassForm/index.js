@@ -253,7 +253,6 @@ const CreateClassForm = ({ updateOneClass }) => {
                 </div>
                 <div className='row'>
                     <button type='submit'>Create Class</button>
-                    <button className='cancel' type='submit'>Cancel</button>
                 </div>
                 <div className='row'>
                     {errors.map((error) => (

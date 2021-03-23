@@ -74,29 +74,3 @@ button.profile__delete-class {
     margin-top: .9rem;
     margin-bottom: 4.65rem;
 }
-
-.reviews__container {
-    display: flex;
-    width: 60%;
-    margin: auto;
-    padding: 1.5rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    border-radius: .5rem;
-    overflow: hidden;
-    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
-    text-align: left;
-    background-color: whitesmoke;
-}
-
-.profile__review-class {
-    display: flex;
-    width: 60%;
-    margin: auto;
-    padding: 1.5rem;
-    text-align: left;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    border-radius: .5rem;
-    overflow: hidden;
-}
