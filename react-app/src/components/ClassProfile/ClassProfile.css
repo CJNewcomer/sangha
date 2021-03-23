@@ -87,3 +87,15 @@ button.profile__delete-class {
     text-align: left;
     background-color: whitesmoke;
 }
+
+.profile__review-class {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    padding: 1.5rem;
+    text-align: left;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+}

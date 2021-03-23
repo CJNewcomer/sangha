@@ -26,6 +26,7 @@ const ClassProfile = () => {
 
     const yogaClass = useSelector((state) => state.class[classId]);
     const classReview = useSelector((state) => state.review[reviewId])
+    console.log("-------", classReview);
     const sessionUser = useSelector((state) => state.session.user);
     
 
@@ -73,13 +74,6 @@ const ClassProfile = () => {
                             {sessionUser.id !== yogaClass?.teacher.id &&
                             <button className='class__add' onClick={addOneClass}>Book This Class</button>}
                         </div>
-                        <div class='profile__review-class'>
-                            {sessionUser.id === yogaClass.student.id && 
-                            <div>
-                                <CreateReviewModal updateOneReview={classReview} />
-                            </div>
-                            }
-                        </div>
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>
                         <h3>{yogaClass.type}</h3>
@@ -97,6 +91,13 @@ const ClassProfile = () => {
             <div className='reviews__container'>
                 <div>
                     <h2>Class Reviews</h2>
+                    <div className='profile__review-class'>
+                        {sessionUser.id === yogaClass.student.id && 
+                        <div>
+                            <CreateReviewModal updateOneReview={classReview} />
+                        </div>
+                        }
+                    </div>
                 </div>
             </div>
         </>

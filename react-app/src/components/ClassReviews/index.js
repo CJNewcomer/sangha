@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+// import { updateOneReview } from '../../store/review';
 import { Modal } from '../../context/ModalAuthContext';
-import { updateOneUser } from '../../store/session';
 import CreateReview from './CreateClassReview';
 
-export default function CreateReviewModal({ updateOneReview }) {
+export default function CreateReviewModal( {updateOneReview} ) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -17,7 +17,7 @@ export default function CreateReviewModal({ updateOneReview }) {
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <CreateReview
-                        updateOneReview={updateOneUser}
+                        updateOneReview={updateOneReview}
                         setShowModal={setShowModal}
                         />
                     </Modal>

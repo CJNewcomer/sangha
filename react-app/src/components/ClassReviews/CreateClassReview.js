@@ -8,6 +8,7 @@ import "./CreateClassReviews.css";
 const CreateReview = ({ updateOneReview }) => {
     const sessionUser = useSelector((state) => state.session.user);
     const reviewedClass = useSelector((state) => state.class.id);
+    console.log("------------", reviewedClass)
     const dispatch = useDispatch();
     const history = useHistory();
 
