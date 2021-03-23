@@ -12,16 +12,16 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_locations()
-    seed_review()
     seed_users()
     seed_class()
+    seed_review()
     # Add other seed functions here
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
     undo_locations()
-    undo_reviews()
     undo_users()
     undo_class()
+    undo_reviews()
     # Add other undo functions here
