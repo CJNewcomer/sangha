@@ -1,8 +1,14 @@
-const ADD_CLASS = 'user_classes/ADD_CLASS';
-const ADD_REVIEW = 'user_classes/ADD_REVIEW';
+const ADD_CLASS = 'user_classes/addClass';
+const LOAD_CLASS = 'user_classes/loadClass';
+const ADD_REVIEW = 'user_classes/addReview';
 
 const addClass = () => ({
     type: ADD_CLASS,
+})
+
+const loadClass = (classes) => ({
+    type: LOAD_CLASS,
+    classes,
 })
 
 const addReview = () => ({
@@ -10,7 +16,7 @@ const addReview = () => ({
 })
 
 export const addToUserClass = (user_id, class_id) => async (dispatch) => {
-    const res = await fetch(`/api/users/${user_id}/myclasses/${class_id}`, {
+    const res = await fetch(`/api/users/${user_id}/classes/${class_id}`, {
         method: 'POST',
     })
     const data = await res.json()
@@ -18,8 +24,16 @@ export const addToUserClass = (user_id, class_id) => async (dispatch) => {
     return data;
 }
 
+export const getUserClasses = (user_id, class_id) => async (dispatch) => {
+    const res = await fetch(`/api/users/${user_id}/classes/${class_id}`);
+    const json = await res.json();
+    if (res.ok) {
+        dispatch(loadClass(json.classes));
+    }
+}
+
 export const addReviewToClass = (user_id, review_id) => async (dispatch) => {
-    const res = await fetch(`/api/users/${user_id}/myreviews/${review_id}`, {
+    const res = await fetch(`/api/users/${user_id}/reviews/${review_id}`, {
         method: 'POST',
     })
     const data = await res.json()
@@ -35,6 +49,11 @@ const userClassReducer = (state={}, action) => {
             if (!newState[action.id]){
                 newState[action.id] = {id: action.id, count:1}
             } 
+            return newState;
+        case LOAD_CLASS:
+            for (let oneClass of action.classes) {
+                newState[oneClass.id] = oneClass;
+            }
             return newState;
         case ADD_REVIEW:
             if (!newState[action.id]){

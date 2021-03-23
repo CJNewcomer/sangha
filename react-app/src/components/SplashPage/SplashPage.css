@@ -2,8 +2,6 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    /* background-size: cover; */
-    /* vertical-align: bottom; */
     opacity: 75%;
     margin: 0;
     font-family: 'Cormorant Garamond', serif;
@@ -16,8 +14,6 @@ img.bottom {
     width: 100%;
     background-position: center;
     background-size: cover;
-    /* z-index: -1; */
-    /* overflow: hidden; */
 }
 
 img.top {
@@ -25,8 +21,6 @@ img.top {
     width: 100%;
     background-position: center;
     background-size: cover;
-    /* z-index: -1; */
-    /* overflow: hidden; */
 }
 
 .background__container img {

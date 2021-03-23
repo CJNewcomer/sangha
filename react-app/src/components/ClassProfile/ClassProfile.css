@@ -10,6 +10,7 @@
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     text-align: left;
     background-color: whitesmoke;
+    font-family: 'Ledger', serif;
 }
 
 @media (max-width: 900px) {

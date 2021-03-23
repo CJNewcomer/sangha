@@ -62,7 +62,7 @@ def user_add_profile_image(id):
     
 
 # POST route that needs to grab a single class by id on onClick event and store within user 
-@user_routes.route('/<int:id>/myclasses/<int:class_id>', methods=["POST"])
+@user_routes.route('/<int:id>/classes/<int:class_id>', methods=["POST"])
 @login_required
 def book_class(id, class_id):
     if current_user.id is not id:
@@ -75,7 +75,7 @@ def book_class(id, class_id):
     else:
         return {"errors": "Already registered for this class."}
 
-@user_routes.route('/<int:id>/myreviews/<int:class_id>/<int:review_id>', methods=["POST"])
+@user_routes.route('/<int:id>/reviews/<int:class_id>/<int:review_id>', methods=["POST"])
 @login_required
 def review_class(id, class_id, review_id):
     if current_user.id is not id:
