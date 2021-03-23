@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+// import { updateOneReview } from '../../store/review';
 import { Modal } from '../../context/ModalAuthContext';
 import CreateReview from './CreateClassReview';
 
-export default function CreateReviewModal({ updateOneReview }) {
+export default function CreateReviewModal( {updateOneReview} ) {
     const [showModal, setShowModal] = useState(false);
 
     return (

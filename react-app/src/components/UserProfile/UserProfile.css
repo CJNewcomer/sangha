@@ -108,9 +108,7 @@ h2 {
 }
 
 .classes__main {
-    /* flex-wrap: wrap; */
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     box-sizing: border-box;
     width: fit-content;
@@ -120,11 +118,7 @@ h2 {
 
 .classes__container {
     display: flex;
-    /* align-content: center; */
-    /* background-color: whitesmoke; */
     margin: 2rem;
-    /* border-radius: .5rem; */
-    /* height: 16.5rem; */
     font-family: 'Ledger', serif;
     padding-bottom: 3rem;
 }
@@ -132,6 +126,10 @@ h2 {
 .class__tile {
     margin: -2rem .75rem;
     height: 16.5rem;
+}
+
+.class__tile:before {
+    display: block;
 }
 
 .myclasses__image img{

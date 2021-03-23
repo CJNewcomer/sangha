@@ -1,5 +1,7 @@
 .landing__container {
-    background-size: contain;
+    /* background: url(./images/yogis_practicing.jpg)
+    no-repeat center fixed;
+    background-size: contain; */
     position: relative;
     min-height: 100vh;
     opacity: 65%;

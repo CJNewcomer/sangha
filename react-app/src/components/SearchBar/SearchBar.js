@@ -40,38 +40,38 @@ if (!filteredResults) return null;
 
 return (
     <>
-    <div className='search__container'>
-        <div className='search__bar'>
-            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Find Your Next Class or Teacher" type="text"/>
+        <div className='search__container'>
+            <div className='search__bar'>
+                <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Find Your Next Class or Teacher" type="text"/>
+            </div>
         </div>
-    </div>
-    <div className='result__container'>
-        {filteredResults.map((yogaClass) => {
-            const { id, class_image, name, type } = yogaClass;
-            return (
-                <div className="results" key={id}>
-                    <div onClick={() => {
-                        if (sessionUser) {
-                            history.push(`/classes/${id}`)
-                        } else {
-                            window.alert('Please make an account to view class details');
-                        }
-                    }}>
-                        <div className='class__tile'>
-                            <img src={class_image} alt=""/>
-                            <div className='class__tile-info'>
-                                <h3>{name}</h3>
-                                <h3>{type}</h3>
-                                <h3>{yogaClass.teacher.first_name}</h3>
-                                <h3>{yogaClass.locations.city}, {yogaClass.locations.state}</h3>
-                                <h3>{yogaClass.locations.country}</h3>
+        <div className='result__container'>
+            {filteredResults.map((yogaClass) => {
+                const { id, class_image, name, type } = yogaClass;
+                return (
+                    <div className="results" key={id}>
+                        <div onClick={() => {
+                            if (sessionUser) {
+                                history.push(`/classes/${id}`)
+                            } else {
+                                window.alert('Please make an account to view class details');
+                            }
+                        }}>
+                            <div className='class__tile'>
+                                <img src={class_image} alt=""/>
+                                <div className='class__tile-info'>
+                                    <h3>{name}</h3>
+                                    <h3>{type}</h3>
+                                    <h3>{yogaClass.teacher.first_name}</h3>
+                                    <h3>{yogaClass.locations.city}, {yogaClass.locations.state}</h3>
+                                    <h3>{yogaClass.locations.country}</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            )
-        })}
-    </div>
+                )
+            })}
+        </div>
     </>
 )}
 
