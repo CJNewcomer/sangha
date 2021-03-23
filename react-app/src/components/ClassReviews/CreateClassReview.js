@@ -18,6 +18,7 @@ const CreateReview = ({ updateOneReview }) => {
     useEffect(() => {
         if (updateOneReview) {
             setComment(updateOneReview.comment);
+            console.log("---------", updateOneReview.comment)
         }
     }, [updateOneReview]);
 

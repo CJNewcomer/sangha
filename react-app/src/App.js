@@ -56,7 +56,7 @@ function App() {
         <Route path='/search'>
           <SearchBar />
         </Route>
-        <ProtectedRoute path="/home" exact={true} setAuthenticated={setAuthenticated} >
+        <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >
           <LandingPage />
         </ProtectedRoute>
       </Switch>

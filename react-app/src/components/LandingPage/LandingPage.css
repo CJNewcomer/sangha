@@ -21,10 +21,3 @@
     overflow-y: hidden;
     overflow-x: hidden;
 }
-
-img.landing {
-    margin: 0;
-    height: 50rem;
-    width: 85rem;
-    overflow: hidden;
-}

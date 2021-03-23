@@ -1,4 +1,5 @@
 import React from 'react';
+// import DashboardCalendar from '../Calendar/Calendar';
 import './LandingPage.css';
 
 
@@ -6,9 +7,7 @@ const LandingPage = () => {
 
     return (
         <div className='landing__container'>
-            <div>
-                <img className='landing' alt={"yogis"} src={require('./images/yogis_practicing.jpg')}/>
-            </div>
+            {/* <DashboardCalendar /> */}
         </div>
     )
 }

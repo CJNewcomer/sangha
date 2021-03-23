@@ -18,7 +18,8 @@
 }
 
 .main__menu {
-    background:#EF476F;
+    /* background:#EF476F; */
+    background: rgba(255,255,255,0.1);
     position:absolute;
     top:0;
     bottom:0;
@@ -47,7 +48,7 @@
     display:table;
     border-collapse:collapse;
     border-spacing:0;
-    color:#073B4C;
+    color: #06D6A0;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
     text-decoration:none;

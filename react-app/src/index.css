@@ -2,4 +2,6 @@ body {
     margin: 0;
     padding: 0;
     background: no-repeat fixed;
+    background-color: #073B4C;
+    background-image: linear-gradient(to bottom right, #073B4C, #06D8A0, #FFD166, #EF476F);
 }
