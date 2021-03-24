@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { getReview, removeReview } from '../../store/review';
-// import { addReviewToClass } from '../../store/user_classes';
 import CreateReviewModal from '../ClassReviews/index';
 import './ClassReview.css';
 
@@ -23,7 +22,6 @@ const ClassReview = () => {
 
     const classReviews = useSelector((state) => state.review);
     const sessionUser = useSelector((state) => state.session.user);
-    console.log("---------", classReviews)
 
     useEffect(() => {
         dispatch(getReview(classId))

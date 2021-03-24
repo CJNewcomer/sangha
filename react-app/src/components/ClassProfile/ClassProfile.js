@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { getOneClass, deleteClass } from '../../store/class';
-import { addToUserClass } from '../../store/user_classes';
+import { addToUserClass, cancelUserClass } from '../../store/user_classes';
 import CreateClassModal from '../CreateClassForm/CreateClassModal';
 import ClassReview from '../ClassReviews/ClassReview';
 
@@ -15,8 +15,7 @@ export const convertTime = {
   day: "numeric",
   hour12: true,
   hour: "2-digit",
-  minute: "2-digit",
-  second: "2-digit",
+  minute: "2-digit"
 };
 
 const ClassProfile = () => {
@@ -27,7 +26,7 @@ const ClassProfile = () => {
 
     const yogaClass = useSelector((state) => state.class[classId]);
     const sessionUser = useSelector((state) => state.session.user);
-    
+
 
     useEffect(() => {
         dispatch(getOneClass(classId))
@@ -35,7 +34,7 @@ const ClassProfile = () => {
 
     
     
-    const onDelete = (e) => {
+    const onDelete = () => {
         const res = window.confirm(`Are you sure you want to delete ${yogaClass.name}?`)
         if (res) {
             dispatch(deleteClass(yogaClass.id))
@@ -50,6 +49,11 @@ const ClassProfile = () => {
         } else {
             history.push(`/users/${sessionUser.id}`)
         }
+    }
+
+    const cancelOneClass = async (e) => {
+        e.preventDefault();
+        await dispatch(cancelUserClass(sessionUser.id, yogaClass.id))
     }
         
     if (!yogaClass) return null;
@@ -68,10 +72,14 @@ const ClassProfile = () => {
                                 onClick={onDelete}>Delete Class</button>
                             </div>
                             }
-                        </div>
+                        </div> 
                         <div className='profile__book-class'>
-                            {sessionUser.id !== yogaClass?.teacher.id &&
-                            <button className='class__add' onClick={addOneClass}>Book This Class</button>}
+                            {(sessionUser.id !== yogaClass?.teacher.id) && (!yogaClass.student.some(student => student.id === sessionUser.id)) &&
+                            <button className='class__add' onClick={addOneClass}>Book This Class</button>} 
+                        </div> 
+                        <div className='profile__cancel-class'>
+                            {(sessionUser.id !== yogaClass?.teacher.id) && (yogaClass.student.some(student => student.id === sessionUser.id)) && 
+                            <button className='class__cancel' onClick={cancelOneClass}>Cancel My Booking</button>}
                         </div>
                     <div className='profile__info'>
                         <h2>{yogaClass.name}</h2>
