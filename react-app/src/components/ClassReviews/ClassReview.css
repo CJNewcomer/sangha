@@ -1,0 +1,51 @@
+.reviews__main {
+    display: flex;
+    font-family: 'Lusitana', serif;
+    width: 60%;
+    margin: auto;
+    padding: 1.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    text-align: left;
+    background-color: whitesmoke;
+}
+
+.reviews__container {
+    width: 100%; 
+}
+
+.reviews__title {
+    font-family: 'Lusitana', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: .1rem;
+    margin-top: .4rem;
+    width: 90%;
+}
+
+.review__block {
+    display: flex;
+    justify-self: flex-start;
+    width: 100%;
+}
+
+.reviews__listed {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    text-align: left;
+    /* border-radius: .5rem; */
+    overflow: hidden;
+    border-bottom: .1rem solid lightgray;
+}
+
+h3 p {
+    font-family: 'Ledger', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: .1rem;
+    margin-top: 0;
+}

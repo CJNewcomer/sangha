@@ -4,9 +4,10 @@ import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { getOneClass, deleteClass } from '../../store/class';
 import { addToUserClass } from '../../store/user_classes';
 import CreateClassModal from '../CreateClassForm/CreateClassModal';
-import CreateReviewModal from '../ClassReviews/index';
+import ClassReview from '../ClassReviews/ClassReview';
 
 import './ClassProfile.css';
+
 export const convertTime = {
   weekday: "long",
   year: "numeric",
@@ -22,11 +23,9 @@ const ClassProfile = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const {classId, reviewId} = useParams();
-    const [setErrors] = useState([]);
+    const [_, setErrors] = useState([]);
 
     const yogaClass = useSelector((state) => state.class[classId]);
-    const classReview = useSelector((state) => state.review[reviewId])
-    console.log("-------", classReview);
     const sessionUser = useSelector((state) => state.session.user);
     
 
@@ -88,18 +87,14 @@ const ClassProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className='reviews__container'>
-                <div>
-                    <h2>Class Reviews</h2>
-                    <div className='profile__review-class'>
-                        {sessionUser.id === yogaClass.student.id && 
-                        <div>
-                            <CreateReviewModal updateOneReview={classReview} />
-                        </div>
-                        }
-                    </div>
+            <div className='profile__review-class'>
+                {yogaClass.student.some(student => student.id === sessionUser.id) && 
+                <div className='review'>
+                    <ClassReview />
                 </div>
+                }
             </div>
+                
         </>
     )
 

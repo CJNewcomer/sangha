@@ -11,6 +11,7 @@ import CreateClassForm from './components/CreateClassForm';
 import ClassProfile from './components/ClassProfile/ClassProfile';
 import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
+import ClassReview from './components/ClassReviews/ClassReview';
 
 // import redux
 import { authenticate } from "./store/session";
@@ -43,6 +44,9 @@ function App() {
       <Switch>
         <ProtectedRoute path="/classes/:classId" exact={true} authenticated={!!sessionUser}>
           <ClassProfile />
+        </ProtectedRoute>
+        <ProtectedRoute path="/classes/:classId" exact={true} authenticate={!!sessionUser}>
+          <ClassReview />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
           <UserProfile />

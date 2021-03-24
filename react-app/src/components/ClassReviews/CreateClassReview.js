@@ -5,20 +5,17 @@ import { createReview } from '../../store/review';
 import "./CreateClassReviews.css";
 
 
-const CreateReview = ({ updateOneReview }) => {
+const CreateReview = ({ updateOneReview, class_id }) => {
     const sessionUser = useSelector((state) => state.session.user);
-    const reviewedClass = useSelector((state) => state.review.id);
-    console.log("------------", reviewedClass)
     const dispatch = useDispatch();
     const history = useHistory();
-
+    console.log("-----", class_id);
     const [comment, setComment] = useState('');
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         if (updateOneReview) {
             setComment(updateOneReview.comment);
-            console.log("---------", updateOneReview.comment)
         }
     }, [updateOneReview]);
 
@@ -29,7 +26,7 @@ const CreateReview = ({ updateOneReview }) => {
 
         const review = {
             user_id: sessionUser.id,
-            class_id: reviewedClass.id,
+            class_id,
             comment,
         };
 

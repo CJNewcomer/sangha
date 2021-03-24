@@ -1,6 +1,7 @@
 import datetime
 from .db import db
 from .user import User
+from .user_class import user_classes
 from .class1 import Class
 
 

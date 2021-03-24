@@ -53,7 +53,7 @@ def edit_review(review_id, user_id):
             return review.to_dict()
         return {"errors": validation_errors_to_error_messages(form.errors)}
     elif request.method == "DELETE":
-        review.comment = "[DELETED]"
+        review.comment = "This review has been removed."
         db.session.commit()
         return review.to_dict()
     

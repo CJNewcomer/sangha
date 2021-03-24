@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.config import Config
 from app.helpers import upload_file_to_s3
-from app.models import db, Class, Location
+from app.models import db, Class, Location, Review
 from app.models.user import user_classes
 from app.forms import CreateClassForm
 
@@ -21,6 +21,11 @@ def get_classes():
     classes = Class.query.all()
     return {"classes": [classy.to_dict() for classy in classes]}
 
+@class_routes.route("/<int:class_id>/reviews")
+def get_class_reviews(class_id):
+    class_ = Class.query.get(class_id)
+    return {review.id: review.to_dict() for review in class_.review}
+    
 
 @class_routes.route("/<class_id>")
 def get_one_class(class_id):
@@ -87,6 +92,7 @@ def create_class():
 
     return {"errors": errors}
     
+
 
 @class_routes.route("/<class_id>", methods=['POST'])
 @login_required

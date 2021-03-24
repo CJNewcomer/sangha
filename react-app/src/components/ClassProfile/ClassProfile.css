@@ -1,5 +1,6 @@
 .profile__container {
     display: flex;
+    font-family: 'Lusitana', serif;
     width: 60%;
     margin: auto;
     padding: 1.5rem;
@@ -10,7 +11,6 @@
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     text-align: left;
     background-color: whitesmoke;
-    font-family: 'Ledger', serif;
 }
 
 @media (max-width: 900px) {
@@ -51,10 +51,11 @@ button.profile__delete-class {
 }
 
 .profile__info {
-    font-family: 'Ledger', serif;
+    font-family: 'Lusitana', serif;
 }
 
 .profile__info > h2 {
+    font-family: 'Lusitana', serif;
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: .1rem;
@@ -73,30 +74,4 @@ button.profile__delete-class {
     font-weight: 500;
     margin-top: .9rem;
     margin-bottom: 4.65rem;
-}
-
-.reviews__container {
-    display: flex;
-    width: 60%;
-    margin: auto;
-    padding: 1.5rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    border-radius: .5rem;
-    overflow: hidden;
-    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
-    text-align: left;
-    background-color: whitesmoke;
-}
-
-.profile__review-class {
-    display: flex;
-    width: 60%;
-    margin: auto;
-    padding: 1.5rem;
-    text-align: left;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    border-radius: .5rem;
-    overflow: hidden;
 }
