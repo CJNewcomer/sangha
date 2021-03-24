@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/ModalAuthContext';
 import CreateReview from './CreateClassReview';
 
-export default function CreateReviewModal( {updateOneReview} ) {
+export default function CreateReviewModal( {updateOneReview, class_id} ) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -18,6 +18,7 @@ export default function CreateReviewModal( {updateOneReview} ) {
                     <Modal onClose={() => setShowModal(false)}>
                         <CreateReview
                         updateOneReview={updateOneReview}
+                        class_id={class_id}
                         setShowModal={setShowModal}
                         />
                     </Modal>

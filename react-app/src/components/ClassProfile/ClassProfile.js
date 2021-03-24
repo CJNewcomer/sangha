@@ -23,7 +23,7 @@ const ClassProfile = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const {classId, reviewId} = useParams();
-    const [setErrors] = useState([]);
+    const [_, setErrors] = useState([]);
 
     const yogaClass = useSelector((state) => state.class[classId]);
     const sessionUser = useSelector((state) => state.session.user);
@@ -88,8 +88,8 @@ const ClassProfile = () => {
                 </div>
             </div>
             <div className='profile__review-class'>
-                {sessionUser.id === yogaClass.student.id && 
-                <div>
+                {yogaClass.student.some(student => student.id === sessionUser.id) && 
+                <div className='review'>
                     <ClassReview />
                 </div>
                 }

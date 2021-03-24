@@ -75,16 +75,16 @@ def book_class(id, class_id):
     else:
         return {"errors": "Already registered for this class."}
 
-@user_routes.route('/<int:id>/reviews/<int:class_id>/<int:review_id>', methods=["POST"])
-@login_required
-def review_class(id, class_id, review_id):
-    if current_user.id is not id:
-        return {"errors": ["Invalid user."]}
-    yoga_class = Class.query.get(class_id)
-    if current_user in yoga_class.student:
-        class_review = Review.query.get(review_id)
-        yoga_class.student.append(class_review)
-        db.session.commit()
-        return {"message": "Thank you for your review!"}
-    else:
-        return {"errors": "You need to be registered for the class to create a review."}
+# @user_routes.route('/<int:id>/reviews/<int:class_id>/<int:review_id>', methods=["POST"])
+# @login_required
+# def review_class(id, class_id, review_id):
+#     if current_user.id is not id:
+#         return {"errors": ["Invalid user."]}
+#     yoga_class = Class.query.get(class_id)
+#     if current_user in yoga_class.student:
+#         class_review = Review.query.get(review_id)
+#         yoga_class.student.append(class_review)
+#         db.session.commit()
+#         return {"message": "Thank you for your review!"}
+#     else:
+#         return {"errors": "You need to be registered for the class to create a review."}

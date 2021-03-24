@@ -12,7 +12,13 @@ def seed_review():
     yoga_class6 = Class.query.filter_by(type="Yoga Nidra").first()
     yoga_class7 = Class.query.filter_by(type="Restorative").first()
 
-
+    user1.user_class.append(yoga_class1)
+    user1.user_class.append(yoga_class2)
+    user1.user_class.append(yoga_class3)
+    user1.user_class.append(yoga_class4)
+    user1.user_class.append(yoga_class5)
+    user1.user_class.append(yoga_class6)
+    user1.user_class.append(yoga_class7)
 
     review1 = Review(
         user=user1,

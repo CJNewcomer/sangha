@@ -19,11 +19,11 @@ const remove = (review_id) => ({
 });
 
 
-export const getReview = () => async (dispatch) => {
-    const res = await fetch('api/reviews');
+export const getReview = (class_id) => async (dispatch) => {
+    const res = await fetch(`/api/classes/${class_id}/reviews`);
     const json = await res.json();
     if (res.ok) {
-        dispatch(get(json.reviews));
+        dispatch(get(json));
     }
 };
 
@@ -97,10 +97,7 @@ const reviewReducer = (state = initialState, action) => {
     const newState = {...state};
     switch (action.type) {
         case GET_REVIEW:
-            for (let review of action.reviews) {
-                newState[review.id] = review;
-            }
-            return newState;
+            return {...action.reviews}
         case CREATE_REVIEW:
             newState[action.review.id] = action.review;
             return newState;
