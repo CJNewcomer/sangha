@@ -117,13 +117,6 @@ const NavBar = () => {
       <>
         <div className='area'></div>
         <nav className='main__menu'>
-          {/* <ul>
-            <li>
-              <a href="/">
-                <img className='nav__logo' alt={"logo"} src={require('./images/sangha_logo.png')} />
-              </a>    
-            </li>
-          </ul> */}
           <ul>
           <div>{sessionLinks}</div>          
           </ul>
