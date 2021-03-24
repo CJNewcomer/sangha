@@ -17,13 +17,13 @@
     left: 0;
     bottom: 0;
     background-color: rgba(179, 179, 179, 0.9);
-    opacity: 80%;
+    opacity: .8;
 }
 
 .modal__content {
     position: absolute;
     background-color: rgba(228, 227, 227, 0.9);
-    opacity: 80%;
+    opacity: .8;
     border-radius: .2rem;
     font-weight: 400;
     padding: 1.5rem;

@@ -2,7 +2,7 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    opacity: 75%;
+    opacity: .75;
     margin: 0;
     font-family: 'Cormorant Garamond', serif;
     overflow-y: hidden;
@@ -34,16 +34,16 @@ img.top {
 
 @keyframes backgroundcontainerFadeInOut {
     0% {
-        opacity: 1;
+        opacity: 1.0;
     }
     45% {
-        opacity: 1;
+        opacity: 1.0;
     }
     55% {
-        opacity: 0;
+        opacity: 0.0;
     }
     100% {
-        opacity: 0;
+        opacity: 0.0;
     }
 }
 

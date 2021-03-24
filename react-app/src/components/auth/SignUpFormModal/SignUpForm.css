@@ -24,6 +24,6 @@ button {
     justify-content: center;
     align-items: center;
     background-color: #EF476F;
-    opacity: 80%;
+    opacity: .9;
     font-weight: 500;
 }
