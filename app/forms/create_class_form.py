@@ -1,7 +1,21 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, TimeField, SelectField, DateField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, InputRequired, ValidationError
 from app.models import Class
+
+
+def class_city_check(form, field):
+    if (field.data == 'In-Person' or 'In-Person & Virtual'):
+        raise ValidationError("Must include city.")
+
+def class_state_check(form, field):
+    if (field.data == 'In-Person' or 'In-Person & Virtual'):
+        raise ValidationError("Must include state.")
+
+def class_country_check(form, field):
+    if (field.data == 'In-Person' or 'In-Person & Virtual'):
+        raise ValidationError("Must include country.")
+
 
 
 class CreateClassForm(FlaskForm):
@@ -25,7 +39,7 @@ class CreateClassForm(FlaskForm):
     location = SelectField("location", choices=[
         'In-Person',
         'Virtual',
-        'Both'
+        'In-Person & Virtual'
     ],
         validators=[DataRequired(message="Must specify a location."),])
     date = DateField("date", 
@@ -37,8 +51,8 @@ class CreateClassForm(FlaskForm):
     price = IntegerField("price", 
         validators=[DataRequired(message="Must include class price.")])
     city = StringField("city", 
-        validators=[DataRequired(message="Must include city."),])
+        validators=[InputRequired(), class_city_check])
     state = StringField("state", 
-        validators=[DataRequired(message="Must include state."),])
+        validators=[InputRequired(), class_state_check])
     country = StringField("country", 
-        validators=[DataRequired(message="Must include country."),])
+        validators=[InputRequired(), class_country_check])
