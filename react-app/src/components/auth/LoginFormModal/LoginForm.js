@@ -32,8 +32,8 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (sessionUser) {
-    return <Redirect to="/" />;
+  if (!!sessionUser) {
+    return <Redirect to="/home" />;
   }
 
   return (
