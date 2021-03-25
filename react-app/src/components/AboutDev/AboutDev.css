@@ -1,36 +1,24 @@
-.about__container {
-    display: flex;
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
 
-.image__container {
 
-}
-
-img.image__one {
-    height: 5rem;
-    border-radius: .5rem;
-}
-
-img.image__two {
-
-}
-
-img.image__three {
-
-}
-
-img.image__four {
-
-}
-
-img.image__five {
-
-}
 
 .links__container {
-
+    display: flex;
+    justify-content: center;
 }
 
-.contact__links {
+h5 {
+    font-family: 'Lusitana', serif;
+}
 
+i.fa.fa-github,
+i.fa.fa-linkedin, 
+i.fa.fa-angellist,
+i.fa.fa-globe {
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
 }
