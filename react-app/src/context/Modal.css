@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    /* margin: 0; */
 }
 
 .modal__background {
@@ -26,7 +26,7 @@
     opacity: .8;
     border-radius: .2rem;
     font-weight: 400;
-    padding: 1.5rem;
+    padding: 0rem;
 }
 
 .modal__content ul {

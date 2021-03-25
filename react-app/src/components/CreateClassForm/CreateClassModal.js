@@ -11,7 +11,7 @@ export default function CreateClassModal({ updateOneClass }) {
         className="add__update-class"
         onClick={() => setShowModal(true)}
       >
-        {updateOneClass ? 'Update Class' : 'Add Class'}
+        {!updateOneClass ? 'Add Class' : 'Update Class'}
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

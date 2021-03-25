@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired
 from app.models import Class
 
 
+
 class CreateClassForm(FlaskForm):
     user_id = IntegerField("user_id", 
         validators=[DataRequired(message="Must associate a teacher.")])
@@ -25,20 +26,20 @@ class CreateClassForm(FlaskForm):
     location = SelectField("location", choices=[
         'In-Person',
         'Virtual',
-        'Both'
+        'In-Person / Virtual'
     ],
-        validators=[DataRequired(message="Must specify a location."),])
+        validators=[DataRequired(message="Must specify a location.")])
     date = DateField("date", 
         validators=[DataRequired(message="Must provide a class date.")])
     time = TimeField("time",
         validators=[DataRequired(message="Must provide a class time.")])
     description = StringField("description", 
-        validators=[DataRequired(message="Must include class description."),])
+        validators=[DataRequired(message="Must include class description.")])
     price = IntegerField("price", 
         validators=[DataRequired(message="Must include class price.")])
     city = StringField("city", 
-        validators=[DataRequired(message="Must include city."),])
+        validators=[DataRequired(message="Must include city.")])
     state = StringField("state", 
-        validators=[DataRequired(message="Must include state."),])
+        validators=[DataRequired(message="Must include state.")])
     country = StringField("country", 
-        validators=[DataRequired(message="Must include country."),])
+        validators=[DataRequired(message="Must include country.")])
