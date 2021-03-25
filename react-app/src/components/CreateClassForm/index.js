@@ -76,6 +76,12 @@ const CreateClassForm = ({ updateOneClass }) => {
         if (file) setImage(file);
     };
 
+    const isDisabledInput = () => {
+        if (location.value === 'Virtual') {
+            return true;
+        }
+    }
+
 
     return (
         <div className='class__container'>
@@ -174,7 +180,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                             </option>
                             <option value='In-Person'>In-Person</option>
                             <option value='Virtual'>Virtual</option>
-                            <option value='Both'>Both</option>
+                            <option value='In-Person / Virtual'>In-Person / Virtual</option>
                         </select>
                     </div>
                 </div>
@@ -215,6 +221,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                     </div>
                     <div className='col-75'>
                         <input 
+                            disabled={isDisabledInput}
                             type='text'
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
@@ -229,6 +236,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                     </div>
                     <div className='col-75'>
                         <input 
+                            disabled={isDisabledInput}
                             type='text'
                             value={state}
                             onChange={(e) => setState(e.target.value)}
@@ -243,6 +251,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                     </div>
                     <div className='col-75'>
                         <input 
+                            disabled={isDisabledInput}
                             type='text'
                             value={country}
                             onChange={(e) => setCountry(e.target.value)}
@@ -254,7 +263,7 @@ const CreateClassForm = ({ updateOneClass }) => {
                 <div className='row'>
                     <button type='submit'>Create Class</button>
                 </div>
-                <div className='row'>
+                <div className='row' id='errors'>
                     {errors.map((error) => (
                         <div key={error}>{error}</div>
                     ))}

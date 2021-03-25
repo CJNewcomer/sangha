@@ -39,7 +39,7 @@ class CreateClassForm(FlaskForm):
     location = SelectField("location", choices=[
         'In-Person',
         'Virtual',
-        'In-Person & Virtual'
+        'In-Person / Virtual'
     ],
         validators=[DataRequired(message="Must specify a location."),])
     date = DateField("date", 
