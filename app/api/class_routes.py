@@ -118,6 +118,9 @@ def update_class(class_id):
     class_to_update.time = form.data["time"]
     class_to_update.description = form.data["description"]
     class_to_update.price = form.data["price"]
+    class_to_update.city = form.data["city"]
+    class_to_update.state = form.data["state"]
+    class_to_update.country = form.data["country"]
 
     if image is not None:
         image.filename = secure_filename(image.filename)
@@ -130,10 +133,13 @@ def update_class(class_id):
             )
 
     if form.validate_on_submit() and not image_error:
-        output_link = upload_file_to_s3(image) if image else None
+        url = ''
+        if request.files:
+            url = upload_file_to_s3(
+                request.files['image'], Config.S3_BUCKET) if image else None
 
-        if output_link:
-            class_to_update.class_image = output_link
+        if url:
+            class_to_update.class_image = url
 
         db.session.add(class_to_update)
         db.session.commit()

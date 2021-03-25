@@ -24,7 +24,7 @@ const CreateClassForm = ({ updateOneClass }) => {
     const [errors, setErrors] = useState([]);
     
     useEffect(() => {
-        if (updateOneClass) {
+        if (!!updateOneClass) {
             setName(updateOneClass.name);
             setType(updateOneClass.type);
             setImage(updateOneClass.image);
@@ -60,7 +60,8 @@ const CreateClassForm = ({ updateOneClass }) => {
         };
 
         const classErrors = await dispatch(
-            updateOneClass ? createAClass(oneClass,updateOneClass.id) 
+            !!updateOneClass 
+            ? createAClass(oneClass,updateOneClass.id) 
             : createAClass(oneClass)
             );
         if (classErrors.errors) {
@@ -77,7 +78,7 @@ const CreateClassForm = ({ updateOneClass }) => {
     };
 
     const isDisabledInput = () => {
-        if (location.value === 'Virtual') {
+        if (location === 'Virtual') {
             return true;
         }
     }
