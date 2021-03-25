@@ -1,28 +1,29 @@
 .about__container {
-
+    display: flex;
 }
 
 .image__container {
 
 }
 
-.image__one {
+img.image__one {
+    height: 5rem;
+    border-radius: .5rem;
+}
+
+img.image__two {
 
 }
 
-.image__two {
+img.image__three {
 
 }
 
-.image__three {
+img.image__four {
 
 }
 
-.image__four {
-
-}
-
-.image__five {
+img.image__five {
 
 }
 

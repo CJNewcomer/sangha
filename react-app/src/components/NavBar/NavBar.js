@@ -56,6 +56,14 @@ const NavBar = () => {
                   </span>
                 </a>
               </li>
+              <li>
+                <a href="/about">
+                  <i class="fa fa-info"></i>
+                  <span className='nav__text'>
+                    About the Developer
+                  </span>
+                </a>
+              </li>
               <li className='has__subnav'>
                 <a href="/search">
                   <i className="fa fa-search fa-2x"></i>

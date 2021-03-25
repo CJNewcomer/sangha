@@ -49,7 +49,7 @@ function App() {
         <ProtectedRoute path="/about" exact={true} authenticated={!!sessionUser}>
           <AboutDev />
         </ProtectedRoute>
-        <ProtectedRoute path="/classes/:classId" exact={true} authenticate={!!sessionUser}>
+        <ProtectedRoute path="/classes/:classId" exact={true} authenticated={!!sessionUser}>
           <ClassReview />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
