@@ -1,10 +1,13 @@
+import { create } from './class';
+
 const ADD_CLASS = 'user_classes/addClass';
 const LOAD_CLASS = 'user_classes/loadClass';
 const CANCEL_CLASS = 'user_classes/cancelClass';
 const ADD_REVIEW = 'user_classes/addReview';
 
-const addClass = () => ({
+const addClass = (class_id) => ({
     type: ADD_CLASS,
+    class_id
 })
 
 const loadClass = (classes) => ({
@@ -27,7 +30,9 @@ export const addToUserClass = (user_id, class_id) => async (dispatch) => {
         method: 'POST',
     })
     const data = await res.json()
-    dispatch(addClass())
+    if (!data.errors) {
+        dispatch(create(data))
+    }
     return data;
 }
 
@@ -43,8 +48,11 @@ export const cancelUserClass = (user_id, class_id) => async (dispatch) => {
     const res = await fetch(`/api/users/${user_id}/classes/${class_id}`, {
         method: 'PUT',
     });
-    const cancel = await res.json();
-    dispatch(cancelClass(class_id))
+    const data = await res.json();
+    if (!data.errors) {
+        dispatch(create(data))
+    }
+    return data;
 }
 
 export const addReviewToClass = (user_id, review_id) => async (dispatch) => {
@@ -58,12 +66,10 @@ export const addReviewToClass = (user_id, review_id) => async (dispatch) => {
 
 
 const userClassReducer = (state={}, action) => {
+    const newState = {...state};
     switch(action.type){
         case ADD_CLASS:
-            const newState = {...state};
-            if (!newState[action.id]){
-                newState[action.id] = {id: action.id, count:1}
-            } 
+            newState[action.class_id] = {id: action.class_id}
             return newState;
         case LOAD_CLASS:
             for (let oneClass of action.classes) {
@@ -71,7 +77,7 @@ const userClassReducer = (state={}, action) => {
             }
             return newState;
         case CANCEL_CLASS:
-            if (newState[action.id]){
+            if (newState[action.class_id]){
             delete newState[Number(action.class_id)];
             }
             return newState;

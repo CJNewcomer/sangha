@@ -7,7 +7,7 @@ const get = (classes) => ({
     classes,
 });
 
-const create = (oneClass) => ({
+export const create = (oneClass) => ({
     type: CREATE_CLASS,
     oneClass,
 });

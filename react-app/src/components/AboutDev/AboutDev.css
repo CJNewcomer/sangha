@@ -3,7 +3,30 @@
     margin: 0;
 }
 
+.image__row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
 
+.image_columns {
+    flex: 50%;
+    max-width: 20%;
+    padding: 0 4px;
+}
+
+.image_columns img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .image_columns {
+        flex: 25%;
+        max-width: 100%;
+    }
+}
 
 .links__container {
     display: flex;
@@ -22,3 +45,12 @@ i.fa.fa-globe {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* i.fa.fa-github:visited,
+i.fa.fa-linkedin:visited, 
+i.fa.fa-angellist:visited,
+i.fa.fa-globe:visited {
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+} */

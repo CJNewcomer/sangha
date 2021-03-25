@@ -58,7 +58,7 @@ const NavBar = () => {
               </li>
               <li>
                 <a href="/about">
-                  <i class="fa fa-info"></i>
+                  <i className="fa fa-info"></i>
                   <span className='nav__text'>
                     About the Developer
                   </span>
