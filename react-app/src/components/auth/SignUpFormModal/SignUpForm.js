@@ -56,8 +56,8 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
-  if (sessionUser) {
-    return <Redirect to="/users/user_id" />;
+  if (!!sessionUser) {
+    return <Redirect to="/home" />;
   }
 
   return (
@@ -144,7 +144,6 @@ const SignUpForm = () => {
           ></input>
         </div>
         <button type="submit">Sign Up</button>
-        {/* <button onSubmit={demoLogin} type='submit'>Demo Login</button> */}
       </form>
     </>
   );

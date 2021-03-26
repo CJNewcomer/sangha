@@ -12,6 +12,7 @@ import ClassProfile from './components/ClassProfile/ClassProfile';
 import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
 import ClassReview from './components/ClassReviews/ClassReview';
+import AboutDev from "./components/AboutDev/AboutDev";
 
 // import redux
 import { authenticate } from "./store/session";
@@ -45,7 +46,10 @@ function App() {
         <ProtectedRoute path="/classes/:classId" exact={true} authenticated={!!sessionUser}>
           <ClassProfile />
         </ProtectedRoute>
-        <ProtectedRoute path="/classes/:classId" exact={true} authenticate={!!sessionUser}>
+        <ProtectedRoute path="/about" exact={true} authenticated={!!sessionUser}>
+          <AboutDev />
+        </ProtectedRoute>
+        <ProtectedRoute path="/classes/:classId" exact={true} authenticated={!!sessionUser}>
           <ClassReview />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={!!sessionUser}>
@@ -54,7 +58,7 @@ function App() {
         <ProtectedRoute path="/classes" exact={true} authenticated={!!sessionUser}>
           <CreateClassForm />
         </ProtectedRoute>
-        <Route path="/" exact={true} authenticated={authenticated}>
+        <Route path="/" exact={true}>
           <SplashPage />
         </Route>
         <Route path='/search'>

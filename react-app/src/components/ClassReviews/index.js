@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { updateOneReview } from '../../store/review';
 import { Modal } from '../../context/ModalAuthContext';
 import CreateReview from './CreateClassReview';
 

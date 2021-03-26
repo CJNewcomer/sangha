@@ -13,6 +13,12 @@
     background-color: whitesmoke;
 }
 
+i.fas {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
 @media (max-width: 900px) {
     .profile__container {
         flex-direction: column-reverse;

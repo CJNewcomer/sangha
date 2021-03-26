@@ -62,6 +62,7 @@ const ClassProfile = () => {
         <>
             <div className='profile__container'>
                 <div className='profile__image-button'>
+                    <i className='fas fa-times' onClick={()=>{history.push('/search')}}></i>
                     <img src={yogaClass.class_image} alt="Class Profile"/>
                         <div className='profile__update-class'>
                             {sessionUser.id === yogaClass.teacher.id && 

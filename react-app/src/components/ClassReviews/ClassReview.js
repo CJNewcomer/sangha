@@ -27,15 +27,26 @@ const ClassReview = () => {
         dispatch(getReview(classId))
     }, [dispatch, classId])
 
+    const deleteReview = (e) => {
+        dispatch(removeReview(e.target.value))
+    }
+
     return (
         <div className='reviews__main'>
             <div className='reviews__container'>
                 <div>
-                <h1 className='reviews__title'>Class Reviews</h1>
+                <h1 className='reviews__title'>
+                    <span>Class Reviews</span>
+                    {!Object.values(classReviews).some(classReview => classReview.user_id === sessionUser.id) &&
+                        <div className='review__create' >
+                            <CreateReviewModal class_id={classId} />
+                        </div>
+                        }
+                    </h1>
                     <div className='reviews__listed'>
                         {!Object.values(classReviews).length &&
                             <p>Start a trend, review your recent class!</p>
-                            }
+                        }
                         {Object.values(classReviews).length > 0 &&
                         <>
                             {Object.values(classReviews).map(classReview => {
@@ -43,16 +54,19 @@ const ClassReview = () => {
                                     <>
                                         <div className='review__block' key={classReview.id}>
                                             <div className='review__block-info'>
-                                                <h3>{classReview.user_id}</h3>
+                                                <h3>{classReview.username}</h3>
                                                 <p>{(new Date(classReview.created_at)).toLocaleString("en-US", convertTime)}</p>
                                                 <p>{classReview.comment}</p>
                                             </div> 
+                                            <div>
+                                                {sessionUser.id === classReview.user_id && (
+                                                <>
+                                                    <CreateReviewModal updateOneReview={classReview} class_id={classId}/>
+                                                    <button value={classReview.id} onClick={deleteReview}>Delete Review</button>
+                                                </>
+                                                )}
+                                            </div>
                                         </div>
-                                        {sessionUser.id !== classReview.user_id && 
-                                        <div classname='review__create' >
-                                            <CreateReviewModal classReview={classReview} class_id={classId} />
-                                        </div>
-                                        }
                                     </>
                                 )
                             })}

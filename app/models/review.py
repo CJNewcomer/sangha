@@ -27,6 +27,7 @@ class Review(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
+            "username": self.user.username,
             "class_id": self.class_id,
             "comment": self.comment,
             "created_at": self.created_at.isoformat(),
