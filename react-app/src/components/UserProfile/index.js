@@ -10,8 +10,8 @@ const UserProfile = ({ userProfileImage }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { user_id } = useParams();
-    const [setImage] = useState(null);
-    const [setErrors] = useState([]);
+    const [image, setImage] = useState(null);
+    const [errors, setErrors] = useState([]);
     
     const user = useSelector((state) => state.user[user_id]);
     const classes = useSelector((state) => Object.values(state.class));
@@ -68,7 +68,6 @@ const UserProfile = ({ userProfileImage }) => {
             <div className='profile__image'>
                 <input className='image__upload' type='file' id='uploaded' style={{display: "none"}} onChange={updateFile}/>
                 <img src={sessionUser.profile_image} alt=""/>
-                <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Profile Image</button>
             </div>
             <div className='profile__container-a'>
                 <div className='profile__user-a'>
@@ -99,6 +98,9 @@ const UserProfile = ({ userProfileImage }) => {
                     <div className='update__profile'>
                         {/* <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Biography</button> */}
                     </div>
+            </div>
+            <div className='upload__profile-image'>
+                <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Profile Image</button>
             </div>
             <div className='profile__container-b' >
                 {!myClasses.length ? <h2>No Classes Booked</h2> : <h2>My Booked Classes</h2>}

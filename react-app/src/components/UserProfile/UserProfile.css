@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     max-width: 640px;
-    height: 15rem;
+    height: 14rem;
     margin-left: 30rem;
     padding: 0 3rem;
-    margin-top: 2rem;
+    margin-top: 4rem;
     border-radius: .5rem;
     overflow: hidden;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
@@ -24,7 +24,7 @@
 .profile__bio {
     display: flex;
     justify-content: center;
-    height: 10rem;
+    height: 9rem;
     width: 32.3rem;
     margin-left: 0rem;
     font-family: 'Lusitana', serif;
@@ -33,7 +33,7 @@
 .profile__user-info {
     height: 4rem;
     margin-left: 0rem;
-    margin-top: 2.5rem;
+    margin-top: 1.8rem;
     font-family: 'Lusitana', serif;
 }
 
@@ -45,7 +45,7 @@
 
 div.profile__image img {
     margin-left: 14rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
     border-radius: 50%;
     width: 13rem;
     height: 13rem;
@@ -53,12 +53,17 @@ div.profile__image img {
     border: whitesmoke .2rem solid;
 }
 
-.update__profile-image, button {
+.update__profile-image {
     cursor: pointer;
     padding: .1rem;
     top: 10.6rem;
     margin: .3rem .7rem;
     font-weight: bold;
+}
+
+.upload__profile-image {
+    margin-top: 1.8rem;
+    margin-left: 11.3rem;
 }
 
 .profile__name {
@@ -102,7 +107,7 @@ button.upload {
     height: 100%;
     margin-left: 12rem;
     padding: 0 1rem;
-    margin-top: 3rem;
+    margin-top: 2.1rem;
     border-radius: .5rem;
     overflow: auto;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);

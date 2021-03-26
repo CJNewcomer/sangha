@@ -15,7 +15,7 @@
 
 .main__menu:hover,nav.main__menu.expanded {
     width:250px;
-    overflow:visible;
+    overflow:hidden;
 }
 
 .main__menu {
@@ -66,6 +66,7 @@
     text-align:center;
     vertical-align:middle;
     font-size: 1.9rem;
+    margin-top: .5rem;
 }
 
 .main__menu .nav__text {
