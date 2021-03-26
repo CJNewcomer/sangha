@@ -86,7 +86,7 @@ const CreateClassForm = ({ updateOneClass }) => {
 
     return (
         <div className='class__container'>
-            <h1>{!!updateOneClass ? 'Update Class' : 'Create Class'}</h1>
+            <h1 className='form__title'>{!!updateOneClass ? 'Update Class' : 'Create Class'}</h1>
             <form onSubmit={createClass} className='class__form'>
                 <div className='row'>
                     <div className='col-25'>

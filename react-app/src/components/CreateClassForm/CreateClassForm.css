@@ -6,9 +6,12 @@
     padding: 20px;
 }
 
-h1 {
+h1.form__title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.5rem;
+    color: whitesmoke;
+    text-shadow: 0 0 3px rgb(7, 59, 76, 0.671), 0 0 3px rgb(7, 59, 76, 0.671),
+    0 0 3px rgb(7, 59, 76, 0.671), 0 0 3px rgb(7, 59, 76, 0.671);
 }
 
 input, 
@@ -25,6 +28,9 @@ textarea {
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
+  color: whitesmoke;
+  text-shadow: 0 0 3px rgb(7, 59, 76, 0.671), 0 0 3px rgb(7, 59, 76, 0.671),
+    0 0 3px rgb(7, 59, 76, 0.671), 0 0 3px rgb(7, 59, 76, 0.671);
 }
 
 /* .image__upload {

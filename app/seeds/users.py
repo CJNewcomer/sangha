@@ -12,7 +12,6 @@ def seed_users():
             email='demo@aa.io',
             is_teacher=False,
             password='password',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
             ),
         User(
             username="yogiAmy",
@@ -21,7 +20,6 @@ def seed_users():
             email="amy@amy.com",
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
         User(
             username="yogiMichelle",
@@ -30,7 +28,6 @@ def seed_users():
             email="michelle@michelle.com",            
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
         User(
             username="yogiCassidy",
@@ -39,7 +36,6 @@ def seed_users():
             email="cass@cass.com",            
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
         User(
             username="yogiMary",
@@ -48,7 +44,6 @@ def seed_users():
             email="mary@mary.com",            
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
         User(
             username="yogiDebbie",
@@ -57,7 +52,6 @@ def seed_users():
             email="debbie@debbie.com", 
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
         User(
             username="yogiChelsea",
@@ -66,7 +60,6 @@ def seed_users():
             email="chelsea@chelsea.com",           
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
         User(
             username="yogiCandace",
@@ -75,7 +68,6 @@ def seed_users():
             email="candace@candace.com",            
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
         User(
             username="yogiEmily",
@@ -84,7 +76,6 @@ def seed_users():
             email="emily@emily.com",            
             is_teacher=True,
             password='1234',
-            profile_image="https://sangha.s3.us-east-2.amazonaws.com/Default_profile_image.png"
         ),
     ]
     db.session.bulk_save_objects(users)
