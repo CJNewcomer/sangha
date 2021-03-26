@@ -13,6 +13,7 @@ import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
 import ClassReview from './components/ClassReviews/ClassReview';
 import AboutDev from "./components/AboutDev/AboutDev";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 // import redux
 import { authenticate } from "./store/session";
@@ -67,6 +68,9 @@ function App() {
         <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >
           <LandingPage />
         </ProtectedRoute>
+        <Route>
+          <PageNotFound />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
