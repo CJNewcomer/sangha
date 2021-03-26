@@ -7,6 +7,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
+    justify-content: center;
 }
 
 .image_columns {
@@ -19,6 +20,19 @@
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
+    border-radius: .2rem;
+}
+
+img.image__three {
+    margin-top: 8.5rem;
+}
+
+img.image__five {
+    margin-top: 13.5rem;
+}
+
+img.image__six {
+    margin-top: 4rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -28,12 +42,17 @@
     }
 }
 
+.about__contact {
+    margin-top: 1.65rem;
+}
+
 .links__container {
     display: flex;
     justify-content: center;
+    margin-top: .4rem;
 }
 
-h5 {
+h3 {
     font-family: 'Lusitana', serif;
 }
 
@@ -42,15 +61,10 @@ i.fa.fa-linkedin,
 i.fa.fa-angellist,
 i.fa.fa-globe {
     color: whitesmoke;
-    text-decoration: none;
     cursor: pointer;
+    font-size: 2em;
 }
 
-/* i.fa.fa-github:visited,
-i.fa.fa-linkedin:visited, 
-i.fa.fa-angellist:visited,
-i.fa.fa-globe:visited {
-    color: whitesmoke;
+a {
     text-decoration: none;
-    cursor: pointer;
-} */
+}
