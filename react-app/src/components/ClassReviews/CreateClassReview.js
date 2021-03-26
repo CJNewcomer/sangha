@@ -1,15 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { createReview } from '../../store/review';
 import "./CreateClassReviews.css";
 
 
-const CreateReview = ({ updateOneReview, class_id }) => {
+const CreateReview = ({ updateOneReview, class_id, setShowModal }) => {
     const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
-    const history = useHistory();
-    console.log("-----", class_id);
     const [comment, setComment] = useState('');
     const [errors, setErrors] = useState([]);
 
@@ -38,7 +35,7 @@ const CreateReview = ({ updateOneReview, class_id }) => {
             newErrors = reviewErrors.errors;
             setErrors(newErrors);
         } else {
-            history.push(`/reviews/${reviewErrors.id}`);
+            setShowModal(false);
         }
     };
 
@@ -60,7 +57,7 @@ const CreateReview = ({ updateOneReview, class_id }) => {
                     </div>
                 </div>
                 <div className='row'>
-                    <button type='submit'>Create Review</button>
+                    <button type='submit'>{updateOneReview ? 'Edit Review' : 'Create Review'}</button>
                 </div>
                 <div className='row'>
                     {errors.map((error) => (

@@ -18,28 +18,42 @@
 }
 
 .reviews__title {
+    display: flex;
+    justify-content: space-between;
     font-family: 'Lusitana', serif;
     font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: .1rem;
+    margin-bottom: 1rem;
     margin-top: .4rem;
-    width: 90%;
+    width: 100%;
+}
+
+.reviews__title span {
+    border-bottom: .1rem solid lightgray;
+}
+
+.review__create {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .review__block {
     display: flex;
     justify-self: flex-start;
+    justify-content: space-between;
     width: 100%;
+    border-bottom: .1rem solid lightgray;
+    margin-bottom: 1rem;
 }
 
 .reviews__listed {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: flex-end;
+    align-items: flex-end;
     text-align: left;
     /* border-radius: .5rem; */
     overflow: hidden;
-    border-bottom: .1rem solid lightgray;
 }
 
 h3 p {
@@ -47,5 +61,9 @@ h3 p {
     font-size: 1rem;
     font-weight: 300;
     margin-bottom: .1rem;
+    margin-top: 0;
+}
+
+.create__edit-review {
     margin-top: 0;
 }

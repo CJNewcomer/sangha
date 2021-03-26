@@ -40,7 +40,7 @@ def create_review():
 
 @review_routes.route("/<int:review_id>", methods=["PUT", "DELETE"])
 @login_required
-def edit_review(review_id, user_id):
+def edit_review(review_id):
     review = Review.query.get(review_id)
     if request.method == "PUT":
         form = CreateReviewForm()
@@ -53,7 +53,7 @@ def edit_review(review_id, user_id):
             return review.to_dict()
         return {"errors": validation_errors_to_error_messages(form.errors)}
     elif request.method == "DELETE":
-        review.comment = "This review has been removed."
+        db.session.delete(review)
         db.session.commit()
-        return review.to_dict()
+        return {"message": "Review Deleted."}
     
