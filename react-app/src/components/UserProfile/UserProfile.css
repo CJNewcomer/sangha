@@ -1,9 +1,10 @@
 .profile__container-a {
     display: flex;
-    max-width: 700px;
+    flex-direction: column;
+    max-width: 640px;
     height: 15rem;
-    margin: auto;
-    padding: 0 1rem;
+    margin-left: 30rem;
+    padding: 0 3rem;
     margin-top: 2rem;
     border-radius: .5rem;
     overflow: hidden;
@@ -20,21 +21,20 @@
     }
 }
 
-.profile__user-b .profile__bio {
+.profile__bio {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     height: 10rem;
     width: 32.3rem;
-    margin-left: 2.5rem;
-    margin-top: 1rem;
+    margin-left: 0rem;
+    font-family: 'Lusitana', serif;
 }
 
 .profile__user-info {
-    position: relative;
-    height: 5rem;
-    overflow: hidden;
-    top: 11rem;
-    margin-left: 1.1rem;
+    height: 4rem;
+    margin-left: 0rem;
+    margin-top: 2.5rem;
+    font-family: 'Lusitana', serif;
 }
 
 @media (max-width: 900px) {
@@ -44,11 +44,21 @@
 }
 
 div.profile__image img {
-    margin: 1rem;
+    margin-left: 14rem;
+    margin-top: 5rem;
     border-radius: 50%;
-    width: 8rem;
-    height: 8rem;
+    width: 13rem;
+    height: 13rem;
     position: absolute;
+    border: whitesmoke .2rem solid;
+}
+
+.update__profile-image, button {
+    cursor: pointer;
+    padding: .1rem;
+    top: 10.6rem;
+    margin: .3rem .7rem;
+    font-weight: bold;
 }
 
 .profile__name {
@@ -73,12 +83,10 @@ div.profile__image img {
 }
 
 button.upload {
-    display: flex;
+    position: relative;
     cursor: pointer;
-    padding: .1rem;
-    top: 10.6rem;
-    margin: .3rem .7rem;
     font-weight: bold;
+    margin-left: 5rem;
 }
 
 .update__profile {
@@ -88,23 +96,24 @@ button.upload {
 }
 
 .profile__container-b {
-    display: flex;
+    /* display: flex; */
     position: relative;
-    max-width: 850px;
+    max-width: 1000px;
     height: 100%;
-    margin: auto;
+    margin-left: 12rem;
     padding: 0 1rem;
     margin-top: 3rem;
     border-radius: .5rem;
-    /* overflow: hidden; */
     overflow: auto;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     text-align: left;
     background-color: whitesmoke;
 }
 
-h2 {
-    font-family: 'Ledger', serif;
+.profile__container-b h2 {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    font-family: 'Lusitana', serif;
 }
 
 .classes__main {
@@ -113,6 +122,7 @@ h2 {
     box-sizing: border-box;
     width: fit-content;
     margin: auto;
+    margin-top: 2rem;
     height: 100%;
 }
 

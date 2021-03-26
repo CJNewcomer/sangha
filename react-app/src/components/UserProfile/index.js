@@ -65,25 +65,25 @@ const UserProfile = ({ userProfileImage }) => {
 
     return (
         <>
+            <div className='profile__image'>
+                <input className='image__upload' type='file' id='uploaded' style={{display: "none"}} onChange={updateFile}/>
+                <img src={sessionUser.profile_image} alt=""/>
+                <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Profile Image</button>
+            </div>
             <div className='profile__container-a'>
                 <div className='profile__user-a'>
-                    <div className='profile__image'>
-                        <input className='image__upload' type='file' id='uploaded' style={{display: "none"}} onChange={updateFile}/>
-                        <img src={sessionUser.profile_image} alt=""/>
-                    </div>
                     <div className='profile__user-info'>
                         <div className='profile__name'>
-                            <i>{sessionUser.first_name} {sessionUser.last_name}</i>
+                            <h4>{sessionUser.first_name} {sessionUser.last_name}</h4>
                         </div>
                         <div className='profile__email'>
-                            <i>{sessionUser.email}</i>
+                            <h4>{sessionUser.email}</h4>
                         </div>
                         <div className='profile__location'>
-                            <i>{sessionUser.classes.locations}</i> 
+                            <h4>{sessionUser.classes.locations}</h4> 
                         </div>
                     </div>
                 </div>
-                <div className='profile__user-b'>
                     <div className='profile__bio'>
                         {/* <p>{sessionUser.biography}</p> */}
                         <p>
@@ -97,13 +97,10 @@ const UserProfile = ({ userProfileImage }) => {
                         </p>
                     </div>
                     <div className='update__profile'>
-                        <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Profile Image</button>
-                        <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Biography</button>
+                        {/* <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Biography</button> */}
                     </div>
-                </div>
             </div>
             <div className='profile__container-b' >
-                <div>
                 {!myClasses.length ? <h2>No Classes Booked</h2> : <h2>My Booked Classes</h2>}
                     <div className='classes__main' >
                         <div className='classes__container' >
@@ -130,7 +127,7 @@ const UserProfile = ({ userProfileImage }) => {
                             })}
                         </div>
                     </div>
-                </div>
+
             </div>
             {sessionUser.is_teacher && 
             <div className='profile__container-c'>

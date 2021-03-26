@@ -83,7 +83,7 @@ img.top {
 .welcome__title-a {
     position: absolute;
     bottom: 20rem;
-    right: 13.3rem;
+    right: 12.9rem;
     text-align: center;
     color: #EF476F;
     font-size: 1.2rem;
@@ -92,7 +92,7 @@ img.top {
 .welcome__title-b {
     position: absolute;
     bottom: 17rem;
-    right: 13.1rem;
+    right: 12.7rem;
     text-align: center;
     color: #EF476F;
     font-size: 1.2rem;
@@ -102,8 +102,8 @@ img.top {
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 13.6rem;
-    right: 13rem;
+    bottom: 12.8rem;
+    right: 12.3rem;
 }
 
 li {
