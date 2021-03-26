@@ -1,0 +1,19 @@
+.pagenotfound__goat {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 12rem;
+    align-items: center;
+}
+
+.pagenotfound__image {
+    border-radius: .5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pagenotfound__text {
+    font-family: 'Cormorant Garamond', serif;
+    color: whitesmoke;
+    text-shadow: 0 0 1.75px rgba(7, 59, 76, 0.671), 0 0 1.75px rgb(7, 59, 76, 0.671),
+    0 0 1.75px rgb(7, 59, 76, 0.671), 0 0 1.75px rgb(7, 59, 76, 0.671);
+}
