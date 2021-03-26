@@ -1,8 +1,7 @@
 # Sangha
 
-## Live Links
-* Live Application
-* Feature List
+* [Here's](https://sangha-full-stack.herokuapp.com/) a link to my live application!
+* [Here's](https://github.com/CJNewcomer/sangha/wiki) a link to Sangha's Wiki!
 
 
 ## Technologies Used
