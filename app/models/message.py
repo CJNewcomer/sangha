@@ -8,7 +8,7 @@ class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sender_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)    
     receiver_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)    
-    message = db.Column(db.String(200), nullable=False)
+    message = db.Column(db.String(500), nullable=False)
     timestamp = db.Column(db.DateTime,
                           nullable=False,
                           default=datetime.datetime.utcnow)
@@ -28,4 +28,6 @@ class Message(db.Model):
             "receiver": self.receiver,
             "message": self.message,
             "timestamp": self.timestamp,
+            "sender": self.sender.to_dict(),
+            "receiver": self.receiver.to_dict()
         }

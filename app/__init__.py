@@ -4,24 +4,40 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
+from flask_socketio import SocketIO, send, emit
+import json
 
-from .models import db, User
-from .api.user_routes import user_routes
-from .api.auth_routes import auth_routes
-from .api.class_routes import class_routes
-from .api.review_routes import review_routes
-from .api.message_routes import message_routes
-
+from .models import db, User, Message
+from .api import (auth_routes, user_routes, class_routes, review_routes, message_routes)
 from .seeds import seed_commands
-
 from .config import Config
 
+
 app = Flask(__name__)
+# socketio setup -- server using socket / fix cors errors
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+# run app with SocketIO
+if __name__ == '__main__':
+    socketio.run(app)
 
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
 
+# message handler function -- send message to client on server
+
+@socketio.on("message")
+def intercept_message(msg):
+    msg = json.loads(msg)
+    message, sender_id, receiver_id = msg.values()
+
+    message = Message(message=message, sender_id=sender_id, receiver_id=receiver_id)
+    db.session.add(message)
+    db.session.commit()
+    emit("message", {"msg": message.to_dict(), })
+    print("received message" + message.message)
+    
 
 @login.user_loader
 def load_user(id):
@@ -40,6 +56,7 @@ app.register_blueprint(message_routes, url_prefix='/api/messages')
 db.init_app(app)
 Migrate(app, db,
 compare_type=True)
+socketio.init_app(app)
 
 # Application Security
 CORS(app)
