@@ -1,10 +1,10 @@
-from app.models import Message
+from app.models import db, User, Message
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms import CreateMessageForm
 
-message_routes = Blueprint('message', __name__)
+message_routes = Blueprint("messages", __name__)
 
 
 @message_routes.route("")
@@ -14,6 +14,13 @@ def get_messages():
     return {"messages": [message.to_dict() for message in messages]}
 
 
+@message_routes.route("/<int:message_id>")
+@login_required
+def one_message(message_id):
+    message = Message.query.get(message_id)
+    return {"messages": [message.to_dict()]}
+
+
 @message_routes.route("", methods=["POST"])
 @login_required
 def compose_message():
@@ -21,25 +28,30 @@ def compose_message():
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        new_message = Message(
-            sender_id=form.data["sender_id"],
-            receiver_id=form.data["receiver_id"],
-            message=form.data["message"],
-        )
+        new_message = Message()
+        form.populate_obj(new_message)
         db.session.add(new_message)
         db.session.commit()
         return new_message.to_dict()
-    errors = validation_errors_to_error_messages(form.errors)
-    return {"errors": errors}
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}
 
 
-@message_routes.route("/<int:message_id>", methods=["DELETE"])
+@message_routes.route("/<int:message_id>", methods=["PUT", "DELETE"])
 @login_required
-def delete_message(message_id):
-    delete_this_message = Message.query.get(message_id)
-    if delete_this_message:
-        db.session.delete(delete_this_message)
+def edit_message(message_id):
+    message = Message.query.get(message_id)
+    if request.method == "PUT":
+        form = CreateMessageForm()
+        form["csrf_token"].data = request.cookies["csrf_token"]
+
+        if form.validate_on_submit():
+            form.populate_obj(message)
+            db.session.add(message)
+            db.session.commit()
+            return message.to_dict()
+        return {"errors": validation_errors_to_error_messages(form.errors)}
+    elif request.method == "DELETE":
+        db.session.delete(message)
         db.session.commit()
-        return "Message deleted"
-    else:
-        return {"errors": "No message found with id given."}
+        return {"message": "Message Deleted."}
