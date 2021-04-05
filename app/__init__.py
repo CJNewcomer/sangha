@@ -1,25 +1,26 @@
-import os
 from flask import Flask, render_template, request, session, redirect
 from flask_cors import CORS
+from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
-from flask_login import LoginManager
+from .seeds import seed_commands
 from flask_socketio import SocketIO, send, emit
+import os
 import json
 
 from .models import db, User, Message
-from app.api import auth_routes
-from app.api import user_routes
-from app.api import class_routes
-from app.api import review_routes
-from app.api import message_routes
 
-from .seeds import seed_commands
+
+from .api.auth_routes import auth_routes
+from .api.user_routes import user_routes
+from .api.class_routes import class_routes
+from .api.review_routes import review_routes
+from .api.message_routes import message_routes
 
 from .config import Config
-
-
 app = Flask(__name__)
+
+app.config.from_object(Config)
 
 # Setup login manager
 login = LoginManager(app)
@@ -34,7 +35,6 @@ def load_user(id):
 # Tell flask about our seed commands
 app.cli.add_command(seed_commands)
 
-app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(class_routes, url_prefix='/api/classes')
@@ -58,8 +58,6 @@ CORS(app)
 # SocketIO Implementation
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-if __name__ == '__main__':
-    socketio.run(app)
 
     
 @socketio.on("message")
@@ -105,3 +103,6 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+if __name__ == '__main__':
+    socketio.run(app)

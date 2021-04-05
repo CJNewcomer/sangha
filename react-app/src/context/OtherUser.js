@@ -12,6 +12,7 @@ const OtherUserProvider = ({ children }) => {
         value={{ otherUser, setOtherUser }}
         >{children}
         </OtherUserContext.Provider>
-    )
+    );
 }
+
 export default OtherUserProvider;

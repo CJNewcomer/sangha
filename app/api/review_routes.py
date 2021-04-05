@@ -10,7 +10,7 @@ review_routes = Blueprint("reviews", __name__)
 
 @review_routes.route("")
 @login_required
-def reviews():
+def get_reviews():
     reviews = Review.query.all()
     return {"reviews": [reviews.to_dict() for review in reviews]}
 

@@ -1,18 +1,18 @@
-const LOAD_MESSAGES = "/messages/loadMessages";
-const CREATE_MESSAGE = "/messages/createMessages";
-const REMOVE_MESSAGE = "/messages/removeMessages";
+const LOAD_MESSAGES = "/messages/load";
+const CREATE_MESSAGE = "/messages/create";
+const REMOVE_MESSAGE = "/messages/remove";
 
-const loadMessages = (messages) => ({
+const load = (messages) => ({
     type: LOAD_MESSAGES,
     messages,
 });
 
-const createMessages = (message) => ({
+const create = (message) => ({
     type: CREATE_MESSAGE,
     message,
 });
 
-const removeMessages = (message_id) => ({
+const remove = (message_id) => ({
     type: REMOVE_MESSAGE,
     message_id,
 });
@@ -22,7 +22,7 @@ export const getMessages = () => async (dispatch) => {
     const res = await fetch("/api/messages");
     const json = await res.json();
     if (res.ok) {
-        dispatch(loadMessages(json.messages));
+        dispatch(load(json.messages));
     }
 };
 
@@ -31,7 +31,7 @@ export const createMessages = (newMessage) => async (dispatch) => {
         sender_id,
         receiver_id,
         message,
-    } = new_message;
+    } = newMessage;
 
     const res = await fetch("/api/messages", {
         method: "POST",
@@ -47,7 +47,7 @@ export const createMessages = (newMessage) => async (dispatch) => {
     const returnedMessages = await res.json();
 
     if (!returnedMessages.errors) {
-        dispatch(createMessages(returnedMessages));
+        dispatch(create(returnedMessages));
         return returnedMessages;
     } else {
         const errors = returnedMessages;
@@ -60,7 +60,7 @@ export const deleteMessages = (message_id) => async (dispatch) => {
         method: "DELETE",
     });
     if (res.ok) {
-        dispatch(removeMessages(message_id));
+        dispatch(remove(message_id));
     }
 };
 
