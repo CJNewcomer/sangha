@@ -9,35 +9,18 @@ import json
 
 from .models import db, User, Message
 from .api import (auth_routes, user_routes, class_routes, review_routes, message_routes)
+
 from .seeds import seed_commands
+
 from .config import Config
 
 
 app = Flask(__name__)
-# socketio setup -- server using socket / fix cors errors
-socketio = SocketIO(app, cors_allowed_origins="*")
-
-# run app with SocketIO
-if __name__ == '__main__':
-    socketio.run(app)
 
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
 
-# message handler function -- send message to client on server
-
-@socketio.on("message")
-def intercept_message(msg):
-    msg = json.loads(msg)
-    message, sender_id, receiver_id = msg.values()
-
-    message = Message(message=message, sender_id=sender_id, receiver_id=receiver_id)
-    db.session.add(message)
-    db.session.commit()
-    emit("message", {"msg": message.to_dict(), })
-    print("received message" + message.message)
-    
 
 @login.user_loader
 def load_user(id):
@@ -56,16 +39,39 @@ app.register_blueprint(message_routes, url_prefix='/api/messages')
 db.init_app(app)
 Migrate(app, db,
 compare_type=True)
-socketio.init_app(app)
+
 
 # Application Security
 CORS(app)
+
 
 # Since we are deploying with Docker and Flask,
 # we won't be using a buildpack when we deploy to Heroku.
 # Therefore, we need to make sure that in production any 
 # request made over http is redirected to https.
 # Well.........
+
+# SocketIO Implementation
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+if __name__ == '__main__':
+    socketio.run(app)
+
+    
+@socketio.on("message")
+def intercept_message(msg):
+    msg = json.loads(msg)
+    message, sender_id, receiver_id = msg.values()
+
+    message = Message(message=message, 
+                        sender_id=sender_id, 
+                        receiver_id=receiver_id)
+    db.session.add(message)
+    db.session.commit()
+    emit("message", {"msg": message.to_dict(), })
+    print("received message" + message.message)
+    
+
 
 @app.before_request
 def https_redirect():

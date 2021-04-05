@@ -6,6 +6,7 @@ import configureStore from './store/index';
 import * as sessionActions from './store/session';
 import { Provider } from 'react-redux';
 import { ModalProvider } from './context/ModalAuthContext';
+import { OtherUserProvider } from './context/OtherUser';
 
 const store = configureStore();
 
@@ -18,7 +19,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ModalProvider>
-        <App />
+        <OtherUserProvider>
+          <App />
+        </OtherUserProvider>
       </ModalProvider>
     </Provider>
   </React.StrictMode>,
