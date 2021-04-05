@@ -6,7 +6,7 @@ import configureStore from './store/index';
 import * as sessionActions from './store/session';
 import { Provider } from 'react-redux';
 import { ModalProvider } from './context/ModalAuthContext';
-import { OtherUserProvider } from './context/OtherUser';
+import {OtherUserProvider} from './context/OtherUser';
 
 const store = configureStore();
 

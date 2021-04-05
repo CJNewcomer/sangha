@@ -1,6 +1,6 @@
-from app.models import db, User, Message
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
+from app.models import db, User, Message
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms import CreateMessageForm
 

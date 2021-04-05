@@ -8,7 +8,11 @@ from flask_socketio import SocketIO, send, emit
 import json
 
 from .models import db, User, Message
-from .api import (auth_routes, user_routes, class_routes, review_routes, message_routes)
+from app.api import auth_routes
+from app.api import user_routes
+from app.api import class_routes
+from app.api import review_routes
+from app.api import message_routes
 
 from .seeds import seed_commands
 

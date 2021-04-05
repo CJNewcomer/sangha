@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useState } from 'reac';
+import React, { useContext, createContext, useState } from 'react';
 
 
 const OtherUserContext = createContext();
@@ -14,5 +14,4 @@ const OtherUserProvider = ({ children }) => {
         </OtherUserContext.Provider>
     )
 }
-
 export default OtherUserProvider;
