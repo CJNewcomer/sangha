@@ -6,7 +6,7 @@ import './Modal.css'
 const ModalAuthContext = createContext();
 export const useModalAuthContext = () => useContext(ModalAuthContext);
 
-export const ModalProvider = ({ children }) => {
+const ModalProvider = ({ children }) => {
     const modalRef = useRef();
     const [value, setValue] = useState();
 
@@ -36,3 +36,5 @@ export const Modal = ({onClose, children}) => {
         modalNode
     );
 }
+
+export default ModalProvider;

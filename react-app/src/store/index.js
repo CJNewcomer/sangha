@@ -5,6 +5,7 @@ import userReducer from '../store/user';
 import classReducer from '../store/class';
 import userClassReducer from '../store/user_classes';
 import reviewReducer from '../store/review';
+import messageReducer from '../store/messages';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     class: classReducer,
     user_class: userClassReducer,
     review: reviewReducer,
+    message: messageReducer,
 })
 
 let enhancer;

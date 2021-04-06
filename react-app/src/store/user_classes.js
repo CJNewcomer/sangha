@@ -1,14 +1,8 @@
 import { create } from './class';
 
-const ADD_CLASS = 'user_classes/addClass';
 const LOAD_CLASS = 'user_classes/loadClass';
 const CANCEL_CLASS = 'user_classes/cancelClass';
 const ADD_REVIEW = 'user_classes/addReview';
-
-const addClass = (class_id) => ({
-    type: ADD_CLASS,
-    class_id
-})
 
 const loadClass = (classes) => ({
     type: LOAD_CLASS,
@@ -68,9 +62,6 @@ export const addReviewToClass = (user_id, review_id) => async (dispatch) => {
 const userClassReducer = (state={}, action) => {
     const newState = {...state};
     switch(action.type){
-        case ADD_CLASS:
-            newState[action.class_id] = {id: action.class_id}
-            return newState;
         case LOAD_CLASS:
             for (let oneClass of action.classes) {
                 newState[oneClass.id] = oneClass;

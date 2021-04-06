@@ -10,11 +10,11 @@ review_routes = Blueprint("reviews", __name__)
 
 @review_routes.route("")
 @login_required
-def reviews():
+def get_reviews():
     reviews = Review.query.all()
     return {"reviews": [reviews.to_dict() for review in reviews]}
 
-# filter out which reviews have comment of "DELETED"
+
 @review_routes.route("/<int:review_id>")
 @login_required
 def one_review(review_id):

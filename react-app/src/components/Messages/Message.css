@@ -1,0 +1,142 @@
+.message {
+  display: flex;
+  padding: 0 1rem;
+  width: 400px;
+  height: 95vh;
+}
+
+.message__container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+  border-radius: 0.75rem;
+  margin: .2rem;
+  padding: 1rem;
+  width: 55%;
+  padding:2rem;
+  height: fit-content;
+}
+
+.message__users-container {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  margin-top: 1rem;
+  height:fit-content;
+}
+
+.message__title {
+  color: rgba(0, 0, 0, 0.76);
+  font-weight: 300;
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 1rem;
+}
+
+.message__other-user {
+  background: transparent;
+  border-radius: 40rem;
+  padding: 0;
+  /* width: 100%; */
+  margin: 0 auto 0.25rem;
+  height: 8rem;
+}
+
+.message__other-user:hover {
+  cursor: pointer;
+  background: transparent;
+  box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+}
+
+.message__other-user-active {
+  background: #118AB2;
+  box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+  color: white;
+}
+
+.message__text-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+}
+
+.message__text {
+  overflow-y: scroll;
+  max-height: 70vh;
+}
+
+.messages__right {
+  align-self: flex-end;
+  margin-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 1rem;
+  
+}
+
+.messages__right:hover {
+  cursor: pointer;
+}
+
+.messages__left {
+  margin-right: 0.75rem;
+}
+
+.single__message{
+  background-color: rgba(177, 187, 231, 0.3);
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 0.35rem;
+  box-sizing: content-box;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+}
+
+/* .timestamp {
+  font-size: 0.5rem;
+} */
+
+.message__form {
+  display: flex;
+  margin-top: 0.35rem;
+}
+
+.message__form-input {
+  border-radius: 0.75rem;
+  border: 1.5px solid #303030;
+  outline: black;
+  resize: none;
+  padding: 0.25rem;
+  font-size: 1rem;
+  background-color:#F6F6F6;
+  font-family: 'Montserrat', sans-serif;
+  height:2rem;
+}
+
+.message__form-button {
+    margin: 0px auto 0;
+	line-height: 15px;
+	height: auto;
+	padding: 10px 10px;
+	min-width: 80px;
+	color:rgb(237, 237, 237);
+	background-color: #364dcf;
+	transition: all 0.2s ease;
+	border-style: none;
+	border-radius: 20px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	font-size: 15px;
+	font-weight: 500;
+	cursor: pointer;
+	outline: none;
+  margin-top:.5rem;
+}
+
+.message__form-button:hover{
+  box-shadow: .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+}
