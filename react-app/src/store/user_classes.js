@@ -1,14 +1,8 @@
 import { create } from './class';
 
-const ADD_CLASS = 'user_classes/addClass';
 const LOAD_CLASS = 'user_classes/loadClass';
 const CANCEL_CLASS = 'user_classes/cancelClass';
 const ADD_REVIEW = 'user_classes/addReview';
-
-const addClass = (class_id) => ({
-    type: ADD_CLASS,
-    class_id
-})
 
 const loadClass = (classes) => ({
     type: LOAD_CLASS,
