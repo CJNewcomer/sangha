@@ -35,7 +35,7 @@ const AllTheMessages = () => {
 
     return (
         <div>
-            <div>
+            <div style={{padding:"1rem"}}>
                 {allUsers && sessionUser && allMessagesForUser && allMessagesFOtherUser && (
                     <div>
                         <div>

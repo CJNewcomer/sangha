@@ -42,13 +42,13 @@ const MessageView = ({ sessionUser }) => {
     allMessagesFOtherUser.sort((a,b) => a.id - b.id);
 
     return (
-        <div>
-            <h1>
+        <div className='message__container'>
+            <h1 className='message__title'>
                 {otherUser.id ? otherUser.first_name : "No Conversation Selected."}
             </h1>
             <hr />
-            <div>
-                <div>
+            <div className='message__text-form'>
+                <div className='message__text'>
                     {otherUser && allMessagesFOtherUser.map((message_id) => (
                         <div className={
                             sessionUser.id ===message_id.sender_id
