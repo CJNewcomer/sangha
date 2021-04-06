@@ -115,7 +115,8 @@ button.upload {
     background-color: whitesmoke;
 }
 
-.profile__container-b h2 {
+.profile__container-b h2,
+.profile__container-c h2 {
     margin-top: 2rem;
     margin-left: 2rem;
     font-family: 'Lusitana', serif;
@@ -173,15 +174,17 @@ button.upload {
 }
 
 .profile__container-c {
-    display: flex;
-    max-width: 850px;
+    /* display: flex; */
+    position: relative;
+    max-width: 1000px;
     height: 100%;
-    margin: auto;
+    margin-left: 12rem;
     padding: 0 1rem;
-    margin-top: 3rem;
+    margin-top: 2.1rem;
     border-radius: .5rem;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     text-align: left;
     background-color: whitesmoke;
+    margin-bottom: 3rem;
 }

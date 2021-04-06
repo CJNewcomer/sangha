@@ -133,7 +133,6 @@ const UserProfile = ({ userProfileImage }) => {
             </div>
             {sessionUser.is_teacher && 
             <div className='profile__container-c'>
-                <div>
                 {!taughtClasses.length ? <h2>No Classes Taught</h2> : <h2>My Taught Classes</h2>}
                     <div className='classes__main'>
                         <div className='classes__container'>
@@ -160,7 +159,6 @@ const UserProfile = ({ userProfileImage }) => {
                             })}
                         </div>
                     </div>
-                </div>
             </div>
             }
         </>
