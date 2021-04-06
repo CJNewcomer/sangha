@@ -24,8 +24,8 @@ class Message(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "sender": self.sender,
-            "receiver": self.receiver,
+            "sender_id": self.sender_id,
+            "receiver_id": self.receiver_id,
             "message": self.message,
             "timestamp": self.timestamp,
             "sender": self.sender.to_dict(),

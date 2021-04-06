@@ -8,11 +8,11 @@ import {useOtherUserContext} from '../../context/OtherUser';
 import './Message.css';
 
 const AllTheMessages = () => {
-    const sessionUser = useSelector((state) => state.session.user);
+    const lgdInUser = useSelector((state) => state.session.user);
     const allMessages = useSelector((state) => state.message);
     const allUsers = useSelector((state) => state.users);
 
-    const {otherUser} = useOtherUserContext();
+    const otherUser = useOtherUserContext();
 
     const dispatch = useDispatch();
 
@@ -23,8 +23,8 @@ const AllTheMessages = () => {
 
     const messagesArray = Object.values(allMessages);
     const allMessagesForUser = messagesArray.filter((message) => 
-        message.sender_id === sessionUser.id || 
-        message.receiver_id === sessionUser.id
+        message.sender_id === lgdInUser.id || 
+        message.receiver_id === lgdInUser.id
     );
 
     const allMessagesFOtherUser = allMessagesForUser.filter((message) => {
@@ -36,16 +36,16 @@ const AllTheMessages = () => {
     return (
         <div>
             <div style={{padding:"1rem"}}>
-                {allUsers && sessionUser && allMessagesForUser && allMessagesFOtherUser && (
+                {allUsers && lgdInUser && allMessagesForUser && allMessagesFOtherUser && (
                     <div>
                         <div className='messages'>
                             <MessageUserView 
                             allUsers={allUsers}
-                            sessionUser={sessionUser}
+                            lgdInUser={lgdInUser}
                             allMessagesForUser={allMessagesForUser}
                             />
                             <MessageTextView 
-                            sessionUser={sessionUser}
+                            lgdInUser={lgdInUser}
                             allMessagesFOtherUser={allMessagesFOtherUser}
                             />
                         </div>

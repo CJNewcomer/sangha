@@ -10,13 +10,13 @@ const MessageForm = () => {
     const [msg, setMsg] = useState("");
 
     const { otherUser } = useOtherUserContext();
-    const sessionUserId = useSelector((state) => state.session.user.id);
+    const lgdInUserId = useSelector((state) => state.session.user.id);
 
     const onSend = async (e) => {
         e.preventDefault();
         const messageOrErrors = await dispatch(
             createMessages({
-                sender_id: sessionUserId,
+                sender_id: lgdInUserId,
                 receiver_id: otherUser.id,
                 message: msg,
             })

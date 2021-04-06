@@ -4,17 +4,17 @@ import {useOtherUserContext} from '../../context/OtherUser';
 import './Message.css';
 
 
-const MessageUserView = ({allUsers, sessionUser, allMessagesForUser}) => {
+const MessageUserView = ({allUsers, lgdInUser, allMsgsLgdInUser}) => {
     const {otherUser, setOtherUser} = useOtherUserContext();
 
-    // find users (once) that sessionUser has had convo with
+    // find users (once) that lgdInUser has had convo with
     const set = new Set();
     const prevMessageArray = [];
 
-    for (let i = allMessagesForUser.length - 1; i >= 0; i--) {
-        let msg = allMessagesForUser[i];
+    for (let i = allMsgsLgdInUser.length - 1; i >= 0; i--) {
+        let msg = allMsgsLgdInUser[i];
         const addId = 
-            msg.sender_id === sessionUser.id ? msg.receiver_id : msg.sender_id;
+            msg.sender_id === lgdInUser.id ? msg.receiver_id : msg.sender_id;
         if (!set.has(addId)) prevMessageArray.push(addId);
             set.add(addId);
     }

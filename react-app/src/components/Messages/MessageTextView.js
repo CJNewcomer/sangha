@@ -6,7 +6,7 @@ import { deleteMessages } from '../../store/messages';
 
 import './Message.css';
 
-const MessageTextView = ({ sessionUser, allMessagesFOtherUser }) => {
+const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
     const { otherUser } = useOtherUserContext();
     const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ const formatDate = (dateString) => {
     return `${day}, ${time} ${amPm}`;
 };
 
-    allMessagesFOtherUser.sort((a,b) => b.id - a.id);
+    allMsgsWOtherUser.sort((a,b) => b.id - a.id);
 
     if (!otherUser.id) {
     return (
@@ -35,7 +35,7 @@ const formatDate = (dateString) => {
         <div>
           <h1 className='message__title'>No Conversation Selected</h1>
           <p style={{ textAlign: 'center' }}>
-            Click to message a fellow yogi, or search classes to find teachers to message.
+            Click a username to message a fellow yogi, or search classes to find teachers to message.
           </p>
         </div>
       </div>
@@ -45,14 +45,14 @@ const formatDate = (dateString) => {
     return (
         <div className='message__container message__text-view'>
             <h1 className='message__title'>
-                {otherUser.id ? otherUser.first_name : "No Conversation Selected."}
+                {otherUser.id ? otherUser.username : "No Conversation Selected."}
             </h1>
             <hr />
             <div className='message__text-form'>
                 <div className='message__text'>
-                    {otherUser && allMessagesFOtherUser.map((msg) => (
+                    {otherUser && allMsgsWOtherUser.map((msg) => (
                         <div className={
-                            sessionUser.id === msg.sender_id
+                            lgdInUser.id === msg.sender_id
                             ? 'messages__right'
                             : 'messages__left'
                         }
@@ -60,7 +60,7 @@ const formatDate = (dateString) => {
                         >
                             <p
                                 style={
-                                    sessionUser.id === msg.sender_id
+                                    lgdInUser.id === msg.sender_id
                                     ? {
                                         background: 'rgba(13, 51, 223, 0.3)',
                                         borderRadius:'2rem',
@@ -68,8 +68,8 @@ const formatDate = (dateString) => {
                                     : {}
                                 }
                                 className='single__message'
-                                title={msg.sender.first_name}
-                                onClick={sessionUser.id === msg.sender_id ? () => handleDeleteMessage(msg) : undefined}
+                                title={msg.sender.username}
+                                onClick={lgdInUser.id === msg.sender_id ? () => handleDeleteMessage(msg) : undefined}
                                 >
                                     {msg.message}
                                 </p>
