@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createMessages } from '../../store/messages';
-import { useOtherUserContext } from '../../context/OtherUser';
+import { useOtherUserContext } from './index';
 import './Message.css';
 
 

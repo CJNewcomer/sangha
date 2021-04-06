@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useOtherUserContext } from '../../context/OtherUser';
+import { useOtherUserContext } from './index';
 import MessageForm from './MessageForm';
 import { deleteMessages } from '../../store/messages';
 

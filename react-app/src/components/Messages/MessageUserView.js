@@ -1,5 +1,5 @@
 import React from 'react';
-import {useOtherUserContext} from '../../context/OtherUser';
+import {useOtherUserContext} from './index';
 
 import './Message.css';
 
