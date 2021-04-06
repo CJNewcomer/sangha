@@ -61,7 +61,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
     
 @socketio.on("message")
-def intercept_message(msg):
+def handleMessage(msg):
     msg = json.loads(msg)
     message, sender_id, receiver_id = msg.values()
 
@@ -70,8 +70,8 @@ def intercept_message(msg):
                         receiver_id=receiver_id)
     db.session.add(message)
     db.session.commit()
-    emit("message", {"msg": message.to_dict(), })
-    print("received message" + message.message)
+    emit("message", {"msg": message.to_dict()})
+    print("received message" + msg.message)
     
 
 

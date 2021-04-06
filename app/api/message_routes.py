@@ -14,11 +14,11 @@ def get_messages():
     return {"messages": [message.to_dict() for message in messages]}
 
 
-@message_routes.route("/<int:message_id>")
-@login_required
-def one_message(message_id):
-    message = Message.query.get(message_id)
-    return {"messages": [message.to_dict()]}
+# @message_routes.route("/<int:message_id>")
+# @login_required
+# def one_message(message_id):
+#     message = Message.query.get(message_id)
+#     return {"messages": [message.to_dict()]}
 
 
 @message_routes.route("", methods=["POST"])
@@ -28,8 +28,11 @@ def compose_message():
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        new_message = Message()
-        form.populate_obj(new_message)
+        new_message = Message(
+            sender_id=form.data["sender_id"],
+            receiver_id=form.data["receiver_id"],
+            message=form.data["message"],
+        )
         db.session.add(new_message)
         db.session.commit()
         return new_message.to_dict()

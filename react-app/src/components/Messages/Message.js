@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import MessageView from '../Messages/MessageView';
-import {getAllUsers} from '../../store/user';
+import MessageTextView from '../Messages/MessageTextView';
+import MessageUserView from '../Messages/MessageUserView';
 import {getMessages} from '../../store/messages';
 import {useOtherUserContext} from '../../context/OtherUser';
 
@@ -9,14 +9,14 @@ import './Message.css';
 
 const AllTheMessages = () => {
     const sessionUser = useSelector((state) => state.session.user);
-    const allMessages = useSelector((state) => state.message);
+    const allMessages = useSelector((state) => state.messages);
     const allUsers = useSelector((state) => state.users);
+
     const {otherUser} = useOtherUserContext();
+
     const dispatch = useDispatch();
 
-
     useEffect(() => {
-        dispatch(getAllUsers());
         dispatch(getMessages());
     }, [dispatch]);
 
@@ -38,8 +38,13 @@ const AllTheMessages = () => {
             <div style={{padding:"1rem"}}>
                 {allUsers && sessionUser && allMessagesForUser && allMessagesFOtherUser && (
                     <div>
-                        <div>
-                            <MessageView 
+                        <div className='messages'>
+                            <MessageUserView 
+                            allUsers={allUsers}
+                            sessionUser={sessionUser}
+                            allMessagesForUser={allMessagesForUser}
+                            />
+                            <MessageTextView 
                             sessionUser={sessionUser}
                             allMessagesFOtherUser={allMessagesFOtherUser}
                             />
@@ -48,6 +53,6 @@ const AllTheMessages = () => {
                 )}
             </div>
         </div>
-    )
+    );
 }
 export default AllTheMessages;

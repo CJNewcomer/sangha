@@ -1,4 +1,4 @@
-.message {
+.messages {
   display: flex;
   padding: 0 1rem;
   width: 400px;
@@ -97,9 +97,9 @@
   margin: 0;
 }
 
-/* .timestamp {
+.timestamp {
   font-size: 0.5rem;
-} */
+}
 
 .message__form {
   display: flex;
