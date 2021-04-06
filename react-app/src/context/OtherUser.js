@@ -5,7 +5,7 @@ const OtherUserContext = createContext();
 export const useOtherUserContext = () => useContext(OtherUserContext);
 
 const OtherUserProvider = ({ children }) => {
-    const [otherUser, setOtherUser] = useState({ id: null });
+    const [otherUser, setOtherUser] = useState();
 
     return (
         <OtherUserContext.Provider 

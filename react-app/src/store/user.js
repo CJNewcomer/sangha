@@ -1,7 +1,6 @@
 const GET_USER = '/users/getUser';
 const GET_USERS = '/users/get';
 const ADD_USER = '/users/addUser';
-// const UPDATE_USER = '/users/updateUser';
 
 
 const get = (users) => ({
@@ -20,12 +19,6 @@ export const addUser = (user) => ({
   user,
 });
 
-// export const updateUser = (user) => ({
-//   type: UPDATE_USER,
-//   user,
-// })
-
-
 export const getAllUsers = () => async (dispatch) => {
   const res = await fetch('/api/users/');
   const json = await res.json();
@@ -41,35 +34,6 @@ export const getOneUser = (userId) => async (dispatch) => {
     dispatch(getUser(json));
   }
 };
-
-// export const updateOneUser = (user, userProfileImage = null) => async (dispatch) => {
-//   const {
-//     profile_image,
-//     image,
-//   } = user;
-
-//   const formData = new FormData();
-//   formData.append('profile_image', profile_image);
-
-//   if (image) formData.append('image', image);
-
-//   if (userProfileImage) {
-//     const res = await fetch(`/api/users/${userProfileImage}`, {
-//       method: 'PUT',
-//       body: formData,
-//     });
-
-//     const updatedProfile = await res.json();
-
-//     if (res.ok) {
-//       dispatch(updateUser(updatedProfile));
-//       return updatedProfile;
-//     } else {
-//       const errors = user;
-//       return errors;
-//     }
-//   }
-// };
 
 const initState = {};
 
@@ -88,9 +52,6 @@ const userReducer = (state = initState, action) => {
     case ADD_USER:
       newState[action.user.id] = action.user;
       return newState;
-    // case UPDATE_USER:
-    //   newState[action.user.id] = action.user;
-    //   return newState;
     default:
       return newState;
   }
