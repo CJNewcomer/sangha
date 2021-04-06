@@ -62,9 +62,6 @@ export const addReviewToClass = (user_id, review_id) => async (dispatch) => {
 const userClassReducer = (state={}, action) => {
     const newState = {...state};
     switch(action.type){
-        case ADD_CLASS:
-            newState[action.class_id] = {id: action.class_id}
-            return newState;
         case LOAD_CLASS:
             for (let oneClass of action.classes) {
                 newState[oneClass.id] = oneClass;

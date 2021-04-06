@@ -75,9 +75,12 @@ const MessageView = ({ sessionUser }) => {
                         </div>
                     ))}
                 </div>
+                <div>
+                    <CreateMessage />
+                </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default MessageView;

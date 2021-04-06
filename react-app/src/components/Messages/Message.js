@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import MessageView from '../Messages/MessageView';
 import {getAllUsers} from '../../store/user';
 import {getMessages} from '../../store/messages';
 import {useOtherUserContext} from '../../context/OtherUser';
@@ -39,7 +39,10 @@ const AllTheMessages = () => {
                 {allUsers && sessionUser && allMessagesForUser && allMessagesFOtherUser && (
                     <div>
                         <div>
-
+                            <MessageView 
+                            sessionUser={sessionUser}
+                            allMessagesFOtherUser={allMessagesFOtherUser}
+                            />
                         </div>
                     </div>
                 )}

@@ -14,6 +14,7 @@ import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
 import ClassReview from './components/ClassReviews/ClassReview';
 import AboutDev from "./components/AboutDev/AboutDev";
+import Message from "./components/Messages/MessageCard";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 // import redux
@@ -101,6 +102,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/classes" exact={true} authenticated={!!sessionUser}>
           <CreateClassForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/messages' exact={true} authenticated={!!sessionUser}>
+          <Message />
         </ProtectedRoute>
         <Route path="/" exact={true}>
           <SplashPage />
