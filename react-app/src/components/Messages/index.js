@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import MessageTextView from '../Messages/MessageTextView';
-import MessageUserView from '../Messages/MessageUserView';
+import MessageTextView from './MessageTextView';
+import MessageUserView from './MessageUserView';
 import {getMessages} from '../../store/messages';
 import {useOtherUserContext} from '../../context/OtherUser';
 
@@ -9,7 +9,7 @@ import './Message.css';
 
 const AllTheMessages = () => {
     const sessionUser = useSelector((state) => state.session.user);
-    const allMessages = useSelector((state) => state.messages);
+    const allMessages = useSelector((state) => state.message);
     const allUsers = useSelector((state) => state.users);
 
     const {otherUser} = useOtherUserContext();
@@ -23,8 +23,8 @@ const AllTheMessages = () => {
 
     const messagesArray = Object.values(allMessages);
     const allMessagesForUser = messagesArray.filter((message) => 
-    message.sender_id === sessionUser.id || 
-    message.receiver_id === sessionUser.id
+        message.sender_id === sessionUser.id || 
+        message.receiver_id === sessionUser.id
     );
 
     const allMessagesFOtherUser = allMessagesForUser.filter((message) => {

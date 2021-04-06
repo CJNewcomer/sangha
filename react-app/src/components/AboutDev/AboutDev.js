@@ -32,7 +32,7 @@ const AboutDev = () => {
                         <a className='contact__links' href='https://angel.co/u/courtney-newcomer'>
                             <i class="fa fa-angellist"></i>
                         </a>
-                        <a className='contact__links' href=''>
+                        <a className='contact__links' href='https://cjnewcomer.github.io/'>
                             <i class="fa fa-globe"></i>
                         </a>
                     </div>
