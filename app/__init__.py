@@ -4,7 +4,6 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from .seeds import seed_commands
-from flask_socketio import SocketIO, send, emit
 import os
 import json
 
@@ -54,25 +53,6 @@ CORS(app)
 # Therefore, we need to make sure that in production any 
 # request made over http is redirected to https.
 # Well.........
-
-# SocketIO Implementation
-socketio = SocketIO(app, cors_allowed_origins="*")
-
-
-    
-@socketio.on("message")
-def handleMessage(msg):
-    msg = json.loads(msg)
-    message, sender_id, receiver_id = msg.values()
-
-    message = Message(message=message, 
-                        sender_id=sender_id, 
-                        receiver_id=receiver_id)
-    db.session.add(message)
-    db.session.commit()
-    emit("message", {"msg": message.to_dict()})
-    print("received message" + msg.message)
-    
 
 
 @app.before_request
