@@ -95,9 +95,6 @@ const UserProfile = ({ userProfileImage }) => {
                             sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                     </div>
-                    <div className='update__profile'>
-                        {/* <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Biography</button> */}
-                    </div>
             </div>
             <div className='upload__profile-image'>
                 <button className='upload' onClick={() => document.getElementById('uploaded').click()}>Upload Profile Image</button>
