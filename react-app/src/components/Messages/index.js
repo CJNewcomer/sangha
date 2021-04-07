@@ -5,6 +5,7 @@ import MessageTextView from './MessageTextView';
 import MessageUserView from './MessageUserView';
 
 import {getMessages} from '../../store/messages';
+import {getAllUsers} from '../../store/user';
 
 import './Message.css';
 
@@ -23,6 +24,7 @@ const Messages = () => {
 
     useEffect(() => {
         dispatch(getMessages());
+        dispatch(getAllUsers());
     }, [dispatch]);
 
 

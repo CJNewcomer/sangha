@@ -120,6 +120,7 @@ button.upload__bio {
     margin-top: 2.1rem;
     border-radius: .5rem;
     overflow: auto;
+    margin-bottom: 2rem;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     text-align: left;
     background-color: whitesmoke;

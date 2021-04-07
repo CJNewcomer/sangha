@@ -47,7 +47,6 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
             <h1 className='message__title'>
                 {otherUser.id ? otherUser.username : "No Conversation Selected."}
             </h1>
-            <hr />
             <div className='message__text-form'>
                 <div className='message__text'>
                     {otherUser && allMsgsWOtherUser.map((msg) => (

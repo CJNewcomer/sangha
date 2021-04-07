@@ -117,7 +117,7 @@ const NavBar = () => {
 
     return (
       <>
-        <div className='area'></div>
+        {/* <div className='area'></div> */}
         <nav className='main__menu'>
           <ul>
           <div>{sessionLinks}</div>          

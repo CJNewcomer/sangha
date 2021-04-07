@@ -21,10 +21,10 @@
 .main__menu {
     /* background:#EF476F; */
     background: rgba(255,255,255,0.1);
-    position:absolute;
+    position: fixed;
     top:0;
     bottom:0;
-    height: 150vh;
+    height: 100%;
     left:0;
     width:3.7rem;
     overflow:hidden;
