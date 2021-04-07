@@ -17,7 +17,6 @@ const remove = (message_id) => ({
     message_id,
 });
 
-// currently NavBar is linking to /mymessages, same for all user_classes routes
 
 export const getMessages = () => async (dispatch) => {
     const res = await fetch("/api/messages");

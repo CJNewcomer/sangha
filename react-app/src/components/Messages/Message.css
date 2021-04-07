@@ -1,65 +1,58 @@
 .messages {
   display: flex;
   padding: 0 1rem;
-  width: 400px;
+  max-width: 1140px;
   height: 95vh;
+  margin: auto;
 }
 
 .message__container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
+  background-color: whitesmoke;
   box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
   border-radius: 0.75rem;
-  margin: .2rem;
+  margin: .25rem;
   padding: 1rem;
-  width: 55%;
-  padding:2rem;
-  height: fit-content;
 }
 
 .message__text-view {
-  display: flex;
-  width: 25%;
-  align-items: center;  
+  width: 100%;
+  justify-content: space-between;
 }
 
 .message__users-container {
   display: flex;
-  width: 50%;
+  width: 25%;
   align-items: center;
-  margin-top: 1rem;
-  height:fit-content;
 }
 
 .message__title {
   color: rgba(0, 0, 0, 0.76);
   font-weight: 300;
-  width: 100%;
+  width: fit-content;
   margin: 0 auto;
-  background-color: rgb(255, 255, 255);
+  background-color: whitesmoke;
   margin-bottom: 1rem;
 }
 
 .message__other-user {
   background: transparent;
-  border-radius: 40rem;
-  padding: 0;
-  /* width: 100%; */
+  border-radius: .75rem;
+  padding: 0.5rem;
+  width: stretch;
   margin: 0 auto 0.25rem;
-  height: 8rem;
 }
 
 .message__other-user:hover {
   cursor: pointer;
-  background: transparent;
+  background: #118AB2;
   box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
 }
 
 .message__other-user-active {
   background: #118AB2;
   box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
-  color: white;
 }
 
 .message__text-form {
@@ -70,8 +63,10 @@
 }
 
 .message__text {
-  overflow-y: scroll;
+  overflow: scroll;
   max-height: 70vh;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .messages__right {
@@ -81,7 +76,6 @@
   flex-direction: column;
   align-items: flex-end;
   margin-right: 1rem;
-  
 }
 
 .messages__right:hover {
@@ -114,14 +108,13 @@
 
 .message__form-input {
   border-radius: 0.75rem;
-  border: 1.5px solid #303030;
-  outline: black;
+  width: 100%;
+  border: none;
+  outline: none;
   resize: none;
   padding: 0.25rem;
   font-size: 1rem;
-  background-color:#F6F6F6;
-  font-family: 'Montserrat', sans-serif;
-  height:2rem;
+  font-family: 'Lusitana', serif;
 }
 
 .message__form-button {

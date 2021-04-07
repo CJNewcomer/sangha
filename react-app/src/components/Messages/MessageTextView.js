@@ -15,17 +15,17 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
         if (res) dispatch(deleteMessages(msg.id))
     };
 
-const formatDate = (dateString) => {
-    let amPm = 'am';
-    const date = new Date(dateString);
-    let hours = date.getHours();
-    if (hours >= 12) amPm = 'pm';
-    if (hours > 12) hours -= 12;
-    date.setHours(hours);
-    const day = date.toDateString();
-    const time = date.toTimeString().slice(0, 5);
-    return `${day}, ${time} ${amPm}`;
-};
+    const formatDate = (dateString) => {
+        let amPm = 'am';
+        const date = new Date(dateString);
+        let hours = date.getHours();
+        if (hours >= 12) amPm = 'pm';
+        if (hours > 12) hours -= 12;
+        date.setHours(hours);
+        const day = date.toDateString();
+        const time = date.toTimeString().slice(0, 5);
+        return `${day}, ${time} ${amPm}`;
+    };
 
     allMsgsWOtherUser.sort((a,b) => b.id - a.id);
 

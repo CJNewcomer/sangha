@@ -28,7 +28,6 @@ const MessageUserView = ({allUsers, lgdInUser, allMsgsLgdInUser}) => {
             {messageUsers.length > 0 && !!messageUsers[0] && (
                 <div className='message__container message__users-container'>
                     <h3 className='message__title'>Messages</h3>
-                    <hr />
                     {messageUsers.map((user) => {
                         return (
                             <div
