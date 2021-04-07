@@ -1,4 +1,4 @@
-.message {
+.messages {
   display: flex;
   padding: 0 1rem;
   width: 400px;
@@ -16,6 +16,12 @@
   width: 55%;
   padding:2rem;
   height: fit-content;
+}
+
+.message__text-view {
+  display: flex;
+  width: 25%;
+  align-items: center;  
 }
 
 .message__users-container {
@@ -97,9 +103,9 @@
   margin: 0;
 }
 
-/* .timestamp {
+.message__timestamp {
   font-size: 0.5rem;
-} */
+}
 
 .message__form {
   display: flex;
@@ -119,13 +125,13 @@
 }
 
 .message__form-button {
-    margin: 0px auto 0;
+  margin: 0px auto 0;
 	line-height: 15px;
 	height: auto;
 	padding: 10px 10px;
 	min-width: 80px;
 	color:rgb(237, 237, 237);
-	background-color: #364dcf;
+	background-color: #118AB2;
 	transition: all 0.2s ease;
 	border-style: none;
 	border-radius: 20px;

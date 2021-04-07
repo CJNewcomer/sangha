@@ -97,7 +97,7 @@ const NavBar = () => {
                 </a> }
             </li>
               <li className='has__subnav'>
-                <a href={`/users/${sessionUser.id}/mymessages`}>
+                <a href={`/messages`}>
                   <i className="fa fa-comments fa-2x"></i>
                   <span className='nav__text'>
                     {`${sessionUser.first_name}'s `} Messages

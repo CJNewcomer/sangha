@@ -1,61 +1,51 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
-import {useOtherUserContext} from '../../context/OtherUser';
+import {useOtherUserContext} from './index';
 
 import './Message.css';
 
 
-const MessageUserView = ({allUsers, sessionUser}) => {
-    const allMessages = useSelector((state) => state.message);
-
+const MessageUserView = ({allUsers, lgdInUser, allMsgsLgdInUser}) => {
     const {otherUser, setOtherUser} = useOtherUserContext();
 
-    const messagesArray = Object.values(allMessages);
-    const allMessagesForUser = messagesArray.filter((message) => 
-        message.sender_id === sessionUser.id || message.receiver_id === sessionUser.id
-    );
-
-    // see user history 1 at a time
+    // find users (once) that lgdInUser has had convo with
     const set = new Set();
     const prevMessageArray = [];
 
-    for (let i = allMessagesForUser.length - 1; i >= 0; i--) {
-        let mess = allMessagesForUser[i];
-        const addId = mess.sender_id === sessionUser.id ? mess.receiver_id : mess.sender_id;
-        if (!set.has(addId)) {
-            prevMessageArray.push(addId);
+    for (let i = allMsgsLgdInUser.length - 1; i >= 0; i--) {
+        let msg = allMsgsLgdInUser[i];
+        const addId = 
+            msg.sender_id === lgdInUser.id ? msg.receiver_id : msg.sender_id;
+        if (!set.has(addId)) prevMessageArray.push(addId);
             set.add(addId);
-        }
     }
+
     const messageUsers = [];
     prevMessageArray.forEach((id) => messageUsers.push(allUsers[id]));
-    if (messageUsers.length === 0) {
-        messageUsers.push({ first_name: "No Message History."});
-    }
+    if (messageUsers.length === 0) messageUsers.push({ username: "No Message History."});
 
     return (
         <>
             {messageUsers.length > 0 && !!messageUsers[0] && (
                 <div className='message__container message__users-container'>
-                    <h3 className='message__title'>Conversations</h3>
+                    <h3 className='message__title'>Messages</h3>
                     <hr />
                     {messageUsers.map((user) => {
                         return (
                             <div
                                 className={
-                                    user.first_name === "No Chat History."
+                                    user.username === "No Message History."
                                     ? 'message__no-history'
                                     : user.id === otherUser.id
                                     ? 'message__other-user message__other-user-active'
                                     : 'message__other-user'
                                 }
-                                key={user.id}
+                                key={user.username}
                                 onClick={() => {
                                     setOtherUser(user);
                                 }}
                             >
                                 <div style={{display:"flex", alignItems:"center"}}>
-                                {user.first_name}
+                                {user.username}
                                 </div>
                             </div>
                         );

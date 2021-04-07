@@ -101,5 +101,5 @@ def seed_message():
 
 
 def undo_message():
-    db.session.execute("TRUNCATE messages")
+    db.session.execute("TRUNCATE messages;")
     db.session.commit()
