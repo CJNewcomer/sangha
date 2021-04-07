@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     max-width: 640px;
-    height: 14rem;
+    height: 14.4rem;
     margin-left: 30rem;
-    padding: 0 3rem;
+    padding: 0 2rem;
     margin-top: 4rem;
     border-radius: .5rem;
     overflow: hidden;
@@ -24,16 +24,17 @@
 .profile__bio {
     display: flex;
     justify-content: center;
-    height: 9rem;
-    width: 32.3rem;
+    height: 7rem;
+    width: 36rem;
     margin-left: 0rem;
     font-family: 'Lusitana', serif;
+    font-size: .95rem;
 }
 
 .profile__user-info {
-    height: 4rem;
+    height: 3.5rem;
     margin-left: 0rem;
-    margin-top: 1.8rem;
+    margin-top: 1.5rem;
     font-family: 'Lusitana', serif;
 }
 
@@ -88,16 +89,25 @@ div.profile__image img {
 }
 
 button.upload {
-    position: relative;
     cursor: pointer;
     font-weight: bold;
     margin-left: 5rem;
 }
 
+button.upload__bio {
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .update__profile {
     display: flex;
+    width: 100%;
+    height: 2.5rem;
+}
+
+.update__profile button {
     justify-content: center;
-    height: 3rem;
+    margin-left: 5rem;
 }
 
 .profile__container-b {
@@ -115,7 +125,8 @@ button.upload {
     background-color: whitesmoke;
 }
 
-.profile__container-b h2 {
+.profile__container-b h2,
+.profile__container-c h2 {
     margin-top: 2rem;
     margin-left: 2rem;
     font-family: 'Lusitana', serif;
@@ -173,15 +184,17 @@ button.upload {
 }
 
 .profile__container-c {
-    display: flex;
-    max-width: 850px;
+    /* display: flex; */
+    position: relative;
+    max-width: 1000px;
     height: 100%;
-    margin: auto;
+    margin-left: 12rem;
     padding: 0 1rem;
-    margin-top: 3rem;
+    margin-top: 2.1rem;
     border-radius: .5rem;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     text-align: left;
     background-color: whitesmoke;
+    margin-bottom: 3rem;
 }
