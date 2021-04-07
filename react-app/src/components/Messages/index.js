@@ -14,11 +14,11 @@ export const useOtherUserContext = () => useContext(OtherUserContext);
 const Messages = () => {
     const lgdInUser = useSelector((state) => state.session.user);
     const allMessages = useSelector((state) => state.message);
-    const allUsers = useSelector((state) => state.users);
+    const allUsers = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
 
-    const [otherUser, setOtherUser] = useState({id: null});
+    const [otherUser, setOtherUser] = useState({ id: null });
 
 
     useEffect(() => {
@@ -38,27 +38,23 @@ const Messages = () => {
 
 
     return (
-        <div>
-            <div style={{padding:"1rem"}}>
-                {allUsers && lgdInUser && allMsgsLgdInUser && allMsgsWOtherUser && (
-                    <OtherUserContext.Provider value={{ otherUser, setOtherUser }}>
-                        <div>
-                            <div className='messages'>
-                                <MessageUserView 
-                                allUsers={allUsers}
-                                lgdInUser={lgdInUser}
-                                allMsgsLgdInUser={allMsgsLgdInUser}
-                                />
-                                <MessageTextView 
-                                lgdInUser={lgdInUser}
-                                allMsgsWOtherUser={allMsgsWOtherUser}
-                                />
-                            </div>
-                        </div>
-                    </OtherUserContext.Provider>
-                )}
-            </div>
-        </div>
+        <>
+            {allUsers && lgdInUser && allMsgsLgdInUser && allMsgsWOtherUser && (
+                <OtherUserContext.Provider value={{ otherUser, setOtherUser }}>
+                    <div className='messages'>
+                        <MessageUserView 
+                        allUsers={allUsers}
+                        lgdInUser={lgdInUser}
+                        allMsgsLgdInUser={allMsgsLgdInUser}
+                        />
+                        <MessageTextView 
+                        lgdInUser={lgdInUser}
+                        allMsgsWOtherUser={allMsgsWOtherUser}
+                        />
+                    </div>
+                </OtherUserContext.Provider>
+            )}
+        </>
     );
 }
 export default Messages;
