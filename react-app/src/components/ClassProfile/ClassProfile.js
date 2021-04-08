@@ -5,7 +5,6 @@ import { getOneClass, deleteClass } from '../../store/class';
 import { addToUserClass, cancelUserClass } from '../../store/user_classes';
 import CreateClassModal from '../CreateClassForm/CreateClassModal';
 import ClassReview from '../ClassReviews/ClassReview';
-import MessageFormModal from '../Messages/MessageFormModal/MessageFormModal';
 
 import './ClassProfile.css';
 
@@ -89,14 +88,14 @@ const ClassProfile = () => {
                         <h3>{(new Date(yogaClass.time)).toLocaleString("en-US", convertTime)}</h3>
                         <h3>{yogaClass.location}</h3>
                         <h3>{yogaClass.locations.city}, {yogaClass.locations.state} {yogaClass.locations.country}</h3>
-                        <h3 className='profile__teacher-link'>
-                            {sessionUser.id !== yogaClass.teacher.id && 
-                            <div>
-                                <MessageFormModal receiver={yogaClass.teacher}/>
+                        <div>
+                         {sessionUser.id !== yogaClass.teacher.id && 
+                            <h3 className='profile__teacher-link'>
+                            <NavLink to={`/messages`}>
                                 <img className='teacher__img' src={yogaClass.teacher.profile_image} alt='test'/>
-                                {yogaClass.teacher.first_name} {yogaClass.teacher.last_name}
-                            </div>}
-                        </h3>
+                                {yogaClass.teacher.first_name} {yogaClass.teacher.last_name}</NavLink>
+                            </h3>}
+                        </div>
                         <h3>${yogaClass.price}</h3>
                         <h4 className='profile__description'>{yogaClass.description}</h4>
                     </div>

@@ -21,30 +21,30 @@ const MessageUserView = ({allUsers, lgdInUser, allMsgsLgdInUser}) => {
 
     const messageUsers = [];
     prevMessageArray.forEach((id) => messageUsers.push(allUsers[id]));
-    if (messageUsers.length === 0) messageUsers.push({ username: "No Message History."});
+    if (messageUsers.length === 0) messageUsers.push({ first_name: "No Message History."});
 
     return (
         <>
             {messageUsers.length > 0 && !!messageUsers[0] && (
                 <div className='message__container message__users-container'>
-                    <h3 className='message__title'>Messages</h3>
+                    <h3 className='message__title'>Conversations</h3>
                     {messageUsers.map((user) => {
                         return (
                             <div
                                 className={
-                                    user.username === "No Message History."
+                                    user.first_name === "No Message History."
                                     ? 'message__no-history'
                                     : user.id === otherUser.id
                                     ? 'message__other-user message__other-user-active'
                                     : 'message__other-user'
                                 }
-                                key={user.username}
+                                key={user.first_name}
                                 onClick={() => {
                                     setOtherUser(user);
                                 }}
                             >
                                 <div style={{display:"flex", alignItems:"center"}}>
-                                {user.username}
+                                {user.first_name} {user.last_name}
                                 </div>
                             </div>
                         );
