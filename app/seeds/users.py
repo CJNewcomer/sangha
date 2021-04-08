@@ -19,6 +19,7 @@ def seed_users():
             last_name="Cornflower",
             email="amy@amy.com",
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/amy.jpg",
             password='1234',
         ),
         User(
@@ -27,6 +28,7 @@ def seed_users():
             last_name="Aquamarine",          
             email="michelle@michelle.com",            
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/michelle.jpg",
             password='1234',
         ),
         User(
@@ -35,6 +37,7 @@ def seed_users():
             last_name="Chartruese",            
             email="cass@cass.com",            
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/cassidy.jpg",
             password='1234',
         ),
         User(
@@ -43,6 +46,7 @@ def seed_users():
             last_name="Evergreen",            
             email="mary@mary.com",            
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/mary.jpg",
             password='1234',
         ),
         User(
@@ -51,6 +55,7 @@ def seed_users():
             last_name="Rose",  
             email="debbie@debbie.com", 
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/debbie.jpg",
             password='1234',
         ),
         User(
@@ -59,6 +64,7 @@ def seed_users():
             last_name="Marigold",            
             email="chelsea@chelsea.com",           
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/chelsea.jpg",
             password='1234',
         ),
         User(
@@ -67,6 +73,7 @@ def seed_users():
             last_name="Violet",           
             email="candace@candace.com",            
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/candace.jpg",
             password='1234',
         ),
         User(
@@ -75,6 +82,7 @@ def seed_users():
             last_name="Sienna",          
             email="emily@emily.com",            
             is_teacher=True,
+            profile_image="https://sangha.s3.us-east-2.amazonaws.com/emily.jpg",
             password='1234',
         ),
     ]
