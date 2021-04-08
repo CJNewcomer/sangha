@@ -24,7 +24,7 @@ const LandingPage = () => {
             <div></div>
                 <div className='splash__daily-karma'>
                     <div className='splash__quote'>{quote}
-                    <div className='splash__author'>~ {author}</div>
+                    <div className='splash__author'>~ {author} ~</div>
                     </div>
                 </div>
                     <div></div>
