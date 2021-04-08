@@ -1,9 +1,11 @@
 .messages {
   display: flex;
   padding: 0 1rem;
-  max-width: 1140px;
+  max-width: 950px;
   height: 95vh;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .message__container {
@@ -42,16 +44,17 @@
   padding: 0.5rem;
   width: stretch;
   margin: 0 auto 0.25rem;
+  font-family: 'Lusitana', serif;
 }
 
 .message__other-user:hover {
   cursor: pointer;
-  background: #118AB2;
+  background: #EF476F;
   box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
 }
 
 .message__other-user-active {
-  background: #118AB2;
+  background: #EF476F;
   box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
 }
 
@@ -86,24 +89,26 @@
   margin-right: 0.75rem;
 }
 
-.single__message{
-  background-color: rgba(177, 187, 231, 0.3);
-  border-radius: 1rem;
-  width: fit-content;
+p.single__message{
+  background-color: rgba(6, 214, 160, 0.25);
+  border-radius: 0.75rem;
+  width: 65%;
   padding: 0.35rem;
   box-sizing: content-box;
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
+  font-family: 'Lusitana', serif;
 }
 
 .message__timestamp {
   font-size: 0.75rem;
+  margin-bottom: .25rem;
 }
 
 .message__form {
   display: flex;
-  margin-top: 0.35rem;
+  margin-top: 0.75rem;
 }
 
 .message__form-input {
@@ -117,6 +122,10 @@
   font-family: 'Lusitana', serif;
 }
 
+div.form__input {
+  width: 100%;
+}
+
 .message__form-button {
   margin: 0px auto 0;
 	line-height: 15px;
@@ -124,7 +133,7 @@
 	padding: 10px 10px;
 	min-width: 80px;
 	color:rgb(237, 237, 237);
-	background-color: #118AB2;
+	background-color: #EF476F;
 	transition: all 0.2s ease;
 	border-style: none;
 	border-radius: 20px;
