@@ -68,7 +68,7 @@ button.profile__delete-class {
     margin-top: 0;
 }
 
-.profile__teacher-link h3 {
+.profile__teacher-link {
     color: black!important;
     text-decoration: none;
 }
@@ -76,14 +76,13 @@ button.profile__delete-class {
 .teacher__img {
     border-radius: 50%;
     width: 3rem;
-    height: 100%!important;
+    height: 100%;
     object-fit: cover;
 }
 
 .profile__teacher-link:hover {
     color: rgba(255,209,102);
-    text-shadow: 0 0 1px rgb(34, 16, 0), 0 0 1px rgb(34, 16, 0),
-    0 0 1px rgb(34, 16, 0), 0 0 1px rgb(34, 16, 0)
+    text-shadow: 0 0 1px #333
 }
 
 .profile__info > h3 {

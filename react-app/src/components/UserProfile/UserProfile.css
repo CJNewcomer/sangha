@@ -52,6 +52,7 @@ div.profile__image img {
     height: 13rem;
     position: absolute;
     border: whitesmoke .2rem solid;
+    object-fit: cover;
 }
 
 .update__profile-image {

@@ -35,7 +35,7 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
         <div>
           <h1 className='message__title'>No Conversation Selected</h1>
           <p style={{ textAlign: 'center' }}>
-            Click a username to message a fellow yogi, or search classes to find teachers to message.
+            Click a name on the left to message a fellow yogi, or search classes to find teachers to message.
           </p>
         </div>
       </div>
@@ -45,7 +45,7 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
     return (
         <div className='message__container message__text-view'>
             <h1 className='message__title'>
-                {otherUser.id ? otherUser.username : "No Conversation Selected."}
+                {otherUser.id ? otherUser.first_name : "No Conversation Selected."}
             </h1>
             <div className='message__text-form'>
                 <div className='message__text'>
@@ -67,7 +67,7 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
                                     : {}
                                 }
                                 className='single__message'
-                                title={msg.sender.username}
+                                title={msg.sender.first_name}
                                 onClick={lgdInUser.id === msg.sender_id ? () => handleDeleteMessage(msg) : undefined}
                                 >
                                     {msg.message}
