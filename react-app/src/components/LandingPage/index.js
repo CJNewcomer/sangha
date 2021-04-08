@@ -8,6 +8,7 @@ const LandingPage = () => {
     const [author, setAuthor] = useState("");
 
     const sessionUser = useSelector((state) => state.session.user);
+    const myClasses = useSelector((state) => state.classes);
 
     useEffect(async () => {
         const response = await fetch("/api/quotes/")
@@ -21,12 +22,14 @@ const LandingPage = () => {
         <div className='landing__container'>
             <div className='splash__greeting'>Namaste & Welcome, {sessionUser.first_name}</div>
             <div></div>
-                <div className='splash__daily-karma'>Daily Karma
-                    <div className='splash__quote'>{quote}</div>
-                    <div className='splash__author'>- {author}</div>
+                <div className='splash__daily-karma'>
+                    <div className='splash__quote'>{quote}
+                    <div className='splash__author'>~ {author}</div>
+                    </div>
                 </div>
                     <div></div>
                     <div className='splash__schedule'>
+                        <div className='classes_listed'>{myClasses}</div>
                     </div>
                     <div className='splash__pose-day'>
                     </div>
