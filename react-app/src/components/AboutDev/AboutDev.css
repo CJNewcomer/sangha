@@ -43,7 +43,9 @@ img.image__six {
 }
 
 .about__contact {
-    margin-top: 1.65rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.1em;
 }
 
 .links__container {
