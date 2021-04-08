@@ -47,7 +47,6 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
             <h1 className='message__title'>
                 {otherUser.id ? otherUser.username : "No Conversation Selected."}
             </h1>
-            <hr />
             <div className='message__text-form'>
                 <div className='message__text'>
                     {otherUser && allMsgsWOtherUser.map((msg) => (
@@ -62,8 +61,8 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
                                 style={
                                     lgdInUser.id === msg.sender_id
                                     ? {
-                                        background: 'rgba(13, 51, 223, 0.3)',
-                                        borderRadius:'2rem',
+                                        background: 'rgba(6, 214, 160, 0.65)',
+                                        borderRadius:'0.75rem',
                                     }
                                     : {}
                                 }

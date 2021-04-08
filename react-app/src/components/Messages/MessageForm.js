@@ -28,7 +28,7 @@ const MessageForm = () => {
 
     return (
         <form onSubmit={onSend} className='message__form'>
-            <div>
+            <div className='form__input'>
                 <textarea 
                 value={msg}
                 onChange={(e) => {

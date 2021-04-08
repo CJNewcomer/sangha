@@ -77,7 +77,7 @@ def seed_message():
         Message(
             sender_id=user1.id,
             receiver_id=user8.id,
-            message="I may recommend one of my friends come to your class, because I'm not pregnant. Do you offter any other classes besides this one?"
+            message="I may recommend one of my friends come to your class, because I'm not pregnant. Do you offer any other classes besides this one?"
         ),
         Message(
             sender_id=user8.id,
