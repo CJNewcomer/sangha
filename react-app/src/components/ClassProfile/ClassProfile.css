@@ -76,7 +76,7 @@ button.profile__delete-class {
 .teacher__img {
     border-radius: 50%;
     width: 3rem;
-    height: 100%!important;
+    height: 100%;
     object-fit: cover;
 }
 

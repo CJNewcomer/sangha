@@ -148,3 +148,31 @@ div.form__input {
 .message__form-button:hover{
   box-shadow: .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
 }
+
+.msg-form-modal__button {
+  color: rgba(239, 71, 111, 0.6) !important;
+}
+
+.msg-form-modal__button:hover {
+  color: rgb(239, 71, 111) !important;
+}
+
+.msg-form-modal__button:active {
+  color: rgba(239, 71, 111, 0.6) !important;
+}
+
+.message__form-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.message__form-modal__msg-and-btn {
+  display: flex;
+}
+
+.message__form-modal__button {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
