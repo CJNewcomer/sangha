@@ -7,15 +7,15 @@ const LandingPage = () => {
     const [quote, setQuote] = useState("");
     const [author, setAuthor] = useState("");
 
+
     const sessionUser = useSelector((state) => state.session.user);
 
-    useEffect(async () => {
+    useEffect(async() => {
         const response = await fetch("/api/quotes/")
         const data = await response.json()
         setQuote(data.quote);
         setAuthor(data.author);
     }, []);
-    
 
     return (
         <>
@@ -28,56 +28,27 @@ const LandingPage = () => {
                     </div>
                 </div>
             <div></div>
-            <div className='splash__walkthroughs'>
-                <div className='splash__video'>
-                    <div style={{   width: '100%',
-                                    height:'0',
-                                    paddingBottom:'63%',
-                                    position:'relative' }}>
-                        <iframe src="https://giphy.com/embed/PgGs8wYTRfucQQhYY0" 
-                         style={{   width:"100%", 
-                                    height:"100%", 
-                                    position:"absolute",
-                                    frameBorder:"0"}} 
-                                    className="giphy-embed" allowFullScreen></iframe>
+                <div className='splash__container'>
+                    <div className='splash__images'>
+                        <ul className='slides'>
+                            <li>
+                                <img src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg"/>
+                            </li>
+                            <li>
+                                <img src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg"/>
+                            </li>
+                            <li>
+                                <img src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg"/>
+                            </li>
+                            <li>
+                                <img src="https://sangha.s3.us-east-2.amazonaws.com/simon-hajducki-9myhEsEgjqs-unsplash.jpg"/>
+                            </li>
+                        </ul>
+
                     </div>
-                    <p>
-                        <a href="https://giphy.com/gifs/PgGs8wYTRfucQQhYY0">via GIPHY</a>
-                    </p>
-                    </div>
-                <div className='splash__video'>
-                    <div style={{   width:'100%',
-                                    height:'0',
-                                    paddingBottom:'63%',
-                                    position:'relative' }}>
-                        <iframe src="https://giphy.com/embed/MqpRLONoiBZtS0bfkN" 
-                         style={{   width:"100%", 
-                                    height:"100%", 
-                                    position:'absolute', 
-                                    frameBorder:"0"}} 
-                                    className="giphy-embed" allowFullScreen></iframe>
-                    </div>
-                    <p>
-                        <a href="https://giphy.com/gifs/MqpRLONoiBZtS0bfkN">via GIPHY</a>
-                    </p>
+
                 </div>
-                <div className='splash__video'>
-                    <div style={{   width:'100%',
-                                    height:'0',
-                                    paddingBottom:'63%',
-                                    position:'relative' }}>
-                        <iframe src="https://giphy.com/embed/hz2IlP7YAv7oRziu1z" 
-                         style={{   width:"100%", 
-                                    height:"100%", 
-                                    position:'absolute', 
-                                    frameBorder:"0"}} 
-                                    className="giphy-embed" allowFullScreen></iframe>
-                    </div>
-                    <p>
-                        <a href="https://giphy.com/gifs/hz2IlP7YAv7oRziu1z">via GIPHY</a>
-                    </p>
-                </div>
-            </div>
+            
         </div>
         </>
     )

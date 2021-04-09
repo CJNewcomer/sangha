@@ -61,7 +61,7 @@
     text-align: center;
 }
 
-.splash__walkthroughs {
+.splash__container {
     display: flex;
     justify-content: center;
     font-size: 3em;
@@ -74,8 +74,24 @@
     overflow: hidden;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     background-color: whitesmoke;
+    overflow-x: auto;
 }
 
-.splash__video {
-    
+.splash__images {
+    display: flex;
+    width: 100%;
+}
+
+.slides {
+    width: 100%;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.slides img {
+    justify-items: center;
+    height: 15rem;
+    width: 20rem;
+    border-radius: .5rem;
 }
