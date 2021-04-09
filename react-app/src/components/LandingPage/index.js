@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {useHistory} from 'react-dom';
-import {convertTime} from '../ClassProfile/ClassProfile';
-import { getClass } from '../../store/class';
+import {useSelector} from 'react-redux';
 import './LandingPage.css';
 
 
@@ -10,11 +7,7 @@ const LandingPage = () => {
     const [quote, setQuote] = useState("");
     const [author, setAuthor] = useState("");
 
-    const history = useHistory();
-    const dispatch = useDispatch();
-
     const sessionUser = useSelector((state) => state.session.user);
-    const classes = useSelector((state) => Object.values(state.class));
 
     useEffect(async () => {
         const response = await fetch("/api/quotes/")
@@ -22,12 +15,7 @@ const LandingPage = () => {
         setQuote(data.quote);
         setAuthor(data.author);
     }, []);
-
-    useEffect(() => {
-        dispatch(getClass())
-    }, [dispatch]);
-
-    const myClasses = classes.filter(({student}) => student.some(oneStudent => oneStudent.id === sessionUser.id));
+    
 
     return (
         <>
@@ -39,39 +27,57 @@ const LandingPage = () => {
                     <div className='splash__author'>~ {author} ~</div>
                     </div>
                 </div>
-                    <div></div>
-                    <div className='splash__schedule'>
-                        <div className='classes_listed'>
-                        {!myClasses.length ? <h2>No Classes Booked</h2> : <h2>My Booked Classes</h2>}
-                    <div className='classes__main' >
-                        <div className='classes__container' >
-                            {myClasses.map((myClass) => {
-                                return (
-                                    <div
-                                    key={myClass.id}
-                                    className='class__tile'
-                                    onClick={() => {
-                                        history.push(`/classes/${myClass.id}`);
-                                    }}>
-                                        <div className='myclasses__image'>
-                                            <img src={myClass.class_image} alt=""/>
-                                        </div>
-                                    <div>
-                                        <div className='myclasses__info'>
-                                            <h3>{myClass.name}</h3>
-                                            <h3>{myClass.teacher.first_name}</h3>
-                                            <h3>{(new Date(myClass.time)).toLocaleString("en-US", convertTime)}</h3>
-                                        </div>
-                                    </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
+            <div></div>
+            <div className='splash__walkthroughs'>
+                <div className='splash__video'>
+                    <div style={{   width: '100%',
+                                    height:'0',
+                                    paddingBottom:'63%',
+                                    position:'relative' }}>
+                        <iframe src="https://giphy.com/embed/PgGs8wYTRfucQQhYY0" 
+                         style={{   width:"100%", 
+                                    height:"100%", 
+                                    position:"absolute",
+                                    frameBorder:"0"}} 
+                                    className="giphy-embed" allowFullScreen></iframe>
                     </div>
-                        </div>
+                    <p>
+                        <a href="https://giphy.com/gifs/PgGs8wYTRfucQQhYY0">via GIPHY</a>
+                    </p>
                     </div>
-                    <div className='splash__pose-day'>
+                <div className='splash__video'>
+                    <div style={{   width:'100%',
+                                    height:'0',
+                                    paddingBottom:'63%',
+                                    position:'relative' }}>
+                        <iframe src="https://giphy.com/embed/MqpRLONoiBZtS0bfkN" 
+                         style={{   width:"100%", 
+                                    height:"100%", 
+                                    position:'absolute', 
+                                    frameBorder:"0"}} 
+                                    className="giphy-embed" allowFullScreen></iframe>
                     </div>
+                    <p>
+                        <a href="https://giphy.com/gifs/MqpRLONoiBZtS0bfkN">via GIPHY</a>
+                    </p>
+                </div>
+                <div className='splash__video'>
+                    <div style={{   width:'100%',
+                                    height:'0',
+                                    paddingBottom:'63%',
+                                    position:'relative' }}>
+                        <iframe src="https://giphy.com/embed/hz2IlP7YAv7oRziu1z" 
+                         style={{   width:"100%", 
+                                    height:"100%", 
+                                    position:'absolute', 
+                                    frameBorder:"0"}} 
+                                    className="giphy-embed" allowFullScreen></iframe>
+                    </div>
+                    <p>
+                        <a href="https://giphy.com/gifs/hz2IlP7YAv7oRziu1z">via GIPHY</a>
+                    </p>
+                </div>
+            </div>
         </div>
         </>
     )

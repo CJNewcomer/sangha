@@ -21,7 +21,7 @@
     margin: auto;
     padding: 1rem;
     margin-top: 3.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     border-radius: .5rem;
     overflow: hidden;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
@@ -37,7 +37,7 @@
     width: 45%;
     margin: auto;
     padding: 1rem;
-    margin-top: 3.5rem;
+    margin-top: 2.5rem;
     margin-bottom: 5rem;
     border-radius: .5rem;
     overflow: hidden;
@@ -61,10 +61,21 @@
     text-align: center;
 }
 
-.splash__schedule {
-
+.splash__walkthroughs {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    width: 85%;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 3.5rem;
+    margin-bottom: 3rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    background-color: whitesmoke;
 }
 
-.splash__pose-day {
-
+.splash__video {
+    
 }
