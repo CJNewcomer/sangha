@@ -7,9 +7,12 @@ quotes = Blueprint("quotes", __name__)
 
 @quotes.route("/")
 def zen_quote():
-    res = requests.get("https://zenquotes.io/api/random")
+    headers = {
+        "Accept": "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json"
+    }
+    res = requests.get("https://zenquotes.io/api/random", headers=headers)
     data = res.json()
-    # print(data)
     quote = data[0]["q"]
     author = data[0]["a"]
     return {"quote": quote, "author": author}
