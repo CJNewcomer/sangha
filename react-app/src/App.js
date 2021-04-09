@@ -63,15 +63,15 @@ function App() {
         <ProtectedRoute path='/messages' exact={true} authenticated={!!sessionUser}>
           <Messages />
         </ProtectedRoute>
+        <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >
+          <LandingPage />
+        </ProtectedRoute>
         <Route path="/" exact={true}>
           <SplashPage />
         </Route>
         <Route path='/search'>
           <SearchBar />
         </Route>
-        <ProtectedRoute path="/home" exact={true} authenticated={!!sessionUser} >
-          <LandingPage />
-        </ProtectedRoute>
         <Route path='*'>
           <PageNotFound />
         </Route>

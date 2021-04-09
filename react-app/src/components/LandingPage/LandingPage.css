@@ -4,10 +4,6 @@
     opacity: .65;
     background-color: #073B4C;
     background-image: linear-gradient(to bottom right, #073B4C, #118AB2, #06D8A0, #FFD166, #EF476F);
-}
-
-.landing__container {
-    position: relative;
     background-size: cover;
     vertical-align: bottom;
     opacity: .5;
@@ -15,4 +11,87 @@
     font-family: 'Cormorant Garamond', serif;
     overflow-y: hidden;
     overflow-x: hidden;
+}
+
+.splash__greeting {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    width: 60%;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 3.5rem;
+    margin-bottom: 3rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    background-color: whitesmoke;
+    color: whitesmoke;
+    text-shadow: 0.5px 2px 4px rgb(7, 59, 76, 0.671), 0.5px 2px 4px rgb(7, 59, 76, 0.671),
+    0.5px 2px 4px rgb(7, 59, 76, 0.671), 0.5px 2px 4px rgb(7, 59, 76, 0.671);
+}
+
+.splash__daily-karma {
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 2.5rem;
+    margin-bottom: 5rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    background-color: whitesmoke;
+}
+
+.splash__quote {
+    font-size: 1.5em;
+    justify-content: center;
+    font-family: 'Lusitana', serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.splash__author {
+    font-size: 1em;
+    justify-content: center;
+    font-family: 'Lusitana', serif;
+    font-weight: 200;
+    text-align: center;
+}
+
+.splash__container {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    width: 85%;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 3.5rem;
+    margin-bottom: 3rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
+    background-color: whitesmoke;
+    overflow-x: auto;
+}
+
+.splash__images {
+    display: flex;
+    width: 100%;
+}
+
+.slides {
+    width: 100%;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.slides img {
+    justify-items: center;
+    height: 15rem;
+    width: 20rem;
+    border-radius: .5rem;
 }
