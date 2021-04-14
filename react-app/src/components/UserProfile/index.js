@@ -10,9 +10,12 @@ const UserProfile = ({ userProfileImage }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { user_id } = useParams();
+    // eslint-disable-next-line
     const [image, setImage] = useState(null);
+    // eslint-disable-next-line
     const [errors, setErrors] = useState([]);
     
+    // eslint-disable-next-line
     const user = useSelector((state) => state.user[user_id]);
     const classes = useSelector((state) => Object.values(state.class));
     const sessionUser = useSelector((state) => state.session.user);

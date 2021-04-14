@@ -16,8 +16,10 @@ export const convertTime = {
 
 const ClassReview = () => {
     const dispatch = useDispatch();
+    // eslint-disable-next-line
     const history = useHistory();
     const {classId} = useParams();
+    // eslint-disable-next-line
     const [errors, setErrors] = useState([]);
 
     const classReviews = useSelector((state) => state.review);

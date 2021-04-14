@@ -32,7 +32,7 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (!!sessionUser) {
+  if (sessionUser) {
     return <Redirect to="/home" />;
   }
 

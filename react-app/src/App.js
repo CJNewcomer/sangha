@@ -21,6 +21,7 @@ import { authenticate } from './store/session';
 
 
 function App() {
+  // eslint-disable-next-line
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();

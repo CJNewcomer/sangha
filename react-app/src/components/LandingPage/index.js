@@ -10,6 +10,7 @@ const LandingPage = () => {
 
     const sessionUser = useSelector((state) => state.session.user);
 
+    // eslint-disable-next-line
     useEffect(async() => {
         const response = await fetch("/api/quotes/")
         const data = await response.json()
@@ -28,9 +29,9 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className='splash__container'>
-                    <img className='warrior__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg"/>
-                    <img className='outside__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg"/>
-                    <img className='group__meditate' src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg"/>
+                    <img className='warrior__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg" alt={'warrior pose'}/>
+                    <img className='outside__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg"alt={'yoga outside'}/>
+                    <img className='group__meditate' src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg" alt={'group meditating'}/>
                 </div>
         </div>
         </>

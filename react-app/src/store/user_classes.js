@@ -9,6 +9,7 @@ const loadClass = (classes) => ({
     classes,
 })
 
+// eslint-disable-next-line
 const cancelClass = (class_id, user_id) => ({
     type: CANCEL_CLASS,
     class_id,
