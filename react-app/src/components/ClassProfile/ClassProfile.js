@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { getOneClass, deleteClass } from '../../store/class';
 import { addToUserClass, cancelUserClass } from '../../store/user_classes';
+
 import CreateClassModal from '../CreateClassForm/CreateClassModal';
 import ClassReview from '../ClassReviews/ClassReview';
+import MessageModal from '../Messages/MessageModal';
 
 import './ClassProfile.css';
 
@@ -21,7 +23,8 @@ export const convertTime = {
 const ClassProfile = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {classId, reviewId} = useParams();
+    const {classId} = useParams();
+    // eslint-disable-next-line
     const [_, setErrors] = useState([]);
 
     const yogaClass = useSelector((state) => state.class[classId]);
@@ -64,6 +67,12 @@ const ClassProfile = () => {
                 <div className='profile__image-button'>
                     <i className='fas fa-times' onClick={()=>{history.push('/search')}}></i>
                     <img src={yogaClass.class_image} alt="Class Profile"/>
+                        <div className='profile__message-teacher'>
+                            {sessionUser.id !== yogaClass.teacher.id && 
+                            <div>
+                                <MessageModal receiver={yogaClass.teacher}/>
+                            </div>}
+                        </div>
                         <div className='profile__update-class'>
                             {sessionUser.id === yogaClass.teacher.id && 
                             <div>

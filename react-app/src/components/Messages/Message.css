@@ -45,6 +45,7 @@
   width: stretch;
   margin: 0 auto 0.25rem;
   font-family: 'Lusitana', serif;
+  text-align: ce;
 }
 
 .message__other-user:hover {
@@ -120,6 +121,7 @@ p.single__message{
   padding: 0.25rem;
   font-size: 1rem;
   font-family: 'Lusitana', serif;
+  margin-right: .25rem;
 }
 
 div.form__input {
@@ -149,15 +151,15 @@ div.form__input {
   box-shadow: .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
 }
 
-.msg-form-modal__button {
+.message__form-modal__button {
   color: rgba(239, 71, 111, 0.6) !important;
 }
 
-.msg-form-modal__button:hover {
+.message__form-modal__button:hover {
   color: rgb(239, 71, 111) !important;
 }
 
-.msg-form-modal__button:active {
+.message__form-modal__button:active {
   color: rgba(239, 71, 111, 0.6) !important;
 }
 
@@ -167,12 +169,26 @@ div.form__input {
   justify-content: center;
 }
 
-.message__form-modal__msg-and-btn {
+.message__form-modal > h2 {
+  font-family: 'Lusitana', serif;
+}
+
+.message__form-modal__message-and-button {
   display: flex;
 }
 
 .message__form-modal__button {
   padding: 0 !important;
-  margin: 0 !important;
+  margin: .25rem;
   background-color: transparent !important;
+}
+
+.fa-play {
+  margin-left: .75rem;
+  margin-right: .5rem;
+}
+
+i.fa-comment {
+  color: whitesmoke;
+  margin-right: .5rem;
 }

@@ -20,8 +20,8 @@
     width: 60%;
     margin: auto;
     padding: 1rem;
-    margin-top: 3.5rem;
-    margin-bottom: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
     border-radius: .5rem;
     overflow: hidden;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
@@ -37,8 +37,7 @@
     width: 45%;
     margin: auto;
     padding: 1rem;
-    margin-top: 2.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
     border-radius: .5rem;
     overflow: hidden;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
@@ -62,36 +61,29 @@
 }
 
 .splash__container {
-    display: flex;
-    justify-content: center;
+    position: relative;
     font-size: 3em;
-    width: 85%;
+    width: 60%;
+    height: 25rem;
     margin: auto;
-    padding: 1rem;
-    margin-top: 3.5rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     border-radius: .5rem;
     overflow: hidden;
     box-shadow: 0rem .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
     background-color: whitesmoke;
-    overflow-x: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-.splash__images {
-    display: flex;
+img.outside__yogis,
+img.warrior__yogis,
+img.group__meditate {
+    height: 25rem;
     width: 100%;
 }
 
-.slides {
-    width: 100%;
-    display: flex;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.slides img {
-    justify-items: center;
-    height: 15rem;
-    width: 20rem;
-    border-radius: .5rem;
+.splash__container img {
+    position: absolute;
+    left: 0;
 }

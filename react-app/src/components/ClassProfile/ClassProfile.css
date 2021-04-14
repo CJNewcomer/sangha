@@ -31,6 +31,7 @@ button.profile__book-class {
     padding: .25rem .5rem;
 }
 
+.profile__message-teacher,
 .profile__update-class {
     display: flex;
     justify-content: flex-end;

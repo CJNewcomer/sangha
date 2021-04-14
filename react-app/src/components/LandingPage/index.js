@@ -17,38 +17,21 @@ const LandingPage = () => {
         setAuthor(data.author);
     }, []);
 
+
     return (
         <>
         <div className='landing__container'>
             <div className='splash__greeting'>Namaste & Welcome, {sessionUser.first_name}</div>
-            <div></div>
                 <div className='splash__daily-karma'>
                     <div className='splash__quote'>{quote}
                     <div className='splash__author'>~ {author} ~</div>
                     </div>
                 </div>
-            <div></div>
                 <div className='splash__container'>
-                    <div className='splash__images'>
-                        <ul className='slides'>
-                            <li>
-                                <img src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg"/>
-                            </li>
-                            <li>
-                                <img src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg"/>
-                            </li>
-                            <li>
-                                <img src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg"/>
-                            </li>
-                            <li>
-                                <img src="https://sangha.s3.us-east-2.amazonaws.com/simon-hajducki-9myhEsEgjqs-unsplash.jpg"/>
-                            </li>
-                        </ul>
-
-                    </div>
-
+                    <img className='warrior__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg"/>
+                    <img className='outside__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg"/>
+                    <img className='group__meditate' src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg"/>
                 </div>
-            
         </div>
         </>
     )
