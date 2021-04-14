@@ -150,15 +150,15 @@ div.form__input {
   box-shadow: .75rem 3rem -.2rem rgba(0, 0, 0, 0.75);
 }
 
-.msg-form-modal__button {
+.message__form-modal__button {
   color: rgba(239, 71, 111, 0.6) !important;
 }
 
-.msg-form-modal__button:hover {
+.message__form-modal__button:hover {
   color: rgb(239, 71, 111) !important;
 }
 
-.msg-form-modal__button:active {
+.message__form-modal__button:active {
   color: rgba(239, 71, 111, 0.6) !important;
 }
 
@@ -168,7 +168,7 @@ div.form__input {
   justify-content: center;
 }
 
-.message__form-modal__msg-and-btn {
+.message__form-modal__message-and-button {
   display: flex;
 }
 
