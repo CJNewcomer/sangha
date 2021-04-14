@@ -34,6 +34,7 @@ const SearchBar = () => {
             yogaClass.location.toLowerCase().includes(search.toLowerCase()) ||
             yogaClass.description.toLowerCase().includes(search.toLowerCase()))
         )
+        // eslint-disable-next-line
     }, [search])
 
 if (!filteredResults) return null;
