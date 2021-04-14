@@ -45,6 +45,7 @@
   width: stretch;
   margin: 0 auto 0.25rem;
   font-family: 'Lusitana', serif;
+  text-align: ce;
 }
 
 .message__other-user:hover {
@@ -175,4 +176,8 @@ div.form__input {
   padding: 0 !important;
   margin: 0 !important;
   background-color: transparent !important;
+}
+
+.fa-play {
+  margin-left: 1rem;
 }

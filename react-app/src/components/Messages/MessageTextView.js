@@ -35,7 +35,7 @@ const MessageTextView = ({ lgdInUser, allMsgsWOtherUser }) => {
         <div>
           <h1 className='message__title'>No Conversation Selected</h1>
           <p style={{ textAlign: 'center' }}>
-            Click a name on the left to message a fellow yogi, or search classes to find teachers to message.
+            Click a name on the left to message a fellow yogi or search classes to find teachers to message.
           </p>
         </div>
       </div>
