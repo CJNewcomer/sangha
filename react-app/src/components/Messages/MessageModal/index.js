@@ -8,7 +8,8 @@ export default function MessageModal({receiver}) {
     return (
         <>
             <button className='profile__button' onClick={() => setShowModal(true)}>
-                <i class="fas fa-comment">Message the teacher!</i>
+                <i class="fas fa-comment"></i>
+                Message the teacher!
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

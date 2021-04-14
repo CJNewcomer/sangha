@@ -121,6 +121,7 @@ p.single__message{
   padding: 0.25rem;
   font-size: 1rem;
   font-family: 'Lusitana', serif;
+  margin-right: .25rem;
 }
 
 div.form__input {
@@ -168,16 +169,26 @@ div.form__input {
   justify-content: center;
 }
 
+.message__form-modal > h2 {
+  font-family: 'Lusitana', serif;
+}
+
 .message__form-modal__message-and-button {
   display: flex;
 }
 
 .message__form-modal__button {
   padding: 0 !important;
-  margin: 0 !important;
+  margin: .25rem;
   background-color: transparent !important;
 }
 
 .fa-play {
-  margin-left: 1rem;
+  margin-left: .75rem;
+  margin-right: .5rem;
+}
+
+i.fa-comment {
+  color: whitesmoke;
+  margin-right: .5rem;
 }

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {createMessages} from '../../../store/messages';
 
@@ -8,7 +8,7 @@ export default function MessageFormModal({receiver, setShowModal}) {
 
     const lgInUserId = useSelector((state) => state.session.user.id);
 
-    const onSend = async function (e) => {
+    const onSend = async function (e) {
         e.preventDefault();
         const msgOrErrors = await dispatch(
             createMessages({
@@ -25,7 +25,7 @@ export default function MessageFormModal({receiver, setShowModal}) {
 
     return (
         <form onSubmit={onSend} className='message__form-modal'>
-            <h2>Message {receiver.username}</h2>
+            <h2>Message {receiver.first_name}</h2>
             <div className='message__form-modal__message-and-button'>
                 <textarea 
                     value={msg}
