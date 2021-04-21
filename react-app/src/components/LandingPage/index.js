@@ -29,9 +29,17 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className='splash__container'>
-                    <img className='warrior__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg" alt={'warrior pose'}/>
-                    <img className='outside__yogis' src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg"alt={'yoga outside'}/>
-                    <img className='group__meditate' src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg" alt={'group meditating'}/>
+                    <ul className='landing__slides'>
+                        <li className='landing__images'>
+                            <img src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg" className='warrior__yogis' alt={'warrior pose'}/>
+                        </li>
+                        <li>
+                            <img src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg" className='outside__yogis' alt={'yoga outside'}/>
+                        </li>
+                        <li>
+                            <img src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg" className='group__meditate' alt={'group meditating'}/>
+                        </li>
+                    </ul>
                 </div>
         </div>
         </>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { login } from "../../../store/session";
 import './LoginForm.css'
 
@@ -9,19 +9,26 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
     const user = await dispatch(login(email, password));
     if (user.errors) {
       setErrors(user.errors);
+    } else {
+      history.push("/home")
     }
   };
-
+  
   const demoLogin = async (e) => {
     e.preventDefault();
-    await dispatch(login('demo@aa.io', 'password'));
+    const user = await dispatch(login('demo@aa.io', 'password'));
+    if (user.errors) {
+      setErrors(user.errors);
+    } else {
+      history.push("/home")
+    }
   }
 
   const updateEmail = (e) => {
@@ -32,9 +39,6 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (sessionUser) {
-    return <Redirect to="/home" />;
-  }
 
   return (
     <>
