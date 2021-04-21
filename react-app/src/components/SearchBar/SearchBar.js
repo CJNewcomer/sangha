@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getClass } from '../../store/class';
 import { getAllUsers} from '../../store/user';
+import {convertTime} from '../ClassProfile/ClassProfile';
 
 import './SearchBar.css';
 
@@ -64,6 +65,7 @@ return (
                                     <h3>{name}</h3>
                                     <h3>{type}</h3>
                                     <h3>{yogaClass.teacher.first_name}</h3>
+                                    <h3>{(new Date(yogaClass.time)).toLocaleString("en-US", convertTime)}</h3>
                                     <h3>{yogaClass.locations.city}, {yogaClass.locations.state}</h3>
                                     <h3>{yogaClass.locations.country}</h3>
                                 </div>

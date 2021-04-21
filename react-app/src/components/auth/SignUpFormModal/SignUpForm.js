@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { signUp } from '../../../store/session';
 import "./SignUpForm.css";
 
@@ -14,7 +14,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -23,9 +23,10 @@ const SignUpForm = () => {
       if (user.errors) {
         setErrors(user.errors);
       } else {
-        setErrors((prevErrors) => [...prevErrors, 'Password fields must match.']);
+        history.push("/home")
       }
     }
+      setErrors((prevErrors) => [...prevErrors, 'Password fields must match.']);
   };
 
   const updateFirstName = (e) => {
@@ -56,9 +57,6 @@ const SignUpForm = () => {
     setConfirmPassword(e.target.value);
   };
 
-  if (sessionUser) {
-    return <Redirect to="/home" />;
-  }
 
   return (
     <>

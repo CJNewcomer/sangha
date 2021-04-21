@@ -81,9 +81,9 @@ const UserProfile = ({ userProfileImage }) => {
                         <div className='profile__email'>
                             <h4>{sessionUser.email}</h4>
                         </div>
-                        <div className='profile__location'>
+                        {/* <div className='profile__location'>
                             <h4>{sessionUser.classes.locations}</h4> 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                     <div className='profile__bio'>
