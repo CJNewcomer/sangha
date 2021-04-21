@@ -76,9 +76,29 @@
     overflow-y: hidden;
 }
 
-img.outside__yogis,
-img.warrior__yogis,
-img.group__meditate {
+
+.landing__slides img {
+    animation: yogiAnimation 13s linear infinite 0s;
+}
+
+.landing__slides li:nth-child(1) img{
+    object-fit: cover;
+    top: 0;
+}
+
+.landing__slides li:nth-child(2) img{
+    animation-delay: 4s;
+    object-fit: cover;
+    top: 0;
+}
+
+.landing__slides li:nth-child(3) img {
+    animation-delay: 8s;
+    object-fit: cover;
+    top: 0;
+}
+
+img {
     height: 25rem;
     width: 100%;
 }
@@ -86,4 +106,12 @@ img.group__meditate {
 .splash__container img {
     position: absolute;
     left: 0;
+}
+
+@keyframes yogiAnimation {
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
 }
