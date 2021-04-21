@@ -77,7 +77,7 @@
 }
 
 
-.landing__slides img {
+.landing__slides img.warrior__yogis, img.outside__yogis, img.group__meditate {
     animation: yogiAnimation 13s linear infinite 0s;
 }
 
@@ -98,7 +98,7 @@
     top: 0;
 }
 
-img {
+img.warrior__yogis, img.outside__yogis, img.group__meditate {
     height: 25rem;
     width: 100%;
 }
