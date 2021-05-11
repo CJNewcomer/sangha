@@ -75,7 +75,7 @@ function App() {
   const onClick = () => {
     if (message !== "") {
       // when button clicked emit message to server
-      socket.emit("message", JSON.stringify({message, senderid:2, receiverid:3 }));
+      socket.emit("message", JSON.stringify({message}));
       setMessage("");
     } else {
       alert("Please Add A Message");
