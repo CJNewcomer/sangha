@@ -17,7 +17,7 @@ const LandingPage = () => {
         setQuote(data.quote);
         setAuthor(data.author);
     }, []);
-
+    
 
     return (
         <>
@@ -29,17 +29,17 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className='splash__container'>
-                    <ul className='landing__slides'>
-                        <li className='landing__images'>
+                    <div className='landing__slides'>
+                        <div className='landing__images'>
                             <img src="https://sangha.s3.us-east-2.amazonaws.com/dylan-gillis-YJdCZba0TYE-unsplash+(2).jpg" className='warrior__yogis' alt={'warrior pose'}/>
-                        </li>
-                        <li>
+                        </div>  
+                        <div className='landing__images'> 
                             <img src="https://sangha.s3.us-east-2.amazonaws.com/annemarie-gruden-fR4EvVarw7o-unsplash.jpg" className='outside__yogis' alt={'yoga outside'}/>
-                        </li>
-                        <li>
+                        </div>
+                        <div className='landing__images'>
                             <img src="https://sangha.s3.us-east-2.amazonaws.com/erik-brolin-ZARfCYDaVg0-unsplash.jpg" className='group__meditate' alt={'group meditating'}/>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
         </div>
         </>

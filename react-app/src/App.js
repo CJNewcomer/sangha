@@ -25,7 +25,7 @@ import { authenticate } from './store/session';
   let endPoint;
 
   if (process.env.NODE_ENV === "production") {
-    endPoint = "http://sangha-full-stack.herokuapp.com"
+    endPoint = "https://sangha-full-stack.herokuapp.com"
   }
   // connect with server using socket.io
   let socket = io.connect(`${endPoint}`);
