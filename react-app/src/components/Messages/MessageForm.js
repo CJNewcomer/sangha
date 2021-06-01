@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createMessages } from '../../store/messages';
 import { useOtherUserContext } from './index';
+import { io } from "socket.io-client";
 import './Message.css';
 
+// SocketIO Setup
+let socket;
+const createSocket = () => {
+    if (process.env.NODE_ENV === "production") {
+        socket = io("https://sangha-full-stack.herokuapp.com");
+    } else {    
+        socket = io();
+    }
+    return socket;
+}
 
 const MessageForm = () => {
     const dispatch = useDispatch();
@@ -12,19 +23,27 @@ const MessageForm = () => {
     const { otherUser } = useOtherUserContext();
     const lgdInUserId = useSelector((state) => state.session.user.id);
 
+    useEffect(() => {
+        createSocket()
+    }, []);
+
     const onSend = async (e) => {
         e.preventDefault();
-        const messageOrErrors = await dispatch(
-            createMessages({
+        socket.emit('message', JSON.stringify({ content: msg, sender_id: lgdInUserId, receiver_id: otherUser.id }))
+        setMsg('');
+    };
+    
+    useEffect(() => {
+        socket.on('message', msg => {
+            const payload = {
                 sender_id: lgdInUserId,
                 receiver_id: otherUser.id,
                 message: msg,
-            })
-        );
-        if (!messageOrErrors.errors) {
-            setMsg("");
-        }
-    };
+                // timestamp: Date.now()
+            }
+            dispatch(createMessages(payload));
+        })
+    }, [dispatch, lgdInUserId, otherUser.id]);
 
     return (
         <form onSubmit={onSend} className='message__form'>
