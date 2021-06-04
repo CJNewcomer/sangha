@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import io from "socket.io-client";
+
 
 // components
 import ProtectedRoute from './components/NavBar/ProtectedRoute';
@@ -19,17 +19,6 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 
 // import redux
 import { authenticate } from './store/session';
-
-// SocketIO Setup
-  // endpoint variable
-  let endPoint;
-
-  if (process.env.NODE_ENV === "production") {
-    endPoint = "http://sangha-full-stack.herokuapp.com"
-  }
-  // connect with server using socket.io
-  let socket = io.connect(`${endPoint}`);
-
 
 function App() {
   // eslint-disable-next-line
@@ -49,38 +38,6 @@ function App() {
     })();
   }, [dispatch]);
     
-
-  // SocketIO
-  const [messages, setMessages] = useState(["Hello! Welcome!"]);
-  const [message, setMessage] = useState("");
-
-  // will call when first time app render and every time message length changes
-  const getMessages = () => {
-    socket.on('message', msg => {
-      setMessages([...messages, msg.msg.message]);
-    });
-  };
-
-  // useEffect will auto call when message length changes
-  useEffect(() => {
-    getMessages();
-  }, [messages.length]);
-
-  // if change in input field, onChange will call
-  const onChange = e => {
-    setMessage(e.target.value);
-  };
-
-  // when send button pressed, onClick will call
-  const onClick = () => {
-    if (message !== "") {
-      // when button clicked emit message to server
-      socket.emit("message", JSON.stringify({message}));
-      setMessage("");
-    } else {
-      alert("Please Add A Message");
-    }
-  };
 
     if (!loaded) {
       return "loading...";

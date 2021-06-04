@@ -40,9 +40,9 @@ login.login_view = 'auth.unauthorized'
 @socketio.on("message")
 def handleMessage(msg):
     msg = json.loads(msg)
-    message, senderid, receiverid = msg.values()
+    message, sender_id, receiver_id = msg.values()
 
-    message = Message(message=message, senderid=senderid, receiverid=receiverid)
+    message = Message(message=message, sender_id=sender_id, receiver_id=receiver_id)
     db.session.add(message)
     db.session.commit()
     emit('message', {'msg': message.to_dict(), })
