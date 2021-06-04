@@ -19,6 +19,19 @@
 ## What is it?
 Sangha, pronounced "suhng-guh", is a social networking, booking platform where students and teachers can share their practice.
 
+## Users Can:
+
+### (Students):
+* Create an account
+* Search, view, book, review, and cancel a class
+* Message teachers
+
+### (Teachers):
+* Create an account
+* Create a yoga class
+* Search, view, book, review, and cancel a class (as long as they are not teaching it!)
+* Message teachers and students
+
 ## Want to Develop?
 ### Here is what you will need on your machine of choice:
 
