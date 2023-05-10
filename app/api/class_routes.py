@@ -21,11 +21,12 @@ def get_classes():
     classes = Class.query.all()
     return {"classes": [classy.to_dict() for classy in classes]}
 
+
 @class_routes.route("/<int:class_id>/reviews")
 def get_class_reviews(class_id):
     class_ = Class.query.get(class_id)
     return {review.id: review.to_dict() for review in class_.review}
-    
+
 
 @class_routes.route("/<class_id>")
 def get_one_class(class_id):
@@ -67,7 +68,7 @@ def create_class():
         db.session.commit()
 
         date_time = datetime.combine(form.data["date"],
-        form.data["time"])
+                                     form.data["time"])
 
         # time_ = date_time.time()
 
@@ -91,7 +92,6 @@ def create_class():
     errors += image_error
 
     return {"errors": errors}
-    
 
 
 @class_routes.route("/<class_id>", methods=['POST'])
@@ -149,6 +149,7 @@ def update_class(class_id):
     errors += image_error
 
     return {"errors": errors}
+
 
 @class_routes.route("/<class_id>", methods=["DELETE"])
 @login_required
