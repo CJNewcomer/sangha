@@ -1,16 +1,17 @@
-FROM node:12 AS build-stage
+FROM node:18 AS build-stage
 
 WORKDIR /react-app
-COPY react-app/. .
+COPY react-app/ ./
 
 # You have to set this because it should be set during build time.
-ENV REACT_APP_BASE_URL=https://sangha-full-stack.herokuapp.com/
+ENV REACT_APP_BASE_URL=https://sangha-green.vercel.app/
 
-# Build our React App
 RUN npm install
+
 RUN npm run build
 
 FROM python:3.11
+
 
 # Setup Flask environment
 ENV FLASK_APP=app

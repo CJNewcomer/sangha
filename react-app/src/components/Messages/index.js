@@ -17,7 +17,7 @@ export const useOtherUserContext = () => useContext(OtherUserContext);
 // let socket;
 // const createSocket = () => {
 //     if (process.env.NODE_ENV === "production") {
-//         socket = io("https://sangha-full-stack.herokuapp.com");
+//         socket = io("https://sangha-green.vercel.app/");
 //     } else {    
 //         socket = io();
 //     }
