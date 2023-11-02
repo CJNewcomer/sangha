@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createMessages } from '../../store/messages';
 import { useOtherUserContext } from './index';
@@ -39,7 +39,7 @@ const MessageForm = () => {
                 sender_id: lgdInUserId,
                 receiver_id: otherUser.id,
                 message: msg,
-                // timestamp: Date.now()
+                timestamp: Date.now()
             }
             dispatch(createMessages(payload));
         })

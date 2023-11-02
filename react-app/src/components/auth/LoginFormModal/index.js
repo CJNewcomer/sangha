@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Modal } from '../../../context/ModalAuthContext';
 import LoginForm from './LoginForm';
 import './LoginForm.css';

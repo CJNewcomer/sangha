@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -28,20 +28,20 @@ function App() {
   const sessionUser = useSelector((state) => state.session.user);
 
 
-  useEffect(() => {
-    (async() => {
-      const user = await dispatch(authenticate());
-      if (!user.errors) {
-        setAuthenticated(true);
-      }
-      setLoaded(true);
-    })();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   (async() => {
+  //     const user = await dispatch(authenticate());
+  //     if (!user.errors) {
+  //       setAuthenticated(true);
+  //     }
+  //     setLoaded(true);
+  //   })();
+  // }, [dispatch]);
     
 
-    if (!loaded) {
-      return "loading...";
-    }
+  //   if (!loaded) {
+  //     return "loading...";
+  //   }
 
   return (
     <BrowserRouter>

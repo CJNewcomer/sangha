@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect
 from flask_cors import CORS
 from flask_login import LoginManager
 from flask_migrate import Migrate
-from flask_wtf.csrf import CSRFProtect, generate_csrf
+from flask_wtf.csrf import generate_csrf
 from flask_socketio import SocketIO, send, emit
 from .seeds import seed_commands
 import os
@@ -42,7 +42,8 @@ def handleMessage(msg):
     msg = json.loads(msg)
     message, sender_id, receiver_id = msg.values()
 
-    message = Message(message=message, sender_id=sender_id, receiver_id=receiver_id)
+    message = Message(message=message, sender_id=sender_id,
+                      receiver_id=receiver_id)
     db.session.add(message)
     db.session.commit()
     emit('message', {'msg': message.to_dict(), })
@@ -67,7 +68,7 @@ app.register_blueprint(quotes, url_prefix='/api/quotes')
 
 db.init_app(app)
 Migrate(app, db,
-compare_type=True)
+        compare_type=True)
 
 
 # Application Security

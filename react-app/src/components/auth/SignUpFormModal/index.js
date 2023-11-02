@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Modal } from '../../../context/ModalAuthContext';
 import SignUpForm from './SignUpForm';
 
